@@ -38,11 +38,12 @@ Route::resource('departmentes', DepartmentesController::class);
 
 /************************************* End departmentes Routes *************************************************************** */
 
+
+
 /************************************ start problemestype Routes **************************************************************** */
 Route::get('ajax/problemestype', [\App\Http\Controllers\ProblemestypeController::class, 'index'])->name('problemestype.index'); 
 
 Route::get('ajax/problemestype/all', [\App\Http\Controllers\ProblemestypeController::class, 'getproblemestypeTable'])->name('problemestype.getproblemestypeTable');  
-
 
 Route::resource('problemestype' , ProblemestypeController::class );
 
