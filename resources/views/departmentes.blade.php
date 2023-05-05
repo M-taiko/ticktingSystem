@@ -26,7 +26,7 @@
     <link href="assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
     <link href="assets/css/style.bundle.css" rel="stylesheet" type="text/css" />
     <!--end::Global Stylesheets Bundle-->
-    <link href="https://cdn.datatables.net/v/dt/dt-1.13.4/datatables.min.css" rel="stylesheet" />
+
 
     <!--end::data tables-->
 </head>
@@ -65,7 +65,7 @@
             <div class="app-main flex-column flex-row-fluid" id="kt_app_main">
                 <!--begin::Content wrapper-->
                 <!-------------------------------------------------------->
-                <div class="card bg-secondary  mb-3" style="width: 99% ; margin:5px">
+                <div class="card mb-3" style="width: 99% ; margin:5px">
                     <div class="d-flex flex-column flex-column-fluid">
                         <!--begin::Toolbar-->
                         <div id="kt_app_toolbar" class="app-toolbar py-3 py-lg-6">
@@ -131,41 +131,47 @@
 
                                     <!--end::Breadcrumb-->
                                     <div class="card-body">
+                                    	<!--begin::Toolbar-->
+												<div class="d-flex justify-content-end" data-kt-customer-table-toolbar="base">
+                                                    <a class="modal-effect btn btn-primary btn-block" data-effect="effect-scale" data-bs-toggle="modal" href="#modaldemo8">Add New Department</a>
+
+													<!--end::Add customer-->
+												</div>
+												<!--end::Toolbar-->
                                         <!---------------------------------------------------------------------------------------------------->
                                         <!--------------------------Table Body-------------------------------------------------------------------------->
                                         <!---------------------------------------------------------------------------------------------------->
-                                        <div class="row">
-                                            <div class="col">
-                                                <a class="modal-effect btn btn-primary btn-block" data-effect="effect-scale" data-bs-toggle="modal" href="#modaldemo8">Add New Department</a>
-                                            </div>
-                                        </div>
-                                        <hr>
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <div class="table-responsive">
-                                                    <table id="departmentes" class="table bg-light m-5 p-5  table-bordered key-buttons text-md-nowrap text-center" style="width:100%">
-                                                        <thead>
-                                                            <tr>
-                                                                <th class="border-bottom-0 text-center">#</th>
-                                                                <th class="border-bottom-0 text-center"> Department Name </th>
-                                                                <th class="border-bottom-0 text-center"> Department Head </th>
-                                                                <th class="border-bottom-0 text-center"> Area </th>
-                                                            
-                                                                <th class="border-bottom-0 text-center"> action </th>
-                                                        
-
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody>
-
-                                                        </tbody>
-                                                    </table>
-
-                                                </div>
-                                            </div>
-
-
-                                        </div>
+                               
+                                    
+                                        <div class="card-body pt-0">
+											<!--begin::Table-->
+											<table class="table align-middle table-row-dashed fs-6 gy-5" id="departmentes">
+												<!--begin::Table head-->
+												<thead>
+													<!--begin::Table row-->
+													<tr class="text-start text-gray-400 fw-bold fs-7 text-uppercase gs-0">
+													
+														<th class="min-w-125px">#</th>
+														<th class="min-w-125px">Department Name</th>
+														<th class="min-w-125px">Department Head</th>
+														<th class="min-w-125px">Area</th>
+														<th class="min-w-125px">action</th>
+														
+													</tr>
+													<!--end::Table row-->
+												</thead>
+												<!--end::Table head-->
+												<!--begin::Table body-->
+												<tbody class="fw-semibold text-gray-600">
+												
+												
+											
+													
+												</tbody>
+												<!--end::Table body-->
+											</table>
+											<!--end::Table-->
+										</div>
                                         <!---------------------------------------------------------------------------------------------------->
                                         <!-------------------------------------Table Body--------------------------------------------------------------->
                                         <!---------------------------------------------------------------------------------------------------->

@@ -1,8 +1,11 @@
 <?php
 
 use App\Http\Controllers\ProblemestypeController;
+use App\Http\Controllers\RoleController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DepartmentesController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -16,11 +19,11 @@ use App\Http\Controllers\DepartmentesController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 
-Route::get('/test', function () {
-    return view('test');
+Route::get('/dashboard', function () {
+    return view('dashboard');
 });
 
 
@@ -38,14 +41,34 @@ Route::resource('departmentes', DepartmentesController::class);
 
 /************************************* End departmentes Routes *************************************************************** */
 
-
-
 /************************************ start problemestype Routes **************************************************************** */
 Route::get('ajax/problemestype', [\App\Http\Controllers\ProblemestypeController::class, 'index'])->name('problemestype.index'); 
 
 Route::get('ajax/problemestype/all', [\App\Http\Controllers\ProblemestypeController::class, 'getproblemestypeTable'])->name('problemestype.getproblemestypeTable');  
 
+
 Route::resource('problemestype' , ProblemestypeController::class );
 
 /************************************* End problemestype Routes *************************************************************** */
+
+
+
+
+
+/************************************* start Auth  Routes *************************************************************** */
+
+
+
+Route::group(['middleware' => ['auth']], function() {
+    
+   Route::resource('roles', RoleController::class);
+   Route::resource('users', UserController::class);
+});
+
+/************************************* End Auth Routes *************************************************************** */
+
+Auth::routes(['register'=>false , 'reset'=>false]);
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
 

@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 
 class ProblemestypeController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -166,7 +170,7 @@ class ProblemestypeController extends Controller
     {
         $id = $request->id;
         problemestype::find($id)->delete();
-        session()->flash('delete','Department Has Been Deleted');
+        session()->flash('delete','Problem Has Been Deleted');
         return redirect('/problemestype');
     }
 }

@@ -5,9 +5,9 @@
 	        <!--begin::Logo-->
 	        <div class="app-sidebar-logo px-6" id="kt_app_sidebar_logo">
 	            <!--begin::Logo image-->
-	            <a href="../../demo1/dist/index.html">
-	                <img alt="Logo" src="assets/media/logos/logo-food.png" class="h-50px  text-center  app-sidebar-logo-default " />
-	                <img alt="Logo" src="assets/media/logos/logo-food.png" class="h-25px app-sidebar-logo-minimize " />
+	            <a href="/dashboard">
+	                <img alt="Logo" src="{{asset('assets/media/logos/logo-food.png')}}" class="h-50px  text-center  app-sidebar-logo-default " />
+	                <img alt="Logo" src="{{asset('assets/media/logos/logo-food.png')}}" class="h-25px app-sidebar-logo-minimize " />
 	            </a>
 	            <!--end::Logo image-->
 	            <!--begin::Sidebar toggle-->
@@ -100,7 +100,7 @@
 	                                </span>
 	                                <!--end::Svg Icon-->
 	                            </span>
-	                            <span class="menu-title">Members </span>
+	                            <span class="menu-title">Users </span>
 	                            <span class="menu-arrow"></span>
 	                        </span>
 	                        <!--end:Menu link-->
@@ -109,19 +109,19 @@
 	                            <!--begin:Menu item-->
 	                            <div class="menu-item">
 	                                <!--begin:Menu link-->
-	                                <a class="menu-link" href="../../demo1/dist/index.html">
+	                                <a class="menu-link" href="/users">
 	                                    <span class="menu-bullet">
 	                                        <span class="bullet bullet-dot"></span>
 	                                    </span>
-	                                    <span class="menu-title">  </span>
+	                                    <span class="menu-title">Users  </span>
 	                                </a>
 	                                <!--end:Menu link-->
 	                                <!--begin:Menu link-->
-	                                <a class="menu-link" href="../../demo1/dist/index.html">
+	                                <a class="menu-link" href="/roles">
 	                                    <span class="menu-bullet">
 	                                        <span class="bullet bullet-dot"></span>
 	                                    </span>
-	                                    <span class="menu-title"></span>
+	                                    <span class="menu-title">Roles & permessions</span>
 	                                </a>
 	                                <!--end:Menu link-->
 	                            </div>
@@ -149,7 +149,7 @@
 												</span>
 												<!--end::Svg Icon-->
 											</span>
-											<span class="menu-title">Main Data</span>
+											<span class="menu-title">Settings</span>
 											<span class="menu-arrow"></span>
 										</span>
 										<!--end:Menu link-->
