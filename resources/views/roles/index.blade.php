@@ -26,7 +26,7 @@
     <link href="assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
     <link href="assets/css/style.bundle.css" rel="stylesheet" type="text/css" />
     <!--end::Global Stylesheets Bundle-->
-    
+
 
 
     <!--end::data tables-->
@@ -173,22 +173,10 @@
 
                                                             <a class="btn btn-success btn-sm" href="{{ route('roles.show', $role->id) }}">Show <i class="fa-solid fa-eye" style='font-size: 25px;'></i></a>
 
-
-
-
-
                                                             <a class="btn btn-primary btn-sm" href="{{ route('roles.edit', $role->id) }}"> <i class="fa-solid fa-edit" style='font-size: 25px;'></i>Edit</a>
 
-                                                           
-
-
                                                             @if ($role->name !== 'owner')
-
-                                                            {!! Form::open(['method' => 'DELETE', 'route' => ['roles.destroy',
-                                                            $role->id], 'style' => 'display:inline']) !!}
-                                                            {!! Form::submit('Delete', ['class' => 'btn btn-danger btn-sm']) !!}
-                                                            {!! Form::close() !!}
-
+                                                            <a class="modal-effect btn btn-primary delete btn btn-danger btn-sm btn-block" data-effect="effect-scale" data-name={{$role->name}} data-bs-toggle="modal" href="#modaldemo9"> <i class="fa-solid fa-trash" style='font-size: 25px;'></i>Delete</a>
                                                             @endif
 
 
@@ -219,7 +207,31 @@
                         <!--end::Toolbar container-->
                     </div>
                     <!--end::Toolbar-->
+                    <!-- delete -->
+                    <div class="modal" id="modaldemo9">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content modal-content-demo">
+                                <div class="modal-header">
+                                    <h6 class="modal-title">Delete Role</h6><button aria-label="Close" class="close btn" data-bs-dismiss="modal" type="button"><span aria-hidden="true">&times;</span></button>
+                                </div>
+                                @foreach ($roles as $key => $role)
+                                {!! Form::open(['method' => 'DELETE', 'route' => ['roles.destroy',
+                                $role->id], 'style' => 'display:inline']) !!}
 
+
+                                @endforeach
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                    <button type="submit" class="btn btn-danger btn-sm"> <i class="fa-solid fa-trash" style='font-size: 25px;'></i> Confirm Delete </button>
+
+
+                                </div>
+                            </div>
+                            {!! Form::close() !!}
+                        </div>
+                    </div>
+
+                    <!-- delete -->
                 </div>
                 <!--end::Content wrapper-->
                 <!--begin::Footer-->
@@ -248,101 +260,101 @@
     </div>
     <!--end::App-->
 
-   
- 
 
 
 
 
-        <!--begin::Scrolltop-->
-        <div id="kt_scrolltop" class="scrolltop" data-kt-scrolltop="true">
-            <!--begin::Svg Icon | path: icons/duotune/arrows/arr066.svg-->
-            <span class="svg-icon">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <rect opacity="0.5" x="13" y="6" width="13" height="2" rx="1" transform="rotate(90 13 6)" fill="currentColor" />
-                    <path d="M12.5657 8.56569L16.75 12.75C17.1642 13.1642 17.8358 13.1642 18.25 12.75C18.6642 12.3358 18.6642 11.6642 18.25 11.25L12.7071 5.70711C12.3166 5.31658 11.6834 5.31658 11.2929 5.70711L5.75 11.25C5.33579 11.6642 5.33579 12.3358 5.75 12.75C6.16421 13.1642 6.83579 13.1642 7.25 12.75L11.4343 8.56569C11.7467 8.25327 12.2533 8.25327 12.5657 8.56569Z" fill="currentColor" />
-                </svg>
-            </span>
-            <!--end::Svg Icon-->
-        </div>
-        <!--end::Scrolltop-->
 
 
-        <!-- delete -->
-        <div class="modal" id="modaldemo9">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content modal-content-demo">
-                    <div class="modal-header">
-                        <h6 class="modal-title">Delete Department</h6><button aria-label="Close" class="close btn" data-bs-dismiss="modal" type="button"><span aria-hidden="true">&times;</span></button>
-                    </div>
-                    <form action="users/destroy " method="post">
-                        {{method_field('delete')}}
-                        {{csrf_field()}}
-                        <div class="modal-body">
-                            <p>Are You sure You Want To Delete This Department ?</p><br>
-                            <input type="hidden" name="id" id="id" value="">
-                            <input class="form-control" vlaue="" id="username" type="text" readonly>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-danger">Confirm Delete</button>
-                        </div>
+    <!--begin::Scrolltop-->
+    <div id="kt_scrolltop" class="scrolltop" data-kt-scrolltop="true">
+        <!--begin::Svg Icon | path: icons/duotune/arrows/arr066.svg-->
+        <span class="svg-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect opacity="0.5" x="13" y="6" width="13" height="2" rx="1" transform="rotate(90 13 6)" fill="currentColor" />
+                <path d="M12.5657 8.56569L16.75 12.75C17.1642 13.1642 17.8358 13.1642 18.25 12.75C18.6642 12.3358 18.6642 11.6642 18.25 11.25L12.7071 5.70711C12.3166 5.31658 11.6834 5.31658 11.2929 5.70711L5.75 11.25C5.33579 11.6642 5.33579 12.3358 5.75 12.75C6.16421 13.1642 6.83579 13.1642 7.25 12.75L11.4343 8.56569C11.7467 8.25327 12.2533 8.25327 12.5657 8.56569Z" fill="currentColor" />
+            </svg>
+        </span>
+        <!--end::Svg Icon-->
+    </div>
+    <!--end::Scrolltop-->
+
+
+    <!-- delete -->
+    <div class="modal" id="modaldemo9">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content modal-content-demo">
+                <div class="modal-header">
+                    <h6 class="modal-title">Delete Department</h6><button aria-label="Close" class="close btn" data-bs-dismiss="modal" type="button"><span aria-hidden="true">&times;</span></button>
                 </div>
-                </form>
+                <form action="users/destroy " method="post">
+                    {{method_field('delete')}}
+                    {{csrf_field()}}
+                    <div class="modal-body">
+                        <p>Are You sure You Want To Delete This Department ?</p><br>
+                        <input type="hidden" name="id" id="id" value="">
+                        <input class="form-control" vlaue="" id="username" type="text" readonly>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-danger">Confirm Delete</button>
+                    </div>
             </div>
+            </form>
         </div>
+    </div>
 
-        <!-- delete -->
-
-
-
-
-
-
-        <!--start::Modals-->
-
-        <!--end::Modals-->
+    <!-- delete -->
 
 
 
 
 
 
+    <!--start::Modals-->
+
+    <!--end::Modals-->
 
 
 
-        <!--end::Javascript-->
 
 
 
 
-        @include('footer')
-        <script src="{{URL::asset('assets/plugins/treeview/treeview.js')}}"></script>
 
 
-        <script type="text/javascript">
-            $(function() {
-                var table = $('#users').DataTable({
-                    dom: 'Bfrtip'
-                    , buttons: [
-                        'copy', 'excel', 'print'
-                    , ]
-                    , ordering: true
-                    , processing: true
-                    , serverSide: false
+    <!--end::Javascript-->
 
-                });
+
+
+
+    @include('footer')
+    <script src="{{URL::asset('assets/plugins/treeview/treeview.js')}}"></script>
+
+
+    <script type="text/javascript">
+        $(function() {
+            var table = $('#users').DataTable({
+                dom: 'Bfrtip'
+                , buttons: [
+                    'copy', 'excel', 'print'
+                , ]
+                , ordering: true
+                , processing: true
+                , serverSide: false
+
             });
+        });
 
-        </script>
-        <script>
-            $('#modaldemo9').on('show.bs.modal', function(event) {
-                var button = $(event.relatedTarget)
-                var id = button.data('id')
-                var theuserName = button.data('username')
-                var modal = $(this)
-                modal.find('.modal-body #id').val(id);
-                modal.find('.modal-body #username').val(theuserName);
-            })
+    </script>
+    <script>
+        $('#modaldemo9').on('show.bs.modal', function(event) {
+            var button = $(event.relatedTarget)
+            var id = button.data('id')
+            var theuserName = button.data('username')
+            var modal = $(this)
+            modal.find('.modal-body #id').val(id);
+            modal.find('.modal-body #username').val(theuserName);
+        })
 
-        </script>
+    </script>
