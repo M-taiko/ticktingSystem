@@ -133,8 +133,8 @@
                                     <div class="card-body">
                                         <!--begin::Toolbar-->
                                         <div class="d-flex justify-content-end" data-kt-customer-table-toolbar="base">
-                                          
-                                                <a class="btn btn-primary btn-sm" href="{{ route('users.create') }}">Add new User </a>
+
+                                            <a class="btn btn-primary btn-sm" href="{{ route('users.create') }}">Add new User </a>
 
                                             <!--end::Add customer-->
                                         </div>
@@ -174,9 +174,9 @@
                                                         <td>{{ $user->email }}</td>
                                                         <td>{{ $user->DepartmentName }}</td>
                                                         <td>{{ $user->userTitle }}</td>
-                                                       
-                                                       
-                                                     
+
+
+
 
                                                         <td>
                                                             @if (!empty($user->UserRole))
@@ -187,13 +187,12 @@
                                                         </td>
 
                                                         <td>
-
+                                                            @can('role-edit')
                                                             <a href="{{ route('users.edit', $user->id) }}" class="btn btn-sm btn-primary" title="Edit"><i class="las la-pen"></i></a>
-
-
-
+                                                            @endcan
+                                                            @can('role-delete')
                                                             <a class="modal-effect btn btn-sm btn-danger" data-effect="effect-scale" data-id="{{ $user->id }}" data-username="{{ $user->name }}" data-bs-toggle="modal" href="#modaldemo9" title="delete"><i class="las la-trash"></i></a>
-
+                                                            @endcan
                                                         </td>
                                                     </tr>
                                                     @endforeach
@@ -295,56 +294,55 @@
 
     <!-- delete -->
 
-  
-
-
-
-
-        <!--start::Modals-->
-
-        <!--end::Modals-->
 
 
 
 
 
+    <!--start::Modals-->
 
-
-
-        <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.3.1/js/dataTables.buttons.min.js"></script>
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
-        <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.3.1/js/buttons.html5.min.js"></script>
-
-        <!--end::Javascript-->
+    <!--end::Modals-->
 
 
 
 
-        @include('footer')
-        <script type="text/javascript">
-            $(function() {
-                var table = $('#users').DataTable({
-                    dom: 'Bfrtip'
-                    , buttons: [
-                        'copy', 'excel', 'print'
-                    , ]
-                    , ordering: true
-                    , processing: true
-                    , serverSide: false
 
-                });
+
+
+
+    <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.3.1/js/dataTables.buttons.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.3.1/js/buttons.html5.min.js"></script>
+
+    <!--end::Javascript-->
+
+
+
+
+    @include('footer')
+    <script type="text/javascript">
+        $(function() {
+            var table = $('#users').DataTable({
+                dom: 'Bfrtip'
+                , buttons: [
+                    'copy', 'excel', 'print'
+                , ]
+                , ordering: true
+                , processing: true
+                , serverSide: false
+
             });
+        });
 
-        </script>
-        <script>
-            $('#modaldemo9').on('show.bs.modal', function(event) {
-                var button = $(event.relatedTarget)
-                var id = button.data('id')
-                var theuserName = button.data('username')
-                var modal = $(this)
-                modal.find('.modal-body #id').val(id);
-                modal.find('.modal-body #username').val(theuserName);
-            })
+    </script>
+    <script>
+        $('#modaldemo9').on('show.bs.modal', function(event) {
+            var button = $(event.relatedTarget)
+            var id = button.data('id')
+            var theuserName = button.data('username')
+            var modal = $(this)
+            modal.find('.modal-body #id').val(id);
+            modal.find('.modal-body #username').val(theuserName);
+        })
 
-        </script>
-       
+    </script>
