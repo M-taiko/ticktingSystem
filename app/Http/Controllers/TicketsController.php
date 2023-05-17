@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\comments;
 use App\Models\tickets;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -24,18 +25,17 @@ class TicketsController extends Controller
     {
      
         /* $data = tickets::with('GetTheDepartmentName')->get('*');*/ 
-    /*  $data =   tickets::with('GetTheDepartmentName')->get();  */
-      
+       
+       
      
-      /*  return $data;     */
-      return view('tickets'); 
+     return view('tickets'); 
     }
     public function getticketsTable(Request $request)
     {
         if ($request->ajax()) {
 
 
-           $data = tickets::SELECT('*')->with('GetTheDepartmentName')->get(); 
+            $data =   tickets::with(['GetTheDepartmentName' , 'priority', 'comments']); 
          
           /*   $data = tickets::with('Department')->get();   */
 
@@ -45,14 +45,14 @@ class TicketsController extends Controller
                 ->get();   */
        
    
-      
+       
             return Datatables::of($data)
                 ->addIndexColumn()
                 ->addColumn('action', function ($row) {
-
+                  $id =  $row["id"];
                     $actionBtn = '
 
-                                        <a  class="modal-effect btn btn-primary delete btn btn-primary btn-sm btn-block"
+                                        <a  class="modal-effect btn btn-primary delete btn btn-primary btn-sm "
                                         data-effect="effect-scale"
                                         data-id ="'.$row["id"].'"
                                         data-ticketname = "'.$row["TicketTitle"].'"
@@ -66,18 +66,27 @@ class TicketsController extends Controller
                                         data-bs-toggle="modal"
                                         href="#exampleModal2" >Edit</a>
 
-                                   <a  class="modal-effect btn btn-primary delete btn btn-danger btn-sm btn-block"
+                                   <a  class="modal-effect btn btn-primary delete btn btn-danger btn-sm "
                                     data-effect="effect-scale"
                                     data-ticketid = "'.$row["TicketTitle"].'"
                                     data-id="'.$row["id"].'"
                                     data-bs-toggle="modal"
-                                    href="#modaldemo9" >Delete</a>';
+                                    href="#modaldemo9" >Delete</a>
+                                    
+                                    <a  class="modal-effect btn btn-primary delete btn btn-info btn-sm "
+                                    data-effect="effect-scale"
+                                    data-id="'.$row["id"].'"
+                                    data-bs-toggle="modal"
+                                    href="#modaldemo18" >Assign To User</a>
+                                    ';
 
                     return $actionBtn;
                     
                 })
-                ->rawColumns(['action'])
-                ->make(true);
+                ->addColumn('id', function ($row) {
+                    return $row->id;
+                  })
+                ->rawColumns(['action'])->make(true);
         }
 
     }
@@ -118,6 +127,7 @@ class TicketsController extends Controller
                 'TicketTitle' => $request->TicketTitle,
                 'TicketNumber' => '000' .  $request->id,
                 'DepartmentId' => $request->DepartmentId,
+                'priority_id' => $request->priority_id,
                 'ReportingUser' => $request->ReportingUser,
                 'Ticketstate' => $request->Ticketstate,
                 'createdBY' => $request->createdBY,
@@ -136,9 +146,19 @@ class TicketsController extends Controller
      * @param  \App\Models\tickets  $tickets
      * @return \Illuminate\Http\Response
      */
-    public function show(tickets $tickets)
+    public function show($id)
     {
-        //
+  
+       /* $tickets = tickets::find($id)->with(['GetTheDepartmentName' , 'priority'])->get(); */
+       $tickets =  tickets::where('id', $id)->with(['GetTheDepartmentName' , 'priority'])->get();
+       
+     /*  $comment =  comments::where('id', $id)->with(['ticket' , 'user'])->querry(); */
+       $comment = comments::whereHas('ticket', function($query) use ($id) {
+        $query->where('id', $id);
+    })->get();
+
+      
+       return view('showtickets',compact('tickets','comment','id')); 
     }
 
     /**
@@ -159,6 +179,20 @@ class TicketsController extends Controller
      * @param  \App\Models\tickets  $tickets
      * @return \Illuminate\Http\Response
      */
+    public function assign(Request $request ){
+        $id = $request->id;
+        $b_exists = tickets::find($id);
+        if ($b_exists) {
+            $b_exists->update([
+            'assignuser'  => $request->assignuser,
+        ]);
+         
+      
+   
+        session()->flash('Add', 'New User Had Been Assigned');
+        return redirect('/tickets');
+    }
+}
     public function update(Request $request, tickets $tickets)
     {
         $id = $request->id;

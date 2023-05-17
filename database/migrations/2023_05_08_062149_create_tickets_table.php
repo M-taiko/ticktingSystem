@@ -15,17 +15,24 @@ return new class extends Migration
      public function up()
      {
          Schema::create('tickets', function (Blueprint $table) {
-             $table->bigIncrements('id');
+             $table->increments('id');
              $table->string('TicketTitle');
-             $table->integer('TicketNumber');
+             $table->string('TicketNumber');
              $table->foreignId('DepartmentId')->constrained('departmentes');
+             $table->integer('priority_id')->unsigned();
+             $table->foreign('priority_id')->references('id')->on('priorities');
+           
              $table->string('ReportingUser');
              $table->string('Ticketstate');
              $table->string('TicketDetails');
+             $table->string('assignuser')->nullable();
              $table->string('createdBY');
              $table->timestamps();
-         });
+            });
 
+        
+            
+       
          
      }
 

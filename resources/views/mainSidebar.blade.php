@@ -65,19 +65,19 @@
 	                                    </span>
 	                                    <span class="menu-title">Tickets</span>
 	                                </a>
+									<!--begin:Menu link-->
+									<a class="menu-link" href="comments">
+										<span class="menu-bullet">
+											<span class="bullet bullet-dot"></span>
+										</span>
+										<span class="menu-title">Ticket History</span>
+									</a>
+									<!--end:Menu link-->
 	                                <a class="menu-link" href="../../demo1/dist/index.html">
 	                                    <span class="menu-bullet">
 	                                        <span class="bullet bullet-dot"></span>
 	                                    </span>
 	                                    <span class="menu-title">Ticket Type</span>
-	                                </a>
-	                                <!--end:Menu link-->
-	                                <!--begin:Menu link-->
-	                                <a class="menu-link" href="../../demo1/dist/index.html">
-	                                    <span class="menu-bullet">
-	                                        <span class="bullet bullet-dot"></span>
-	                                    </span>
-	                                    <span class="menu-title">Ticket History</span>
 	                                </a>
 	                                <!--end:Menu link-->
 	                            </div>
@@ -169,6 +169,14 @@
 														<span class="bullet bullet-dot"></span>
 													</span>
 													<span class="menu-title">Departments</span>
+												</a>
+												<!--end:Menu link-->
+												<!--begin:Menu link-->
+												<a class="menu-link" href="/priorities">
+													<span class="menu-bullet">
+														<span class="bullet bullet-dot"></span>
+													</span>
+													<span class="menu-title">Priorities</span>
 												</a>
 												<!--end:Menu link-->
 											</div>

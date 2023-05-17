@@ -1,10 +1,13 @@
 <?php
 
+use App\Http\Controllers\CommentsController;
 use App\Http\Controllers\DepartmentesController;
+use App\Http\Controllers\PrioritiesController;
 use App\Http\Controllers\ProblemestypeController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\TicketsController;
 use App\Http\Controllers\UserController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 
@@ -59,9 +62,37 @@ Route::get('ajax/tickets', [\App\Http\Controllers\TicketsController::class, 'ind
 
 Route::get('ajax/tickets/all', [\App\Http\Controllers\TicketsController::class, 'getticketsTable'])->name('tickets.getticketsTable');  
 
+
+Route::get('/tickets/{id}', 'App\Http\Controllers\TicketsController@show')->name('show');
+
+Route::post('assign', 'App\Http\Controllers\TicketsController@assign')->name('assign');
+
 Route::resource('tickets', TicketsController::class); 
 
+
+
 /************************************* End Tickets Routes *************************************************************** */
+
+/************************************ start Ticket Comment Routes **************************************************************** */
+Route::get('ajax/comments', [\App\Http\Controllers\CommentsController::class, 'index'])->name('comments.index'); 
+
+Route::get('ajax/comments/all', [\App\Http\Controllers\CommentsController::class, 'getcommentsTable'])->name('comments.getcommentsTable');  
+
+
+Route::get('update/{id}', [CommentsController::class , 'update'])->name('update');
+
+Route::resource('comments', CommentsController::class); 
+
+/************************************* End  Ticket Comment Routes *************************************************************** */
+
+
+
+
+/************************************ start priorities Routes **************************************************************** */
+
+Route::resource('priorities', PrioritiesController::class ); 
+
+/************************************* End priorities Routes *************************************************************** */
 
 
 
@@ -72,6 +103,7 @@ Route::group(['middleware' => ['auth']], function() {
     
    Route::resource('roles', RoleController::class);
    Route::resource('users', UserController::class);
+
 });
 /************************************* End Auth Routes *************************************************************** */
 

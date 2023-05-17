@@ -3,7 +3,7 @@
 <!--begin::Head-->
 <head>
     <base href="../" />
-    <title>Foodnation Tickets</title>
+    <title>Foodnation Tickets Comment</title>
     <meta charset="utf-8" />
     <meta name="description" content="The most advanced Bootstrap 5 Admin Theme with 40 unique prebuilt layouts on Themeforest trusted by 100,000 beginners and professionals. Multi-demo, Dark Mode, RTL support and complete React, Angular, Vue, Asp.Net Core, Rails, Spring, Blazor, Django, Express.js, Node.js, Flask, Symfony & Laravel versions. Grab your copy now and get life-time updates for free." />
     <meta name="keywords" content="metronic, bootstrap, bootstrap 5, angular, VueJs, React, Asp.Net Core, Rails, Spring, Blazor, Django, Express.js, Node.js, Flask, Symfony & Laravel starter kits, admin themes, web design, figma, web development, free templates, free admin themes, bootstrap theme, bootstrap template, bootstrap dashboard, bootstrap dak mode, bootstrap button, bootstrap datepicker, bootstrap timepicker, fullcalendar, datatables, flaticon" />
@@ -83,7 +83,7 @@
                                     <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
                                         <!--begin::Item-->
                                         <li class="breadcrumb-item text-muted">
-                                            <a href="departmentes" class="text-muted text-hover-primary">All Tickets</a>
+                                            <a href="comments" class="text-muted text-hover-primary">Ticket Comments</a>
                                         </li>
 
                                     </ul>
@@ -135,11 +135,7 @@
                                     <!--end::Breadcrumb-->
                                     <div class="card-body">
                                         <!--begin::Toolbar-->
-                                        <div class="d-flex justify-content-end" data-kt-customer-table-toolbar="base">
-                                            <a class="modal-effect btn btn-primary  btn-block" data-effect="effect-scale" data-bs-toggle="modal" href="#modaldemo8">Add New Ticket</a>
-
-                                            <!--end::Add customer-->
-                                        </div>
+                                      
                                         <!--end::Toolbar-->
                                         <!---------------------------------------------------------------------------------------------------->
                                         <!--------------------------Table Body-------------------------------------------------------------------------->
@@ -153,18 +149,14 @@
                                                 <thead>
                                                     <!--begin::Table row-->
                                                     <tr class="text-start text-gray-400 fw-bold fs-7 text-uppercase gs-0">
-
+                                                       
                                                         <th >#</th>
-                                                        <th >Ticket Title</th>
-                                                        <th >Ticket Number</th>
-                                                        <th > Assigned Department</th>
-                                                        <th >pioritie</th>
-                                                        <th >Reporting User</th>
-                                                        <th >Ticket State</th>
-                                                        <th >Created By</th>
+                                                        <th>Ticket Reporter</th>
+                                                        <th >Ticket Solved Name</th>
+                                                        <th >Ticket Solving  User</th>
+                                                        <th >Department</th>
+                                                        <th >Ticket Solve</th>
                                                         <th > Created At</th>
-                                                        <th > Assigned User</th>
-                                                        <th >Ticket Details</th>
                                                         <th class="min-w-125px">action</th>
 
                                                     </tr>
@@ -305,9 +297,8 @@
                              
                                                         <?php 
                                 $Users = DB::table('users')->select('id','name')->get();
-                                foreach ($Users as $User){
-                                echo "<option value='" . $User->name ."' > $User->name </option>";  
-                                } 
+                                foreach ($Users as $User)
+                                echo "<option value='" . $User->name ."' > $User->name </option>";   
                                                         ?>
                                                         </select>
                  
@@ -376,44 +367,6 @@
     </div>
 
     <!-- delete -->
-
-
-     <!-- assign to user -->
-     <div class="modal" id="modaldemo18">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content modal-content-demo">
-                <div class="modal-header">
-                    <h6 class="modal-title">Assign user to Resolve This Ticket</h6><button aria-label="Close" class="close btn" data-bs-dismiss="modal" type="button"><span aria-hidden="true">&times;</span></button>
-                </div>
-                <form action="assign " method="post">
-                
-                    {{csrf_field()}}
-                    <div class="modal-body">
-                        <p>assign user to this ticket </p><br>
-                        <input type="hidden" name="id" id="id" value="">
-                        <select name="assignuser" required id="select-beast" class="form-control  nice-select  custom-select">
-                            <option value='' > Select Form Users </option>
-                            
-                                                       <?php 
-                               $Users = DB::table('users')->select('id','name')->get();
-                               foreach ($Users as $User){
-                               echo "<option value='" . $User->name ."' > $User->name </option>";  
-                               } 
-                                                       ?>
-                                                       </select>
-                
-                       
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-danger">Confirm Assigning User</button>
-                    </div>
-            </div>
-            </form>
-        </div>
-    </div>
-
-    <!-- assign to user -->
 
     <!-- edit -->
     <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -544,76 +497,32 @@
                     , ordering: true
                     , processing: true
                     , serverSide: true
-                    , ajax: `{{ route('tickets.getticketsTable') }}`,
+                    , ajax: `{{ route('comments.getcommentsTable') }}`,
 
                
         "columns": [
             { "data": "id", "name": "id" },
-            { 
-        
-            "data":  function ( row, type, val, meta ) {
-
-                        /**************this rout must change to view the ticket ************/
-                        return '<a href="/tickets/' + row.id + '">' + row.TicketTitle + '</a>';
-            }, 
-            "name": "TicketTitle"
-        
-        
-        },
-            { "data": "TicketNumber", "name": "TicketNumber" },
-            { "data": "get_the_department_name.DepartmentName", "name": "get_the_department_name.DepartmentName" },
-            { 
-                "data":  function ( row, type, val, meta ) {
-                    return '<span class="priority name" style="color:' + row.priority.color + '">' + row.priority.name + '</span>';
-
-                }, 
-                "name": "priority.name",
-                orderable: false,
-                searchable: false
-            },
-            { "data": "ReportingUser", "name": "ReportingUser" },
-            { "data": "Ticketstate", "name": "Ticketstate" },
-            { "data": "createdBY", "name": "createdBY" },
-            { 
-                data: 'created_at',
-                name: 'created_at'
-            },
-            { 
-                data: 'assignuser',
-                name: 'assignuser'
-            },
-            { 
-                data: 'TicketDetails',
-                name: 'TicketDetails'
-            },
+            { "data": "ticket.ReportingUser", "name": "ticket.ReportingUser" },
+            { "data": "ticket.TicketTitle", "name": "ticket.TicketTitle" },
+            { "data": "user.name", "name": "user.name" },
+           
+            { "data": "user.DepartmentName", "name": "user.DepartmentName" },
+            { "data": "comment_text", "name": "comment_text" },
+            { "data": "created_at", "name": "created_at" },
+          /*  { "data": "createdBY", "name": "createdBY" },*/
+           
             {
                 data: 'action',
                 name: 'action',
                 orderable: false,
                 searchable: false
             }
-            
-        ],
-        "createdRow": function(row, data, dataIndex) {
-            $(row).find('td.priority.name').css('background-color', data.priority.color);
-        }
+        ]
     });
 });
         </script>
 
  
-        <script>
-            $('#modaldemo18').on('show.bs.modal', function(event) {
-                var button = $(event.relatedTarget)
-                var id = button.data('id')
-               
-                var modal = $(this)
-                modal.find('.modal-body #id').val(id);
-              ;
-            })
-
-        </script>
-
         <script>
             $('#modaldemo9').on('show.bs.modal', function(event) {
                 var button = $(event.relatedTarget)
