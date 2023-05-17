@@ -59,6 +59,12 @@
 	                            <!--begin:Menu item-->
 	                            <div class="menu-item">
 	                                <!--begin:Menu link-->
+	                                <a class="menu-link" href="tickets">
+	                                    <span class="menu-bullet">
+	                                        <span class="bullet bullet-dot"></span>
+	                                    </span>
+	                                    <span class="menu-title">Tickets</span>
+	                                </a>
 	                                <a class="menu-link" href="../../demo1/dist/index.html">
 	                                    <span class="menu-bullet">
 	                                        <span class="bullet bullet-dot"></span>

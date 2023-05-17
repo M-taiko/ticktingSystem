@@ -9,4 +9,8 @@ class departmentes extends Model
 {
     use HasFactory;
     protected $fillable = ['id','DepartmentName', 'DepartmentHead', 'DepartmentArea','timestamps'];
+ 
+
+ 
+  
 }

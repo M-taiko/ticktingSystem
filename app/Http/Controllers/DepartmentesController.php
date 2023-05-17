@@ -27,7 +27,7 @@ class DepartmentesController extends Controller
         if ($request->ajax()) {
 
 
-            $data = departmentes::select('*');
+            $data = departmentes::query();
 
             return Datatables::of($data)
                 ->addIndexColumn()
