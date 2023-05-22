@@ -66,7 +66,15 @@
 	                                    <span class="menu-title">Tickets</span>
 	                                </a>
 									<!--begin:Menu link-->
-									<a class="menu-link" href="comments">
+	                                <!--begin:Menu link-->
+	                                <a class="menu-link" href="departmentticket">
+	                                    <span class="menu-bullet">
+	                                        <span class="bullet bullet-dot"></span>
+	                                    </span>
+	                                    <span class="menu-title"> My Department Tickets</span>
+	                                </a>
+									<!--begin:Menu link-->
+									<a class="menu-link" href="tickethistory">
 										<span class="menu-bullet">
 											<span class="bullet bullet-dot"></span>
 										</span>

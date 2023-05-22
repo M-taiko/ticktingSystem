@@ -1,11 +1,9 @@
 <?php
 
-use App\Http\Controllers\CommentsController;
 use App\Http\Controllers\DepartmentesController;
 use App\Http\Controllers\PrioritiesController;
 use App\Http\Controllers\ProblemestypeController;
 use App\Http\Controllers\RoleController;
-use App\Http\Controllers\TicketsController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -57,31 +55,47 @@ Route::resource('problemestype' , ProblemestypeController::class );
 /************************************* End problemestype Routes *************************************************************** */
 
 
-/************************************ start Tickets Routes **************************************************************** */
 Route::get('ajax/tickets', [\App\Http\Controllers\TicketsController::class, 'index'])->name('tickets.index'); 
 
 Route::get('ajax/tickets/all', [\App\Http\Controllers\TicketsController::class, 'getticketsTable'])->name('tickets.getticketsTable');  
 
 
-Route::get('/tickets/{id}', 'App\Http\Controllers\TicketsController@show')->name('show');
+Route::get('/tickets/{id}', [\App\Http\Controllers\TicketsController::class, 'show'])->name('show');
 
-Route::post('assign', 'App\Http\Controllers\TicketsController@assign')->name('assign');
+Route::post('assign', [\App\Http\Controllers\TicketsController::class, 'assign'])->name('assign');
 
-Route::resource('tickets', TicketsController::class); 
+Route::resource('tickets', \App\Http\Controllers\TicketsController::class); 
 
 
 
 /************************************* End Tickets Routes *************************************************************** */
 
+
+
+/************************************ start department Tickets Routes **************************************************************** */
+/*
+*/
+Route::get('ajax/departmentticket', [\App\Http\Controllers\departmentticketController::class, 'index'])->name('departmentticket.index'); 
+
+Route::get('ajax/departmentticket/all', [\App\Http\Controllers\departmentticketController::class, 'getdepatmentticketsTable'])->name('departmentticket.getdepatmentticketsTable');  
+
+Route::resource('departmentticket', \App\Http\Controllers\departmentticketController::class);  
+/************************************ start department Tickets Routes **************************************************************** */
+
+
+
+
+
+
 /************************************ start Ticket Comment Routes **************************************************************** */
-Route::get('ajax/comments', [\App\Http\Controllers\CommentsController::class, 'index'])->name('comments.index'); 
+Route::get('ajax/tickethistory', [\App\Http\Controllers\TickethistoryController::class, 'index'])->name('comments.index'); 
 
-Route::get('ajax/comments/all', [\App\Http\Controllers\CommentsController::class, 'getcommentsTable'])->name('comments.getcommentsTable');  
+Route::get('ajax/tickethistory/all', [\App\Http\Controllers\TickethistoryController::class, 'getcommentsTable'])->name('tickethistory.getcommentsTable');  
 
 
-Route::get('update/{id}', [CommentsController::class , 'update'])->name('update');
+Route::get('update/{id}', [ \App\Http\Controllers\TickethistoryController::class , 'update'])->name('update');
 
-Route::resource('comments', CommentsController::class); 
+Route::resource('tickethistory', \App\Http\Controllers\TickethistoryController::class); 
 
 /************************************* End  Ticket Comment Routes *************************************************************** */
 

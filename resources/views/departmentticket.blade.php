@@ -170,7 +170,7 @@
                                             <!--begin::Table-->
                                             <table
                                                 class="table align-middle table-active table-striped table-row-dashed table-bordered table-hover"
-                                                id="tickets">
+                                                id="departmentticket">
                                                 <!--begin::Table head-->
                                                 <thead>
                                                     <!--begin::Table row-->
@@ -619,7 +619,7 @@
 
    
         $(document).ready(function() {
-            $('#tickets').DataTable({
+            $('#departmentticket').DataTable({
                 dom: 'Bfrtip',
                 buttons: [
                     'copy', 'excel', 'print',
@@ -629,7 +629,7 @@
                 processing: true,
                 serverSide: true,
                 retrieve: true,
-                ajax: `{{ route('tickets.getticketsTable') }}`,
+                ajax: `{{ route('departmentticket.getdepatmentticketsTable') }}`,
  
 
 

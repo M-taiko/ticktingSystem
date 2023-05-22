@@ -240,8 +240,8 @@
                                                             <!--begin::Timeline line-->
                                                             <!--end::Timeline line-->
                                                             <!--begin::Timeline icon-->
-                                                            @if (!empty($comment))
-                                                                @foreach ($comment as $v)
+                                                            @if (!empty($tickethistory))
+                                                                @foreach ($tickethistory as $v)
                                                                     <div class="timeline-item">
 
                                                                         <div class="timeline-line w-40px"></div>
@@ -321,7 +321,7 @@
                                                             aria-hidden="true">&times;</span></button>
                                                 </div>
                                                 <div class="modal-body">
-                                                    <form action="{{ route('comments.store') }}" method="post">
+                                                    <form action="{{ route('tickethistory.store') }}" method="post">
                                                         {{ csrf_field() }}
                                                         <div class="input-group mb-3 d-none">
                                                             <div class="input-group-prepend">

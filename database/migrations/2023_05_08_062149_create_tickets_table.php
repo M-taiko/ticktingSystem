@@ -18,9 +18,9 @@ return new class extends Migration
              $table->increments('id');
              $table->string('TicketTitle');
              $table->string('TicketNumber');
-             $table->foreignId('DepartmentId')->constrained('departmentes');
+             $table->foreignId('DepartmentId')->constrained('departmentes')->onDelete('cascade');
              $table->integer('priority_id')->unsigned();
-             $table->foreign('priority_id')->references('id')->on('priorities');
+             $table->foreign('priority_id')->references('id')->on('priorities')->onDelete('cascade');
            
              $table->string('ReportingUser');
              $table->string('Ticketstate');

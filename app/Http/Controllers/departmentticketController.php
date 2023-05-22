@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Yajra\DataTables\Facades\DataTables;
 
-class TicketsController extends Controller
+class departmentticketController extends Controller
 {
     public function __construct()
     {
@@ -25,20 +25,24 @@ class TicketsController extends Controller
     public function index()
     {
 
-        /* $data = tickets::with('GetTheDepartmentName')->get('*');*/
-
-
-
-        return view('tickets');
+        return view('departmentticket');
     }
-    public function getticketsTable(Request $request)
+    public function getdepatmentticketsTable(Request $request)
     {
         if ($request->ajax()) {
 
+        /*
+            $data = tickets::with(['GetTheDepartmentName', 'priority', 'comments'])
+                    ->where('DepartmentName', '=', auth()->user()->departmentname)->get();
+       */
+      $data = tickets::with(['GetTheDepartmentName', 'priority', 'comments'])
+                        ->whereHas('GetTheDepartmentName', function ($query) {
+                            $query->where('DepartmentName', '=', auth()->user()->DepartmentName);
+                        })
+                        ->get();
 
-            $data = tickets::with(['GetTheDepartmentName', 'priority', 'comments']);
 
-          
+
 
             return Datatables::of($data)
                 ->addIndexColumn()
