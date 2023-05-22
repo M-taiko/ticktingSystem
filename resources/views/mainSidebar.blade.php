@@ -26,11 +26,11 @@
 	        <!--end::Logo-->
 	        <!--begin::sidebar menu-->
 	        <div class="app-sidebar-menu overflow-hidden flex-column-fluid">
-	            <!--begin::Menu wrapper-->
+				<!--begin::Menu wrapper-->
 	            <div id="kt_app_sidebar_menu_wrapper" class="app-sidebar-wrapper hover-scroll-overlay-y my-5" data-kt-scroll="true" data-kt-scroll-activate="true" data-kt-scroll-height="auto" data-kt-scroll-dependencies="#kt_app_sidebar_logo, #kt_app_sidebar_footer" data-kt-scroll-wrappers="#kt_app_sidebar_menu" data-kt-scroll-offset="5px" data-kt-scroll-save-state="true">
-	                <!--begin::Menu-->
+					<!--begin::Menu-->
 	                <div class="menu menu-column menu-rounded menu-sub-indention px-3" id="#kt_app_sidebar_menu" data-kt-menu="true" data-kt-menu-expand="false">
-                        <!-------------------------------------------------------------------------------------------------------------------->
+						<!-------------------------------------------------------------------------------------------------------------------->
                         <!-------------------------------------------------------------------------------------------------------------------->
                         <!-------------------------------------------------------------------------------------------------------------------->
                         <!-------------------------------------------------------------------------------------------------------------------->
@@ -39,14 +39,10 @@
 	                        <!--begin:Menu link-->
 	                        <span class="menu-link">
 	                            <span class="menu-icon">
-	                                <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
+									<!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
 	                                <span class="svg-icon svg-icon-2">
-	                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-	                                        <rect x="2" y="2" width="9" height="9" rx="2" fill="currentColor" />
-	                                        <rect opacity="0.3" x="13" y="2" width="9" height="9" rx="2" fill="currentColor" />
-	                                        <rect opacity="0.3" x="13" y="13" width="9" height="9" rx="2" fill="currentColor" />
-	                                        <rect opacity="0.3" x="2" y="13" width="9" height="9" rx="2" fill="currentColor" />
-	                                    </svg>
+	                                   
+										<i class="fas fa-ticket fa-2x"></i>
 	                                </span>
 	                                <!--end::Svg Icon-->
 	                            </span>
@@ -59,13 +55,16 @@
 	                            <!--begin:Menu item-->
 	                            <div class="menu-item">
 	                                <!--begin:Menu link-->
+									@can('all-tickets')
 	                                <a class="menu-link" href="tickets">
 	                                    <span class="menu-bullet">
 	                                        <span class="bullet bullet-dot"></span>
 	                                    </span>
-	                                    <span class="menu-title">Tickets</span>
+	                                    <span class="menu-title">All Tickets</span>
 	                                </a>
+									@endcan
 									<!--begin:Menu link-->
+									@can('role-my-depatment-tickets')
 	                                <!--begin:Menu link-->
 	                                <a class="menu-link" href="departmentticket">
 	                                    <span class="menu-bullet">
@@ -74,6 +73,8 @@
 	                                    <span class="menu-title"> My Department Tickets</span>
 	                                </a>
 									<!--begin:Menu link-->
+									@endcan
+									@can('ticket-history')
 									<a class="menu-link" href="tickethistory">
 										<span class="menu-bullet">
 											<span class="bullet bullet-dot"></span>
@@ -81,12 +82,9 @@
 										<span class="menu-title">Ticket History</span>
 									</a>
 									<!--end:Menu link-->
-	                                <a class="menu-link" href="../../demo1/dist/index.html">
-	                                    <span class="menu-bullet">
-	                                        <span class="bullet bullet-dot"></span>
-	                                    </span>
-	                                    <span class="menu-title">Ticket Type</span>
-	                                </a>
+									@endcan
+
+	                              
 	                                <!--end:Menu link-->
 	                            </div>
 	                            <!--end:Menu item-->
@@ -99,18 +97,14 @@
                         <!-------------------------------------------------------------------------------------------------------------------->
                         <!-------------------------------------------------------------------------------------------------------------------->
                         <!-------------------------------------------------------------------------------------------------------------------->
+						@can('users')
 	                    <div data-kt-menu-trigger="click" class="menu-item here  menu-accordion">
 	                        <!--begin:Menu link-->
 	                        <span class="menu-link">
 	                            <span class="menu-icon">
 	                                <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
 	                                <span class="svg-icon svg-icon-2">
-	                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-	                                        <rect x="2" y="2" width="9" height="9" rx="2" fill="currentColor" />
-	                                        <rect opacity="0.3" x="13" y="2" width="9" height="9" rx="2" fill="currentColor" />
-	                                        <rect opacity="0.3" x="13" y="13" width="9" height="9" rx="2" fill="currentColor" />
-	                                        <rect opacity="0.3" x="2" y="13" width="9" height="9" rx="2" fill="currentColor" />
-	                                    </svg>
+	                                    <i class="fas fa-user fa-2x"></i>
 	                                </span>
 	                                <!--end::Svg Icon-->
 	                            </span>
@@ -145,21 +139,20 @@
 	                        </div>
 	                        <!--end:Menu sub-->
 	                    </div>
+						@endcan
                         <!-------------------------------------------------------------------------------------------------------------------->
                         <!-------------------------------------------------------------------------------------------------------------------->
                         <!-------------------------------------------------------------------------------------------------------------------->
                         <!-------------------------------------------------------------------------------------------------------------------->
-
+@can('settings')
                         <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
 										<!--begin:Menu link-->
 										<span class="menu-link">
 											<span class="menu-icon">
 												<!--begin::Svg Icon | path: icons/duotune/layouts/lay008.svg-->
 												<span class="svg-icon svg-icon-2">
-													<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-														<path d="M20 7H3C2.4 7 2 6.6 2 6V3C2 2.4 2.4 2 3 2H20C20.6 2 21 2.4 21 3V6C21 6.6 20.6 7 20 7ZM7 9H3C2.4 9 2 9.4 2 10V20C2 20.6 2.4 21 3 21H7C7.6 21 8 20.6 8 20V10C8 9.4 7.6 9 7 9Z" fill="currentColor"></path>
-														<path opacity="0.3" d="M20 21H11C10.4 21 10 20.6 10 20V10C10 9.4 10.4 9 11 9H20C20.6 9 21 9.4 21 10V20C21 20.6 20.6 21 20 21Z" fill="currentColor"></path>
-													</svg>
+													
+													<i class="fa-solid fa-gear fa-2x"></i>
 												</span>
 												<!--end::Svg Icon-->
 											</span>
@@ -201,10 +194,7 @@
 												<!--end:Menu link-->
 											</div>
 											<!--end:Menu item-->
-									
-										
-										
-										
+
 											<!--end:Menu item-->
 											<!--begin:Menu item-->
 											<div class="menu-item">
@@ -221,6 +211,8 @@
 										</div>
 										<!--end:Menu sub-->
 									</div>
+									@endcan
+				
                         <!-------------------------------------------------------------------------------------------------------------------->
                         <!-------------------------------------------------------------------------------------------------------------------->
                         <!-------------------------------------------------------------------------------------------------------------------->

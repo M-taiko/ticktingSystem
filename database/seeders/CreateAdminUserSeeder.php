@@ -19,7 +19,7 @@ $user = User::create([
 'email' => 'donia.a5ra2019@gmail.com',
 'DepartmentName' => 'IT',
 'userTitle' => 'Developer',
-'UserRole' => 'Admin',
+'UserRole' => ['Admin'],
 'password' => bcrypt('123456789')
 ]);
 $role = Role::create(['name' => 'Admin']);

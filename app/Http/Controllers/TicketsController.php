@@ -6,6 +6,7 @@ use App\Models\tickethistory;
 use App\Models\tickets;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Gate;
 use Yajra\DataTables\Facades\DataTables;
 
 class TicketsController extends Controller
@@ -43,43 +44,81 @@ class TicketsController extends Controller
             return Datatables::of($data)
                 ->addIndexColumn()
                 ->addColumn('action', function ($row) {
-           
-                    $actionBtn = '
+                    $actionBtn = '';
 
-                                        <a  class="modal-effect btn btn-primary delete btn btn-primary btn-sm "
-                                        data-effect="effect-scale"
-                                        data-id ="' . $row["id"] . '"
-                                        data-ticketname = "' . $row["TicketTitle"] . '"
-                                        data-ticketnumber = "' . $row["TicketNumber"] . '"
-                                        data-departmentname = "' . $row["DepartmentName"] . '"
-                                        data-reportinguser = "' . $row["ReportingUser"] . '"
-                                        data-ticketstate = "' . $row["Ticketstate"] . '"
-                                        data-ticketdetails = "' . $row["TicketDetails"] . '"
-                                        data-createdby = "' . $row["createdBY"] . '"
-                                        data-id="' . $row["id"] . '"
-                                        data-bs-toggle="modal"
-                                        href="#exampleModal2" >Edit</a>
+                    if (Gate::allows('role-delete') && Gate::allows('role-edit')){
+                        $actionBtn ='
+                        <div class="d-flex">
+                                <a  class="modal-effect  btn btn-primary btn-sm "
+                                data-effect="effect-scale"
+                                data-id ="' . $row["id"] . '"
+                                data-ticketname = "' . $row["TicketTitle"] . '"
+                                data-ticketnumber = "' . $row["TicketNumber"] . '"
+                                data-departmentname = "' . $row["DepartmentName"] . '"
+                                data-reportinguser = "' . $row["ReportingUser"] . '"
+                                data-ticketstate = "' . $row["Ticketstate"] . '"
+                                data-ticketdetails = "' . $row["TicketDetails"] . '"
+                                data-createdby = "' . $row["createdBY"] . '"
+                                data-id="' . $row["id"] . '"
+                                data-bs-toggle="modal"
+                                href="#exampleModal2" ><i class="las la-pen" style="font-size: 1.2em;"></i> </a>
+                           
 
-                                   <a  class="modal-effect btn btn-primary delete btn btn-danger btn-sm "
-                                    data-effect="effect-scale"
-                                    data-ticketid = "' . $row["TicketTitle"] . '"
-                                    data-id="' . $row["id"] . '"
-                                    data-bs-toggle="modal"
-                                    href="#modaldemo9" >Delete</a>
-                                    
-                                
-                                    ';
+                            <a  class="modal-effect btn  btn-danger btn-sm "
+                            data-effect="effect-scale"
+                            data-ticketid = "' . $row["TicketTitle"] . '"
+                            data-id="' . $row["id"] . '"
+                            data-bs-toggle="modal"
+                            href="#modaldemo9" ><i class="las la-trash " style="font-size: 1.2em;"></i> </a>
+                        </div>
 
+                        ';
+
+                    }
+                    elseif (Gate::allows('role-edit')){
+                        $actionBtn = '
+                     
+                        
+                                <a  class="modal-effect  btn btn-primary btn-sm "
+                                data-effect="effect-scale"
+                                data-id ="' . $row["id"] . '"
+                                data-ticketname = "' . $row["TicketTitle"] . '"
+                                data-ticketnumber = "' . $row["TicketNumber"] . '"
+                                data-departmentname = "' . $row["DepartmentName"] . '"
+                                data-reportinguser = "' . $row["ReportingUser"] . '"
+                                data-ticketstate = "' . $row["Ticketstate"] . '"
+                                data-ticketdetails = "' . $row["TicketDetails"] . '"
+                                data-createdby = "' . $row["createdBY"] . '"
+                                data-id="' . $row["id"] . '"
+                                data-bs-toggle="modal"
+                                href="#exampleModal2" ><i class="las la-pen" style="font-size: 1.2em;"></i> </a>
+                            ';
+                    }
+                    elseif (Gate::allows('role-delete')){
+
+                        $actionBtn = '
+                        <a  class="modal-effect btn  btn-danger btn-sm "
+                        data-effect="effect-scale"
+                        data-ticketid = "' . $row["TicketTitle"] . '"
+                        data-id="' . $row["id"] . '"
+                        data-bs-toggle="modal"
+                        href="#modaldemo9" ><i class="las la-trash " style="font-size: 1.2em;"></i> </a>
+                
+                    ';
+                    }
                     return $actionBtn;
+                }) 
 
-                })
+             
                 ->addColumn('assigntouser', function ($row) {
-
-                    $assigntouser = '  <a  class="modal-effect btn btn-primary delete btn btn-info btn-sm "
+                    $assigntouser ='';
+                    if (Gate::allows('role-assign-to-user')){
+                    $assigntouser = '  <a  class="modal-effect btn  btn btn-info btn-sm "
                     data-effect="effect-scale"
                     data-id="' . $row["id"] . '"
                     data-bs-toggle="modal"
                     href="#modaldemo18" >Assign To User</a>';
+                    }
                     return $assigntouser;
 
                 })

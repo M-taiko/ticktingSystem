@@ -38,6 +38,10 @@
         td {
             text-align: center !important;
             word-wrap: break-word;
+           
+        }
+        td{
+            line-break: anywhere;
         }
     </style>
 </head>
@@ -190,10 +194,12 @@
                                                                         </td>
                                                                     </tr>
                                                                     <tr>
+                                                                        @can('role-assign-to-user')
                                                                         <th>
                                                                             Assigned User :
                                                                         </th>
                                                                         <td>
+
                                                                             <?php
                                                                             if ($v->assignuser == '') {
                                                                                 echo '
@@ -212,9 +218,10 @@
                                                                             href="#modaldemo18" >Assign To  another User</a>';
                                                                             }
                                                                             ?>
+
                                                                         </td>
                                                                     </tr>
-
+@endcan
 
 
                                                                 </tbody>
@@ -250,7 +257,7 @@
                                                                         <!--end::Timeline icon-->
                                                                         <!--begin::Timeline content-->
                                                                         <div class="timeline-content mb-10 mt-n1 p-10 "
-                                                                            style="background-color: #4dff007c; background-image: url('{{ asset('assets/media/patterns/vector-1.png') }}');">
+                                                                            style="background-color: #02670ea1; background-image: url('{{ asset('assets/media/patterns/vector-1.png') }}'); color:white;  border-radius: 16px; ">
                                                                             <!--begin::Timeline heading-->
                                                                             <div class="pe-3 mb-5">
                                                                                 <!--begin::Title-->
@@ -258,10 +265,12 @@
                                                                                     {{ $v->comment_text }}</div>
                                                                                 <!--end::Title-->
                                                                                 <!--begin::Description-->
+                                                                                <hr style="width:100%"> 
                                                                                 <div
                                                                                     class="d-flex align-items-center mt-1 fs-6">
                                                                                     <!--begin::Info-->
-                                                                                    <div class="text me-2 fs-7">Added
+                                                                                    <div class="text me-2 fs-7">
+                                                                                        Added
                                                                                         at {{ $v->created_at }} by
                                                                                     </div>
                                                                                 </div>
@@ -269,7 +278,7 @@
 
                                                                             <div class="overflow-auto pb-5">
                                                                                 <div
-                                                                                    class="d-flex align-items-center card border border-dashed border-gray-300 rounded min-w-75px px-7 py-3 mb-5">
+                                                                                    class="d-flex align-items-center card border border-dashed border-gray-300 rounded min-w-75px px-7 py-3 mb-5" style="color:black ">
                                                                                     {{ $v->solving_User }}
                                                                                 </div>
                                                                             </div>
@@ -283,18 +292,21 @@
 
                                                             <div class="d-flex justify-content-end"
                                                                 data-kt-customer-table-toolbar="base">
-
-
+                                                              
+                                                                @foreach ($tickets as $v)
+                                                                   @if( $v->Ticketstate == 'New' || $v->Ticketstate == 'pending')
                                                                 <a class="modal-effect btn btn-primary m-1 btn-block"
                                                                     data-effect="effect-scale" data-bs-toggle="modal"
                                                                     href="#modaldemo8">Add New Resolve</a>
+                                                                    @endif
+                                                                @endforeach
 
 
+                                                        @can('Edit-ticket-stats')
                                                                 <a class="modal-effect btn btn-primary m-1 btn-block"
                                                                     data-effect="effect-scale" data-bs-toggle="modal"
                                                                     href="#modaldemo12">Edit This Resolve status</a>
-
-
+                                                        @endcan
 
 
 

@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Permission;
-use Illuminate\Support\Facades\DB;
 class PermissionTableSeeder extends Seeder
 {
 /**
@@ -14,10 +13,20 @@ class PermissionTableSeeder extends Seeder
 public function run()
 {
 $permissions = [
+'role-my-depatment-tickets',
+'all-tickets',
+'ticket-history',
+'settings',
+'Edit-ticket-stats',
+'role-assign-to-user',
+'role-edit-ticket-stats',
+'users',
 'role-list',
 'role-create',
 'role-edit',
-'role-delete'
+'role-delete',
+'role-action',
+
 ];
 foreach ($permissions as $permission) {
 Permission::create(['name' => $permission]);

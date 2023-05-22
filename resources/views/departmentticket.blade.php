@@ -167,45 +167,48 @@
                                         <!--------------------------Table Body-------------------------------------------------------------------------->
                                         <!---------------------------------------------------------------------------------------------------->
 
-                                            <!--begin::Table-->
-                                            <table
-                                                class="table align-middle table-active table-striped table-row-dashed table-bordered table-hover"
-                                                id="departmentticket">
-                                                <!--begin::Table head-->
-                                                <thead>
-                                                    <!--begin::Table row-->
-                                                    <tr
-                                                        class="text-start text-gray-400 fw-bold fs-7 text-uppercase gs-0">
+                                        <!--begin::Table-->
+                                        <table
+                                            class="table align-middle table-active table-striped table-row-dashed table-bordered table-hover"
+                                            id="departmentticket">
+                                            <!--begin::Table head-->
+                                            <thead>
+                                                <!--begin::Table row-->
+                                                <tr class="text-start text-gray-400 fw-bold fs-7 text-uppercase gs-0">
 
-                                                        <th>#</th>
-                                                        <th>Ticket Title</th>
-                                                        <th>Ticket Number</th>
-                                                        <th> Assigned Department</th>
-                                                        <th>pioritie</th>
-                                                        <th>Reporting User</th>
-                                                        <th>Ticket State</th>
-                                                        <th>Created By</th>
-                                                        <th> Created At</th>
-                                                        <th> Assigned User</th>
-                                                        <th>Ticket Details</th>
-                                                        <th >action</th>
-                                                        <th >assign to user</th>
+                                                    <th>#</th>
+                                                    <th>Ticket Title</th>
+                                                    <th>Ticket Number</th>
+                                                    <th> Assigned Department</th>
+                                                    <th>pioritie</th>
+                                                    <th>Reporting User</th>
+                                                    <th>Ticket State</th>
+                                                    <th>Created By</th>
+                                                    <th> Created At</th>
+                                                    <th> Assigned User</th>
+                                                    <th>Ticket Details</th>
+                                                    @can('role-action')
+                                                        <th>action</th>
+                                                    @endcan
+                                                    @can('role-assign-to-user')
+                                                        <th>assign to user</th>
+                                                    @endcan
 
-                                                    </tr>
-                                                    <!--end::Table row-->
-                                                </thead>
-                                                <!--end::Table head-->
-                                                <!--begin::Table body-->
-                                                <tbody class="fw-semibold text-gray-600">
+                                                </tr>
+                                                <!--end::Table row-->
+                                            </thead>
+                                            <!--end::Table head-->
+                                            <!--begin::Table body-->
+                                            <tbody class="fw-semibold text-gray-600">
 
 
 
 
-                                                </tbody>
-                                                <!--end::Table body-->
-                                            </table>
-                                            <!--end::Table-->
-                                    
+                                            </tbody>
+                                            <!--end::Table body-->
+                                        </table>
+                                        <!--end::Table-->
+
                                         <!---------------------------------------------------------------------------------------------------->
                                         <!-------------------------------------Table Body--------------------------------------------------------------->
                                         <!---------------------------------------------------------------------------------------------------->
@@ -289,10 +292,6 @@
                             <input type="text" class="form-control" name="TicketTitle" required
                                 aria-label="Default" aria-describedby="TicketTitle">
                         </div>
-
-
-
-
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="DepartmentId">Department</span>
@@ -598,39 +597,19 @@
 
     @include('footer')
     <script type="text/javascript">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-   
         $(document).ready(function() {
             $('#departmentticket').DataTable({
                 dom: 'Bfrtip',
                 buttons: [
                     'copy', 'excel', 'print',
                 ],
-               
+
                 ordering: true,
                 processing: true,
                 serverSide: true,
                 retrieve: true,
                 ajax: `{{ route('departmentticket.getdepatmentticketsTable') }}`,
- 
+
 
 
                 "columns": [{
@@ -687,19 +666,24 @@
                     {
                         data: 'TicketDetails',
                         name: 'TicketDetails'
-                    },
-                    {
-                        data: 'action',
-                        name: 'action',
-                        orderable: false,
-                        searchable: false,
                     }
-                    ,{
-                        data: 'assigntouser',
-                        name: 'assigntouser',
-                        orderable: false,
-                        searchable: false
-                    }
+                    @if (Auth::user()->can('role-action'))
+                        , {
+                            data: 'action',
+                            name: 'action',
+                            orderable: false,
+                            searchable: false,
+                        }
+                    @endif
+                    @if (Auth::user()->can('role-assign-to-user'))
+
+                        , {
+                            data: 'assigntouser',
+                            name: 'assigntouser',
+                            orderable: false,
+                            searchable: false
+                        }
+                    @endif
 
                 ],
                 "createdRow": function(row, data, dataIndex) {
@@ -707,14 +691,6 @@
                 }
             });
         });
-
-
-
-  
-
-
-
-
     </script>
 
 

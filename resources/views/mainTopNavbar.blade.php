@@ -510,7 +510,7 @@
 												<div class="menu-item px-3">
 													<a href="../../demo1/dist/account/settings.html" class="menu-link d-flex px-5">
 													<span class="symbol symbol-20px me-4">
-														<img class="rounded-1" src="assets/media/flags/.svg" alt="" />
+														<img class="rounded-1" src="assets/media/flags/egypt.svg" alt="" />
 													</span>عربي</a>
 												</div>
 												<!--end::Menu item-->

@@ -36,10 +36,23 @@
         tr,
         th,
         td {
+            
             text-align: center !important;
-            max-width: 200px;
+            max-width: 120px;
             word-wrap: break-word;
-        }
+           
+            
+        };
+    td{
+   
+    }
+    .ticket_detailes{
+        overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2
+    }
+        
     </style>
     <!--end::data tables-->
 </head>
@@ -188,8 +201,12 @@
                                                         <th> Created At</th>
                                                         <th> Assigned User</th>
                                                         <th>Ticket Details</th>
+                                                        @can('role-action')
                                                         <th >action</th>
+                                                        @endcan
+                                                        @can('role-assign-to-user')
                                                         <th >assign to user</th>
+                                                        @endcan
 
                                                     </tr>
                                                     <!--end::Table row-->
@@ -282,16 +299,47 @@
                 <div class="modal-body">
                     <form action="{{ route('tickets.store') }}" method="post">
                         {{ csrf_field() }}
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="TicketTitle">TicketTitle</span>
+                        <!---------------------------------------ticket title radio ------------------------------------------------------------>
+                        <!-------------------------------select radio betwwen ticket title ---------------------------------->
+                        <div class="d-flex justify-content-between">
+                            <div class="col-lg-3 d-flex">
+                                <label class="rdiobox">
+                                    <input checked name="select_TicketTitle" type="radio" value="1" id="type_div"> <span>write the ticket title</span></label>
+                                </div>
+                                
+                                
+                                <div class="col-lg-3 d-flex">
+                                    <label class="rdiobox">
+                                        <input name="select_TicketTitle" value="2" id="select_TicketTitle" type="radio"><span>select ticket title</span></label>
+                                </div><br><br>
                             </div>
-                            <input type="text" class="form-control" name="TicketTitle" required
-                                aria-label="Default" aria-describedby="TicketTitle">
-                        </div>
-
-
-
+                            <!-------------------------------select radio betwwen ticket title ---------------------------------->
+                        
+                        
+                            <div class="input-group mb-3" id="write_Ticket_Title">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" >TicketTitle</span>
+                                </div>
+                                <input type="text" class="form-control" name="TicketTitle" id="Title_input"
+                                    aria-label="Default" aria-describedby="TicketTitle">
+                            </div>
+                        
+                            <div class="input-group mb-3" id="Selcet_ticket_type">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" >Ticket Title</span>
+                                </div>
+                                <select name="TicketTitle"  id="title_select"
+                                    class="form-control  nice-select  custom-select">
+                                    <option value=''> Select Form Ticket Titles </option>
+                                    <?php
+                                    $problemestypes = DB::table('problemestypes')->select('id','ProblemName')->get();
+                                    foreach ($problemestypes as $problemestype)
+                                    echo "<option value='" . $problemestype->ProblemName ."' > $problemestype->ProblemName </option>";   
+                               ?>
+                                </select>
+    
+                            </div>
+                            <!----------------------------------------ticket title radio----------------------------------------------------------->
 
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
@@ -333,25 +381,52 @@
 
                         </div>
 
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="ReportingUser">Reporting User</span>
+
+                     <!---------------------------------------reporting user radio ------------------------------------------------------------>
+                        <!-------------------------------select radio betwwen reporting user ---------------------------------->
+                        <div class="d-flex justify-content-between">
+                            <div class="col-lg-3 d-flex">
+                                <label class="rdiobox">
+                                    <input  name="ReportingUser" type="radio" value="1" id="writeReportingUser"> <span>write the reporting user</span></label>
+                                </div>
+                                
+                                
+                                <div class="col-lg-3 d-flex">
+                                    <label class="rdiobox">
+                                        <input checked name="ReportingUser" value="2" id="select_ReportingUser" type="radio"><span>select reporting user</span></label>
+                                </div><br><br>
                             </div>
-                            <select name="ReportingUser" required id="select-beast"
-                                class="form-control  nice-select  custom-select">
-                                <option value=''> Select Form Users </option>
+                            <!-------------------------------select radio betwwen reporting user ---------------------------------->
+                        
+                        
+                            <div class="input-group mb-3" id="write_ReportingUser">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" >Reporting User</span>
+                                </div>
+                                <input type="text" class="form-control" name="ReportingUser" id="ReportingUser_input"
+                                    aria-label="Default" aria-describedby="ReportingUser" placeholder="write name - title - area">
+                            </div>
+                        
+                            <div class="input-group mb-3" id="Selcet_ReportingUser">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" >Reporting User</span>
+                                </div>
+                                <select name="TicketTitle"  id="ReportingUser_select"
+                                    class="form-control  nice-select  custom-select">
+                                    <option value=''> Select Form Users </option>
+                                    <?php
+                                    $Users = DB::table('users')
+                                        ->select('id', 'name')
+                                        ->get();
+                                    foreach ($Users as $User) {
+                                        echo "<option value='" . $User->name . "' > $User->name </option>";
+                                    }
+                                    ?>
+                                </select>
+    
+                            </div>
+                            <!----------------------------------------reporting user radio----------------------------------------------------------->
 
-                                <?php
-                                $Users = DB::table('users')
-                                    ->select('id', 'name')
-                                    ->get();
-                                foreach ($Users as $User) {
-                                    echo "<option value='" . $User->name . "' > $User->name </option>";
-                                }
-                                ?>
-                            </select>
-
-                        </div>
 
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
@@ -619,6 +694,8 @@
 
    
         $(document).ready(function() {
+          
+           
             $('#tickets').DataTable({
                 dom: 'Bfrtip',
                 buttons: [
@@ -678,28 +755,48 @@
                     },
                     {
                         data: 'created_at',
-                        name: 'created_at'
+                        name: 'created_at',
+                        
+                        render: function(d) {
+                   return moment(d).format("DD/MM/YYYY HH:mm:ss");
+                }
+                      
                     },
+
+                    
                     {
                         data: 'assignuser',
                         name: 'assignuser'
                     },
+
+                   
+                    
                     {
-                        data: 'TicketDetails',
-                        name: 'TicketDetails'
-                    },
-                    {
+                        
+                        name: 'TicketDetails',
+                        
+                        "data": function(row, type, val, meta) {
+                        return '<a href="/tickets/' + row.id + '" class="ticket_detailes">' + row.TicketDetails + '</a>';
+                                }
+                    }
+
+                    @if(Auth::user()->can('role-action'))
+                    ,{
                         data: 'action',
                         name: 'action',
                         orderable: false,
                         searchable: false,
                     }
+                    @endif
+                    @if(Auth::user()->can('role-assign-to-user'))
+
                     ,{
                         data: 'assigntouser',
                         name: 'assigntouser',
                         orderable: false,
                         searchable: false
                     }
+                    @endif
 
                 ],
                 "createdRow": function(row, data, dataIndex) {
@@ -716,8 +813,70 @@
 
 
     </script>
+<!-----------------radio scripts--------------------------------->
+<script>
+     $(document).ready(function() {
+
+$('#Selcet_ticket_type').hide();
+$('#write_Ticket_Title').show();
+$('#Title_input').attr('name', 'TicketTitle');
+$('#title_select').attr('name', '');
+
+$('input[type="radio"]').click(function() {
+    if ($(this).attr('id') == 'type_div') {
+        
+        $('#Selcet_ticket_type').hide();
+        $('#write_Ticket_Title').show();
+
+        $('#Title_input').attr('name', 'TicketTitle');
+        $('#title_select').attr('name', '');
+        
+        
+    } else if ($(this).attr('id') == 'select_TicketTitle') {
+        
+        $('#write_Ticket_Title').hide();
+        
+        $('#Selcet_ticket_type').show();
+        
+        $('#Title_input').attr('name', '');
+        
+        $('#title_select').attr('name', 'TicketTitle');
+    }
+});
+});
 
 
+     $(document).ready(function() {
+
+$('#write_ReportingUser').hide();
+$('#write_ReportingUser').attr('name', '');
+$('#Selcet_ReportingUser').show();
+$('#ReportingUser_select').attr('name', 'ReportingUser');
+
+$('input[type="radio"]').click(function() {
+    if ($(this).attr('id') == 'writeReportingUser') {
+        
+        $('#Selcet_ReportingUser').hide();
+        $('#write_ReportingUser').show();
+
+        $('#ReportingUser_input').attr('name', 'ReportingUser');
+        $('#ReportingUser_select').attr('name', '');
+        
+        
+    } else if ($(this).attr('id') == 'select_ReportingUser') {
+        
+        $('#write_ReportingUser').hide();
+        
+        $('#Selcet_ReportingUser').show();
+        
+        $('#ReportingUser_input').attr('name', '');
+        
+        $('#ReportingUser_select').attr('name', 'ReportingUser');
+    }
+});
+});
+</script>
+<!-------------------radio scripts------------------------------->
     <script>
         $('#modaldemo18').on('show.bs.modal', function(event) {
             var button = $(event.relatedTarget)
