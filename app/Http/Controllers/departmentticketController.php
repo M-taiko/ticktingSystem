@@ -159,7 +159,7 @@ class departmentticketController extends Controller
         if ($b_exists) {
 
             session()->flash('Error', 'This Ticket Is Already Existes');
-            return redirect('/tickets');
+            return redirect('/departmentticket');
 
         } else {
 
@@ -176,7 +176,7 @@ class departmentticketController extends Controller
             ]);
             session()->flash('Add', 'New Ticket has been Addedd');
 
-            return redirect('/tickets');
+            return redirect('/departmentticket');
         }
     }
 

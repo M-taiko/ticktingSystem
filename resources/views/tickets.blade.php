@@ -29,32 +29,46 @@
     <!--begin::Global Stylesheets Bundle(mandatory for all pages)-->
     <link href="assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
     <link href="assets/css/style.bundle.css" rel="stylesheet" type="text/css" />
+
     <!--end::Global Stylesheets Bundle-->
+
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+
 
     <style>
         table,
         tr,
         th,
         td {
-            
+
             text-align: center !important;
             max-width: 120px;
             word-wrap: break-word;
-           
-            
-        };
-    td{
-   
-    }
-    .ticket_detailes{
-        overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 2
-    }
-        
+
+
+        }
+
+        ;
+
+        td {}
+
+        .ticket_detailes {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 2
+        }
     </style>
     <!--end::data tables-->
+
+
 </head>
 <!--end::Head-->
 <!--begin::Body-->
@@ -180,49 +194,50 @@
                                         <!--------------------------Table Body-------------------------------------------------------------------------->
                                         <!---------------------------------------------------------------------------------------------------->
 
-                                            <!--begin::Table-->
-                                            <table
-                                                class="table align-middle table-active table-striped table-row-dashed table-bordered table-hover"
-                                                id="tickets">
-                                                <!--begin::Table head-->
-                                                <thead>
-                                                    <!--begin::Table row-->
-                                                    <tr
-                                                        class="text-start text-gray-400 fw-bold fs-7 text-uppercase gs-0">
-
-                                                        <th>#</th>
-                                                        <th>Ticket Title</th>
-                                                        <th>Ticket Number</th>
-                                                        <th> Assigned Department</th>
-                                                        <th>pioritie</th>
-                                                        <th>Reporting User</th>
-                                                        <th>Ticket State</th>
-                                                        <th>Created By</th>
-                                                        <th> Created At</th>
-                                                        <th> Assigned User</th>
-                                                        <th>Ticket Details</th>
-                                                        @can('role-action')
-                                                        <th >action</th>
-                                                        @endcan
-                                                        @can('role-assign-to-user')
-                                                        <th >assign to user</th>
-                                                        @endcan
-
-                                                    </tr>
-                                                    <!--end::Table row-->
-                                                </thead>
-                                                <!--end::Table head-->
-                                                <!--begin::Table body-->
-                                                <tbody class="fw-semibold text-gray-600">
 
 
+                                        <!--begin::Table-->
+                                        <table
+                                            class="table align-middle table-active table-striped table-row-dashed table-bordered table-hover"
+                                            id="tickets">
+                                            <!--begin::Table head-->
+                                            <thead>
+                                                <!--begin::Table row-->
+                                                <tr class="text-start text-gray-400 fw-bold fs-7 text-uppercase gs-0">
+
+                                                    <th>#</th>
+                                                    <th>Ticket Title</th>
+                                                    <th>Ticket Number</th>
+                                                    <th> Assigned Department</th>
+                                                    <th>pioritie</th>
+                                                    <th>Reporting User</th>
+                                                    <th>Ticket State</th>
+                                                    <th>Created By</th>
+                                                    <th> Created At</th>
+                                                    <th> Assigned User</th>
+                                                    <th>Ticket Details</th>
+                                                    @can('role-action')
+                                                        <th>action</th>
+                                                    @endcan
+                                                    @can('role-assign-to-user')
+                                                        <th>assign to user</th>
+                                                    @endcan
+
+                                                </tr>
+                                                <!--end::Table row-->
+                                            </thead>
+                                            <!--end::Table head-->
+                                            <!--begin::Table body-->
+                                            <tbody class="fw-semibold text-gray-600">
 
 
-                                                </tbody>
-                                                <!--end::Table body-->
-                                            </table>
-                                            <!--end::Table-->
-                                    
+
+
+                                            </tbody>
+                                            <!--end::Table body-->
+                                        </table>
+                                        <!--end::Table-->
+
                                         <!---------------------------------------------------------------------------------------------------->
                                         <!-------------------------------------Table Body--------------------------------------------------------------->
                                         <!---------------------------------------------------------------------------------------------------->
@@ -288,6 +303,9 @@
     </div>
     <!--end::Scrolltop-->
 
+
+
+
     <!-- Basic modal -->
     <div class="modal" id="modaldemo8">
         <div class="modal-dialog" role="document">
@@ -301,134 +319,160 @@
                         {{ csrf_field() }}
                         <!---------------------------------------ticket title radio ------------------------------------------------------------>
                         <!-------------------------------select radio betwwen ticket title ---------------------------------->
-                        <div class="d-flex justify-content-between">
-                            <div class="col-lg-3 d-flex">
-                                <label class="rdiobox">
-                                    <input checked name="select_TicketTitle" type="radio" value="1" id="type_div"> <span>write the ticket title</span></label>
-                                </div>
-                                
-                                
+
+                        <div class="p-1 m-1">
+                            <div class="d-flex justify-content-between">
                                 <div class="col-lg-3 d-flex">
                                     <label class="rdiobox">
-                                        <input name="select_TicketTitle" value="2" id="select_TicketTitle" type="radio"><span>select ticket title</span></label>
+                                        <input checked name="select_TicketTitle" type="radio" value="1"
+                                            id="type_div"> <span>write the ticket title</span></label>
+                                </div>
+
+
+                                <div class="col-lg-3 d-flex">
+                                    <label class="rdiobox">
+                                        <input name="select_TicketTitle" value="2" id="select_TicketTitle"
+                                            type="radio"><span>select ticket title</span></label>
                                 </div><br><br>
                             </div>
                             <!-------------------------------select radio betwwen ticket title ---------------------------------->
-                        
-                        
+
+
                             <div class="input-group mb-3" id="write_Ticket_Title">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text" >TicketTitle</span>
+                                    <span class="input-group-text">TicketTitle</span>
                                 </div>
                                 <input type="text" class="form-control" name="TicketTitle" id="Title_input"
                                     aria-label="Default" aria-describedby="TicketTitle">
                             </div>
-                        
+
                             <div class="input-group mb-3" id="Selcet_ticket_type">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text" >Ticket Title</span>
+                                    <span class="input-group-text">Ticket Title</span>
                                 </div>
-                                <select name="TicketTitle"  id="title_select"
-                                    class="form-control  nice-select  custom-select">
-                                    <option value=''> Select Form Ticket Titles </option>
-                                    <?php
-                                    $problemestypes = DB::table('problemestypes')->select('id','ProblemName')->get();
-                                    foreach ($problemestypes as $problemestype)
-                                    echo "<option value='" . $problemestype->ProblemName ."' > $problemestype->ProblemName </option>";   
-                               ?>
-                                </select>
-    
+                                <div class="col-8">
+                                    <select name="TicketTitle" id="title_select"
+                                        class="form-control select-priorities  nice-select js-example-basic-single custom-select">
+                                        <option value=''> Select Form Ticket Titles </option>
+                                        <?php
+                                        $problemestypes = DB::table('problemestypes')
+                                            ->select('id', 'ProblemName')
+                                            ->get();
+                                        foreach ($problemestypes as $problemestype) {
+                                            echo "<option value='" . $problemestype->ProblemName . "' > $problemestype->ProblemName </option>";
+                                        }
+                                        ?>
+                                    </select>
+                                </div>
+
                             </div>
-                            <!----------------------------------------ticket title radio----------------------------------------------------------->
+                        </div>
+                        <!----------------------------------------ticket title radio----------------------------------------------------------->
 
                         <div class="input-group mb-3">
-                            <div class="input-group-prepend">
+                            <div class="input-group-prepend col-4">
                                 <span class="input-group-text" id="DepartmentId">Department</span>
                             </div>
-                            <select name="DepartmentId" required id="select-beast"
-                                class="form-control  nice-select  custom-select">
-                                <option value=''> Select Form Departments </option>
+                            <div class="col-8">
+                                <select name="DepartmentId" required id="select-beast"
+                                    class="form-control  select-priorities nice-select  custom-select">
+                                    <option value=''> Select Form Departments </option>
 
-                                <?php
-                                $departmentes = DB::table('departmentes')
-                                    ->select('id', 'DepartmentName')
-                                    ->get();
-                                foreach ($departmentes as $department) {
-                                    echo "<option value='" . $department->id . "' > $department->DepartmentName </option>";
-                                }
-                                ?>
-                            </select>
-
-                        </div>
-
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="priority">priority</span>
+                                    <?php
+                                    $departmentes = DB::table('departmentes')
+                                        ->select('id', 'DepartmentName')
+                                        ->get();
+                                    foreach ($departmentes as $department) {
+                                        echo "<option value='" . $department->id . "' > $department->DepartmentName </option>";
+                                    }
+                                    ?>
+                                </select>
                             </div>
-                            <select name="priority_id" required id="select-beast"
-                                class="form-control  nice-select  custom-select">
-                                <option value=''> Select Form priorities </option>
 
-                                <?php
-                                $priorities = DB::table('priorities')
-                                    ->select('id', 'name')
-                                    ->get();
-                                foreach ($priorities as $prioritiy) {
-                                    echo "<option value='" . $prioritiy->id . "' > $prioritiy->name </option>";
-                                }
-                                ?>
-                            </select>
+                        </div>
+                        <div class="row">
+                            <div class="input-group mb-3 ">
+                                <div class="col-2">
+                                    <div class="input-group ">
+                                        <span class="input-group-text" id="priority">priority</span>
+                                    </div>
+                                </div>
+                                <div class="col-10">
+                                    <select name="priority_id" required id="select-priorities"
+                                        class="form-control select-priorities">
+                                        <option value=''> Select Form priorities </option>
 
+                                        <?php
+                                        $priorities = DB::table('priorities')
+                                            ->select('id', 'name')
+                                            ->get();
+                                        foreach ($priorities as $prioritiy) {
+                                            echo "<option value='" . $prioritiy->id . "'  > $prioritiy->name </option>";
+                                        }
+                                        ?>
+                                    </select>
+                                </div>
+                            </div>
                         </div>
 
 
-                     <!---------------------------------------reporting user radio ------------------------------------------------------------>
+
+
+                        <!---------------------------------------reporting user radio ------------------------------------------------------------>
                         <!-------------------------------select radio betwwen reporting user ---------------------------------->
                         <div class="d-flex justify-content-between">
                             <div class="col-lg-3 d-flex">
                                 <label class="rdiobox">
-                                    <input  name="ReportingUser" type="radio" value="1" id="writeReportingUser"> <span>write the reporting user</span></label>
-                                </div>
-                                
-                                
-                                <div class="col-lg-3 d-flex">
-                                    <label class="rdiobox">
-                                        <input checked name="ReportingUser" value="2" id="select_ReportingUser" type="radio"><span>select reporting user</span></label>
-                                </div><br><br>
+                                    <input name="ReportingUser" type="radio" value="1"
+                                        id="writeReportingUser"> <span>write the reporting user</span></label>
                             </div>
-                            <!-------------------------------select radio betwwen reporting user ---------------------------------->
-                        
-                        
-                            <div class="input-group mb-3" id="write_ReportingUser">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text" >Reporting User</span>
-                                </div>
-                                <input type="text" class="form-control" name="ReportingUser" id="ReportingUser_input"
-                                    aria-label="Default" aria-describedby="ReportingUser" placeholder="write name - title - area">
+
+
+                            <div class="col-lg-3 d-flex">
+                                <label class="rdiobox">
+                                    <input checked name="ReportingUser" value="2" id="select_ReportingUser"
+                                        type="radio"><span>select reporting user</span></label>
+                            </div><br><br>
+                        </div>
+                        <!-------------------------------select radio betwwen reporting user ---------------------------------->
+
+
+                        <div class="input-group mb-3" id="write_ReportingUser">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Reporting User</span>
                             </div>
-                        
+                            <input type="text" class="form-control " name="ReportingUser"
+                                id="ReportingUser_input" aria-label="Default" aria-describedby="ReportingUser"
+                                placeholder="write name - title - area">
+                        </div>
+                        <div class="row">
                             <div class="input-group mb-3" id="Selcet_ReportingUser">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text" >Reporting User</span>
+                                <div class="col-4">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">Reporting User</span>
+                                    </div>
                                 </div>
-                                <select name="TicketTitle"  id="ReportingUser_select"
-                                    class="form-control  nice-select  custom-select">
-                                    <option value=''> Select Form Users </option>
-                                    <?php
-                                    $Users = DB::table('users')
-                                        ->select('id', 'name')
-                                        ->get();
-                                    foreach ($Users as $User) {
-                                        echo "<option value='" . $User->name . "' > $User->name </option>";
-                                    }
-                                    ?>
-                                </select>
-    
+                                <div class="col-8">
+                                    <select name="TicketTitle" id="ReportingUser_select"
+                                        class="form-control select-priorities nice-select  custom-select">
+                                        <option value=''> Select Form Users </option>
+                                        <?php
+                                        $Users = DB::table('users')
+                                            ->select('id', 'name')
+                                            ->get();
+                                        foreach ($Users as $User) {
+                                            echo "<option value='" . $User->name . "' > $User->name </option>";
+                                        }
+                                        ?>
+                                    </select>
+                                </div>
                             </div>
-                            <!----------------------------------------reporting user radio----------------------------------------------------------->
+                        </div>
+
+                        <!----------------------------------------reporting user radio----------------------------------------------------------->
 
 
-                        <div class="input-group mb-3">
+                        <div class="input-group mb-3 d-none">
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="Ticketstate">Ticket state</span>
                             </div>
@@ -439,7 +483,7 @@
                         </div>
 
 
-                        <div class="input-group mb-3">
+                        <div class="input-group mb-3 d-none">
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="createdBY">createdBY</span>
                             </div>
@@ -514,7 +558,7 @@
                         <p>assign user to this ticket </p><br>
                         <input type="hidden" name="id" id="id" value="">
                         <select name="assignuser" required id="select-beast"
-                            class="form-control  nice-select  custom-select">
+                            class="form-control select-user  nice-select  custom-select">
                             <option value=''> Select Form Users </option>
 
                             <?php
@@ -541,7 +585,7 @@
     <!-- assign to user -->
 
     <!-- edit -->
-    <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    <div class="modal fade" id="exampleModal2" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -671,43 +715,30 @@
 
 
 
+
+
     @include('footer')
+
+
+
+
+
     <script type="text/javascript">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-   
         $(document).ready(function() {
-          
-           
+
+
             $('#tickets').DataTable({
                 dom: 'Bfrtip',
                 buttons: [
                     'copy', 'excel', 'print',
                 ],
-               
+
                 ordering: true,
                 processing: true,
                 serverSide: true,
                 retrieve: true,
                 ajax: `{{ route('tickets.getticketsTable') }}`,
- 
+
 
 
                 "columns": [{
@@ -719,7 +750,8 @@
 
                             return '<a href="/tickets/' + row.id + '">' + row.TicketTitle + '</a>';
                         },
-                        "name": "TicketTitle"
+                        "name": "TicketTitle",
+                        searchable: false
 
 
                     },
@@ -729,7 +761,8 @@
                     },
                     {
                         "data": "get_the_department_name.DepartmentName",
-                        "name": "get_the_department_name.DepartmentName"
+                        "name": "get_the_department_name.DepartmentName",
+                        searchable: false
                     },
                     {
                         "data": function(row, type, val, meta) {
@@ -738,8 +771,8 @@
 
                         },
                         "name": "priority.name",
-                        orderable: false,
-                        searchable: false
+                        orderable: false
+
                     },
                     {
                         "data": "ReportingUser",
@@ -756,46 +789,47 @@
                     {
                         data: 'created_at',
                         name: 'created_at',
-                        
+
                         render: function(d) {
-                   return moment(d).format("DD/MM/YYYY HH:mm:ss");
-                }
-                      
+                            return moment(d).format("DD/MM/YYYY HH:mm:ss");
+                        }
+
                     },
 
-                    
+
                     {
                         data: 'assignuser',
                         name: 'assignuser'
                     },
 
-                   
-                    
+
+
                     {
-                        
+
                         name: 'TicketDetails',
-                        
+
                         "data": function(row, type, val, meta) {
-                        return '<a href="/tickets/' + row.id + '" class="ticket_detailes">' + row.TicketDetails + '</a>';
-                                }
+                            return '<a href="/tickets/' + row.id + '" class="ticket_detailes">' +
+                                row.TicketDetails + '</a>';
+                        }
                     }
 
-                    @if(Auth::user()->can('role-action'))
-                    ,{
-                        data: 'action',
-                        name: 'action',
-                        orderable: false,
-                        searchable: false,
-                    }
+                    @if (Auth::user()->can('role-action'))
+                        , {
+                            data: 'action',
+                            name: 'action',
+                            orderable: false,
+                            searchable: false,
+                        }
                     @endif
-                    @if(Auth::user()->can('role-assign-to-user'))
+                    @if (Auth::user()->can('role-assign-to-user'))
 
-                    ,{
-                        data: 'assigntouser',
-                        name: 'assigntouser',
-                        orderable: false,
-                        searchable: false
-                    }
+                        , {
+                            data: 'assigntouser',
+                            name: 'assigntouser',
+                            orderable: false,
+                            searchable: false
+                        }
                     @endif
 
                 ],
@@ -804,80 +838,87 @@
                 }
             });
         });
-
-
-
-  
-
-
-
-
     </script>
-<!-----------------radio scripts--------------------------------->
-<script>
-     $(document).ready(function() {
-
-$('#Selcet_ticket_type').hide();
-$('#write_Ticket_Title').show();
-$('#Title_input').attr('name', 'TicketTitle');
-$('#title_select').attr('name', '');
-
-$('input[type="radio"]').click(function() {
-    if ($(this).attr('id') == 'type_div') {
-        
-        $('#Selcet_ticket_type').hide();
-        $('#write_Ticket_Title').show();
-
-        $('#Title_input').attr('name', 'TicketTitle');
-        $('#title_select').attr('name', '');
-        
-        
-    } else if ($(this).attr('id') == 'select_TicketTitle') {
-        
-        $('#write_Ticket_Title').hide();
-        
-        $('#Selcet_ticket_type').show();
-        
-        $('#Title_input').attr('name', '');
-        
-        $('#title_select').attr('name', 'TicketTitle');
-    }
-});
-});
 
 
-     $(document).ready(function() {
-
-$('#write_ReportingUser').hide();
-$('#write_ReportingUser').attr('name', '');
-$('#Selcet_ReportingUser').show();
-$('#ReportingUser_select').attr('name', 'ReportingUser');
-
-$('input[type="radio"]').click(function() {
-    if ($(this).attr('id') == 'writeReportingUser') {
-        
-        $('#Selcet_ReportingUser').hide();
-        $('#write_ReportingUser').show();
-
-        $('#ReportingUser_input').attr('name', 'ReportingUser');
-        $('#ReportingUser_select').attr('name', '');
-        
-        
-    } else if ($(this).attr('id') == 'select_ReportingUser') {
-        
-        $('#write_ReportingUser').hide();
-        
-        $('#Selcet_ReportingUser').show();
-        
-        $('#ReportingUser_input').attr('name', '');
-        
-        $('#ReportingUser_select').attr('name', 'ReportingUser');
-    }
-});
-});
-</script>
-<!-------------------radio scripts------------------------------->
+    <!-----------------radio scripts--------------------------------->
     <script>
+        $(document).ready(function() {
+
+            $('#Selcet_ticket_type').hide();
+            $('#write_Ticket_Title').show();
+            $('#Title_input').attr('name', 'TicketTitle');
+            $('#title_select').attr('name', '');
+
+            $('input[type="radio"]').click(function() {
+                if ($(this).attr('id') == 'type_div') {
+
+                    $('#Selcet_ticket_type').hide();
+                    $('#write_Ticket_Title').show();
+
+                    $('#Title_input').attr('name', 'TicketTitle');
+                    $('#title_select').attr('name', '');
+
+
+                } else if ($(this).attr('id') == 'select_TicketTitle') {
+
+                    $('#write_Ticket_Title').hide();
+
+                    $('#Selcet_ticket_type').show();
+
+                    $('#Title_input').attr('name', '');
+
+                    $('#title_select').attr('name', 'TicketTitle');
+                }
+            });
+        });
+
+
+        $(document).ready(function() {
+
+            $('#write_ReportingUser').hide();
+            $('#write_ReportingUser').attr('name', '');
+            $('#Selcet_ReportingUser').show();
+            $('#ReportingUser_select').attr('name', 'ReportingUser');
+
+            $('input[type="radio"]').click(function() {
+                if ($(this).attr('id') == 'writeReportingUser') {
+
+                    $('#Selcet_ReportingUser').hide();
+                    $('#write_ReportingUser').show();
+
+                    $('#ReportingUser_input').attr('name', 'ReportingUser');
+                    $('#ReportingUser_select').attr('name', '');
+
+
+                } else if ($(this).attr('id') == 'select_ReportingUser') {
+
+                    $('#write_ReportingUser').hide();
+
+                    $('#Selcet_ReportingUser').show();
+
+                    $('#ReportingUser_input').attr('name', '');
+
+                    $('#ReportingUser_select').attr('name', 'ReportingUser');
+                }
+            });
+        });
+    </script>
+    <!-------------------radio scripts------------------------------->
+    <script>
+        $(document).ready(function() {
+            $('.select-priorities').select2({
+                placeholder: "Select From options",
+                allowClear: true,
+                dropdownParent: $('#modaldemo8')
+            });
+            $('.select-user').select2({
+                placeholder: "Select From users",
+                allowClear: true,
+                dropdownParent: $('#modaldemo18')
+            });
+        });
+
         $('#modaldemo18').on('show.bs.modal', function(event) {
             var button = $(event.relatedTarget)
             var id = button.data('id')

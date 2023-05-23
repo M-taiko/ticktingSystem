@@ -283,76 +283,164 @@
                         data-bs-dismiss="modal" type="button"><span aria-hidden="true">&times;</span></button>
                 </div>
                 <div class="modal-body">
-                    <form action="{{ route('tickets.store') }}" method="post">
+                    <form action="{{ route('departmentticket.store') }}" method="post"> 
                         {{ csrf_field() }}
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="TicketTitle">TicketTitle</span>
+                        <!---------------------------------------ticket title radio ------------------------------------------------------------>
+                        <!-------------------------------select radio betwwen ticket title ---------------------------------->
+
+                        <div class="p-1 m-1">
+                            <div class="d-flex justify-content-between">
+                                <div class="col-lg-3 d-flex">
+                                    <label class="rdiobox">
+                                        <input checked name="select_TicketTitle" type="radio" value="1"
+                                            id="type_div"> <span>write the ticket title</span></label>
+                                </div>
+
+
+                                <div class="col-lg-3 d-flex">
+                                    <label class="rdiobox">
+                                        <input name="select_TicketTitle" value="2" id="select_TicketTitle"
+                                            type="radio"><span>select ticket title</span></label>
+                                </div><br><br>
                             </div>
-                            <input type="text" class="form-control" name="TicketTitle" required
-                                aria-label="Default" aria-describedby="TicketTitle">
+                            <!-------------------------------select radio betwwen ticket title ---------------------------------->
+
+
+                            <div class="input-group mb-3" id="write_Ticket_Title">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">TicketTitle</span>
+                                </div>
+                                <input type="text" class="form-control" name="TicketTitle" id="Title_input"
+                                    aria-label="Default" aria-describedby="TicketTitle">
+                            </div>
+
+                            <div class="input-group mb-3" id="Selcet_ticket_type">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Ticket Title</span>
+                                </div>
+                                <div class="col-8">
+                                    <select name="TicketTitle" id="title_select"
+                                        class="form-control select-priorities  nice-select js-example-basic-single custom-select">
+                                        <option value=''> Select Form Ticket Titles </option>
+                                        <?php
+                                        $problemestypes = DB::table('problemestypes')
+                                            ->select('id', 'ProblemName')
+                                            ->get();
+                                        foreach ($problemestypes as $problemestype) {
+                                            echo "<option value='" . $problemestype->ProblemName . "' > $problemestype->ProblemName </option>";
+                                        }
+                                        ?>
+                                    </select>
+                                </div>
+
+                            </div>
                         </div>
+                        <!----------------------------------------ticket title radio----------------------------------------------------------->
+
                         <div class="input-group mb-3">
-                            <div class="input-group-prepend">
+                            <div class="input-group-prepend col-4">
                                 <span class="input-group-text" id="DepartmentId">Department</span>
                             </div>
-                            <select name="DepartmentId" required id="select-beast"
-                                class="form-control  nice-select  custom-select">
-                                <option value=''> Select Form Departments </option>
+                            <div class="col-8">
+                                <select name="DepartmentId" required id="select-beast"
+                                    class="form-control  select-priorities nice-select  custom-select">
+                                    <option value=''> Select Form Departments </option>
 
-                                <?php
-                                $departmentes = DB::table('departmentes')
-                                    ->select('id', 'DepartmentName')
-                                    ->get();
-                                foreach ($departmentes as $department) {
-                                    echo "<option value='" . $department->id . "' > $department->DepartmentName </option>";
-                                }
-                                ?>
-                            </select>
-
-                        </div>
-
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="priority">priority</span>
+                                    <?php
+                                    $departmentes = DB::table('departmentes')
+                                        ->select('id', 'DepartmentName')
+                                        ->get();
+                                    foreach ($departmentes as $department) {
+                                        echo "<option value='" . $department->id . "' > $department->DepartmentName </option>";
+                                    }
+                                    ?>
+                                </select>
                             </div>
-                            <select name="priority_id" required id="select-beast"
-                                class="form-control  nice-select  custom-select">
-                                <option value=''> Select Form priorities </option>
-
-                                <?php
-                                $priorities = DB::table('priorities')
-                                    ->select('id', 'name')
-                                    ->get();
-                                foreach ($priorities as $prioritiy) {
-                                    echo "<option value='" . $prioritiy->id . "' > $prioritiy->name </option>";
-                                }
-                                ?>
-                            </select>
 
                         </div>
+                        <div class="row">
+                            <div class="input-group mb-3 ">
+                                <div class="col-2">
+                                    <div class="input-group ">
+                                        <span class="input-group-text" id="priority">priority</span>
+                                    </div>
+                                </div>
+                                <div class="col-10">
+                                    <select name="priority_id" required id="select-priorities"
+                                        class="form-control select-priorities">
+                                        <option value=''> Select Form priorities </option>
 
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="ReportingUser">Reporting User</span>
+                                        <?php
+                                        $priorities = DB::table('priorities')
+                                            ->select('id', 'name')
+                                            ->get();
+                                        foreach ($priorities as $prioritiy) {
+                                            echo "<option value='" . $prioritiy->id . "'  > $prioritiy->name </option>";
+                                        }
+                                        ?>
+                                    </select>
+                                </div>
                             </div>
-                            <select name="ReportingUser" required id="select-beast"
-                                class="form-control  nice-select  custom-select">
-                                <option value=''> Select Form Users </option>
-
-                                <?php
-                                $Users = DB::table('users')
-                                    ->select('id', 'name')
-                                    ->get();
-                                foreach ($Users as $User) {
-                                    echo "<option value='" . $User->name . "' > $User->name </option>";
-                                }
-                                ?>
-                            </select>
-
                         </div>
 
-                        <div class="input-group mb-3">
+
+
+
+                        <!---------------------------------------reporting user radio ------------------------------------------------------------>
+                        <!-------------------------------select radio betwwen reporting user ---------------------------------->
+                        <div class="d-flex justify-content-between">
+                            <div class="col-lg-3 d-flex">
+                                <label class="rdiobox">
+                                    <input name="ReportingUser" type="radio" value="1"
+                                        id="writeReportingUser"> <span>write the reporting user</span></label>
+                            </div>
+
+
+                            <div class="col-lg-3 d-flex">
+                                <label class="rdiobox">
+                                    <input checked name="ReportingUser" value="2" id="select_ReportingUser"
+                                        type="radio"><span>select reporting user</span></label>
+                            </div><br><br>
+                        </div>
+                        <!-------------------------------select radio betwwen reporting user ---------------------------------->
+
+
+                        <div class="input-group mb-3" id="write_ReportingUser">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Reporting User</span>
+                            </div>
+                            <input type="text" class="form-control " name="ReportingUser"
+                                id="ReportingUser_input" aria-label="Default" aria-describedby="ReportingUser"
+                                placeholder="write name - title - area">
+                        </div>
+                        <div class="row">
+                            <div class="input-group mb-3" id="Selcet_ReportingUser">
+                                <div class="col-4">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">Reporting User</span>
+                                    </div>
+                                </div>
+                                <div class="col-8">
+                                    <select name="TicketTitle" id="ReportingUser_select"
+                                        class="form-control select-priorities nice-select  custom-select">
+                                        <option value=''> Select Form Users </option>
+                                        <?php
+                                        $Users = DB::table('users')
+                                            ->select('id', 'name')
+                                            ->get();
+                                        foreach ($Users as $User) {
+                                            echo "<option value='" . $User->name . "' > $User->name </option>";
+                                        }
+                                        ?>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!----------------------------------------reporting user radio----------------------------------------------------------->
+
+
+                        <div class="input-group mb-3 d-none">
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="Ticketstate">Ticket state</span>
                             </div>
@@ -363,7 +451,7 @@
                         </div>
 
 
-                        <div class="input-group mb-3">
+                        <div class="input-group mb-3 d-none">
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="createdBY">createdBY</span>
                             </div>
@@ -442,9 +530,11 @@
                             <option value=''> Select Form Users </option>
 
                             <?php
-                            $Users = DB::table('users')
-                                ->select('id', 'name')
-                                ->get();
+                         
+                                $Users = DB::table('users')
+                                            ->select('id', 'name')
+                                            ->where('DepartmentName', auth()->user()->DepartmentName)
+                                            ->get();
                             foreach ($Users as $User) {
                                 echo "<option value='" . $User->name . "' > $User->name </option>";
                             }
@@ -692,9 +782,87 @@
             });
         });
     </script>
+<!----------------------------------radio ticket ---------------------------->
+<script>
+    $(document).ready(function() {
 
+        $('#Selcet_ticket_type').hide();
+        $('#write_Ticket_Title').show();
+        $('#Title_input').attr('name', 'TicketTitle');
+        $('#title_select').attr('name', '');
+
+        $('input[type="radio"]').click(function() {
+            if ($(this).attr('id') == 'type_div') {
+
+                $('#Selcet_ticket_type').hide();
+                $('#write_Ticket_Title').show();
+
+                $('#Title_input').attr('name', 'TicketTitle');
+                $('#title_select').attr('name', '');
+
+
+            } else if ($(this).attr('id') == 'select_TicketTitle') {
+
+                $('#write_Ticket_Title').hide();
+
+                $('#Selcet_ticket_type').show();
+
+                $('#Title_input').attr('name', '');
+
+                $('#title_select').attr('name', 'TicketTitle');
+            }
+        });
+    });
+
+
+    $(document).ready(function() {
+
+        $('#write_ReportingUser').hide();
+        $('#write_ReportingUser').attr('name', '');
+        $('#Selcet_ReportingUser').show();
+        $('#ReportingUser_select').attr('name', 'ReportingUser');
+
+        $('input[type="radio"]').click(function() {
+            if ($(this).attr('id') == 'writeReportingUser') {
+
+                $('#Selcet_ReportingUser').hide();
+                $('#write_ReportingUser').show();
+
+                $('#ReportingUser_input').attr('name', 'ReportingUser');
+                $('#ReportingUser_select').attr('name', '');
+
+
+            } else if ($(this).attr('id') == 'select_ReportingUser') {
+
+                $('#write_ReportingUser').hide();
+
+                $('#Selcet_ReportingUser').show();
+
+                $('#ReportingUser_input').attr('name', '');
+
+                $('#ReportingUser_select').attr('name', 'ReportingUser');
+            }
+        });
+    });
+</script>
+<!----------------------------------radio ticket ---------------------------->
 
     <script>
+    $(document).ready(function() {
+            $('.select-priorities').select2({
+                placeholder: "Select From options",
+                allowClear: true,
+                dropdownParent: $('#modaldemo8')
+            });
+            $('.select-user').select2({
+                placeholder: "Select From users",
+                allowClear: true,
+                dropdownParent: $('#modaldemo18')
+            });
+        });
+
+
+
         $('#modaldemo18').on('show.bs.modal', function(event) {
             var button = $(event.relatedTarget)
             var id = button.data('id')

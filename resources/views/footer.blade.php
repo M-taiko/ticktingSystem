@@ -32,6 +32,7 @@
 		<script src="{{asset('assets/js/custom/utilities/modals/offer-a-deal/complete.js')}}"></script>
 		<script src="{{asset('assets/js/custom/utilities/modals/offer-a-deal/main.js')}}"></script>
 		<script src="{{asset('assets/js/custom/utilities/modals/users-search.js')}}"></script>
+
 		<!--end::Custom Javascript-->	
 		</body>
 	<!--end::Body-->
