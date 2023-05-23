@@ -428,7 +428,7 @@
                                                         value="{{$v->id}}">
                                                         @endforeach
                                                         @endif
-                                                       
+                                                       @can('assign-any-user')
                                                         <select name="assignuser" required id="select-beast"
                                                             class="form-control  nice-select  custom-select">
                                                             <option value=''> Select Form Users </option>
@@ -442,6 +442,10 @@
                                                             }
                                                             ?>
                                                         </select>
+                                                        @endcan
+                                                         @can('assign-my-department-user')
+
+                                                         @endcan
 
 
                                                     </div>

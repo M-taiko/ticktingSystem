@@ -20,6 +20,8 @@ $permissions = [
 'Edit-ticket-stats',
 'role-assign-to-user',
 'role-edit-ticket-stats',
+'assign-my-department-user',
+'assign-any-user',
 'users',
 'role-list',
 'role-create',
