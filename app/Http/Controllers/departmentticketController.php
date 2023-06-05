@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\tickethistory;
 use App\Models\tickets;
+use App\Notifications\newticket;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Notification;
 use Yajra\DataTables\Facades\DataTables;
 
 class departmentticketController extends Controller
@@ -174,6 +176,25 @@ class departmentticketController extends Controller
                 'TicketDetails' => $request->TicketDetails,
 
             ]);
+
+            $ticket= tickets::latest()->first();
+
+
+
+ 
+                      $user = \App\Models\User::join('departmentes', 'users.DepartmentName', '=', 'departmentes.DepartmentName')
+                        ->join('tickets', 'departmentes.id', '=', 'tickets.DepartmentId')
+                        ->select('users.*')
+                        ->get();
+            
+            
+            
+                       // $user = \App\Models\User::get();
+            
+                        Notification::send($user, new newticket($ticket));
+                       
+            
+            
             session()->flash('Add', 'New Ticket has been Addedd');
 
             return redirect('/departmentticket');
@@ -231,7 +252,7 @@ class departmentticketController extends Controller
 
 
             session()->flash('Add', 'New User Had Been Assigned');
-            return redirect('/tickets');
+            return redirect('/departmentticket');
         }
     }
     public function update(Request $request, tickets $tickets)
@@ -270,7 +291,7 @@ class departmentticketController extends Controller
         ]);
 
         session()->flash('edit', 'Ticket Had Been Edited Successfully');
-        return redirect('/tickets');
+        return redirect('/departmentticket');
     }
 
     /**
@@ -284,6 +305,6 @@ class departmentticketController extends Controller
         $id = $request->id;
         tickets::find($id)->delete();
         session()->flash('delete', 'Ticket Has Been Deleted');
-        return redirect('/tickets');
+        return redirect('/departmentticket');
     }
 }

@@ -3,6 +3,19 @@
 use Illuminate\Support\Str;
 
 return [
+    
+    /*
+    |--------------------------------------------------------------------------
+    | PDO Fetch Style
+    |--------------------------------------------------------------------------
+    |
+    | By default, database results will be returned as instances of the PHP
+    | stdClass object; however, you may desire to retrieve records in an
+    | array format for simplicity. Here you can tweak the fetch style.
+    |
+    */
+
+    'fetch' => PDO::FETCH_OBJ,
 
     /*
     |--------------------------------------------------------------------------
@@ -118,30 +131,30 @@ return [
     */
 
     'redis' => [
-
-        'client' => env('REDIS_CLIENT', 'phpredis'),
-
+ 
+        'client' => env('REDIS_CLIENT', 'predis'),
+ 
         'options' => [
             'cluster' => env('REDIS_CLUSTER', 'redis'),
             'prefix' => env('REDIS_PREFIX', Str::slug(env('APP_NAME', 'laravel'), '_').'_database_'),
         ],
-
+ 
         'default' => [
-            'url' => env('REDIS_URL'),
-            'host' => env('REDIS_HOST', '127.0.0.1'),
-            'password' => env('REDIS_PASSWORD'),
-            'port' => env('REDIS_PORT', '6379'),
-            'database' => env('REDIS_DB', '0'),
+            'url' => env('REDIS_SESSION_URL',  env('REDIS_URL')),
+            'host' => env('REDIS_SESSION_HOST',  env('REDIS_HOST', '127.0.0.1')),
+            'password' => env('REDIS_SESSION_PASSWORD',  env('REDIS_PASSWORD', null)),
+            'port' => env('REDIS_SESSION_PORT',  env('REDIS_PORT', '6379')),
+            'database' => env('REDIS_SESSION_DB', env('REDIS_DB', '0')),
         ],
-
+ 
         'cache' => [
-            'url' => env('REDIS_URL'),
-            'host' => env('REDIS_HOST', '127.0.0.1'),
-            'password' => env('REDIS_PASSWORD'),
-            'port' => env('REDIS_PORT', '6379'),
-            'database' => env('REDIS_CACHE_DB', '1'),
+            'url' => env('REDIS_CACHE_URL',  env('REDIS_URL')),
+            'host' => env('REDIS_CACHE_HOST',  env('REDIS_HOST', '127.0.0.1')),
+            'password' => env('REDIS_CACHE_PASSWORD',  env('REDIS_PASSWORD', null)),
+            'port' => env('REDIS_CACHE_PORT',  env('REDIS_PORT', '6379')),
+            'database' => env('REDIS_CACHE_DB', env('REDIS_CACHE_DB', '1')),
         ],
-
+ 
     ],
 
 ];

@@ -32,8 +32,30 @@
 		<script src="{{asset('assets/js/custom/utilities/modals/offer-a-deal/complete.js')}}"></script>
 		<script src="{{asset('assets/js/custom/utilities/modals/offer-a-deal/main.js')}}"></script>
 		<script src="{{asset('assets/js/custom/utilities/modals/users-search.js')}}"></script>
+		<script src="https://js.pusher.com/7.0/pusher.min.js"></script>
+<!--
+		<script type="module">
+			import Echo from 'laravel-echo';
+			window.Pusher = require('pusher-js');
 
+			window.Echo = new Echo({
+				broadcaster: 'pusher',
+				key: process.env.MIX_PUSHER_APP_KEY,
+				cluster: process.env.MIX_PUSHER_APP_CLUSTER,
+				encrypted: true,
+			});
+
+			window.Echo.channel('example-channel')
+				.listen('.example-event', (event) => {
+					console.log(event);
+					// Handle the event data here
+				});
+
+		</script>
+		-->
 		<!--end::Custom Javascript-->	
 		</body>
 	<!--end::Body-->
+
+
 </html>

@@ -1,10 +1,12 @@
 <?php
 
 use App\Http\Controllers\DepartmentesController;
+use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\PrioritiesController;
 use App\Http\Controllers\ProblemestypeController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
+use BeyondCode\LaravelWebSockets\Dashboard\Http\Controllers\ShowDashboard;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -109,6 +111,11 @@ Route::resource('priorities', PrioritiesController::class );
 /************************************* End priorities Routes *************************************************************** */
 
 
+/************************************* Notifecation  Routes *************************************************************** */
+Route::get('notifications/unread', [NotificationController::class, 'unread'])->name('notifications.unread');
+/*************************************  Notiefcation  Routes *************************************************************** */
+
+
 
 
 
@@ -120,6 +127,20 @@ Route::group(['middleware' => ['auth']], function() {
 
 });
 /************************************* End Auth Routes *************************************************************** */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 Auth::routes(['register'=>false , 'reset'=>false]);
 

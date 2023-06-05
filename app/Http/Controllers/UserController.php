@@ -1,14 +1,17 @@
 <?php
 namespace App\Http\Controllers;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\User;
-use Illuminate\Support\Arr;
-use Spatie\Permission\Models\Role;
 use DB;
 use Hash;
+use Illuminate\Http\Request;
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Arr;
+use Spatie\Permission\Models\Role;
 class UserController extends Controller
 {
+    use Notifiable;
+
 /**
 * Display a listing of the resource.
 *

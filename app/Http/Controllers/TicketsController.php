@@ -2,11 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\SendTicketNotification;
 use App\Models\tickethistory;
 use App\Models\tickets;
+use App\Notifications\assigntouser;
+use App\Notifications\newticket;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Notification;
 use Yajra\DataTables\Facades\DataTables;
 
 class TicketsController extends Controller
@@ -14,6 +18,7 @@ class TicketsController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+
     }
     /**
      * Display a listing of the resource.
@@ -28,8 +33,9 @@ class TicketsController extends Controller
 
         /* $data = tickets::with('GetTheDepartmentName')->get('*');*/
 
-
-
+    // event(new SendTicketNotification("test"));
+   //   SendTicketNotification::dispatch("test");
+ 
         return view('tickets');
     }
     public function getticketsTable(Request $request)
@@ -38,9 +44,6 @@ class TicketsController extends Controller
 
 
             $data = tickets::with(['GetTheDepartmentName', 'priority', 'comments']);
-
-          
-
             return Datatables::of($data)
                 ->addIndexColumn()
                 ->addColumn('action', function ($row) {
@@ -146,7 +149,8 @@ class TicketsController extends Controller
     {
         $input = $request->all();
 
-
+        
+     
         $b_exists = DB::table('tickets')
             ->where('TicketTitle', '=', $input['TicketTitle'])
             ->where('DepartmentId', '=', $input['DepartmentId'])
@@ -161,15 +165,33 @@ class TicketsController extends Controller
 
             tickets::create([
                 'TicketTitle' => $request->TicketTitle,
-               'TicketNumber' => '000' . $request->id,  
+                'TicketNumber' => '000' . $request->id,  
                 'DepartmentId' => $request->DepartmentId,
                 'priority_id' => $request->priority_id,
                 'ReportingUser' => $request->ReportingUser,
                 'Ticketstate' => $request->Ticketstate,
                 'createdBY' => $request->createdBY,
                 'TicketDetails' => $request->TicketDetails,
-
+                
             ]);
+            
+
+           $ticket= tickets::latest()->first();
+
+
+          $user = \App\Models\User::join('departmentes', 'users.DepartmentName', '=', 'departmentes.DepartmentName')
+            ->join('tickets', 'departmentes.id', '=', 'tickets.DepartmentId')
+            ->select('users.*')
+            ->get();
+
+           
+
+
+         
+
+            Notification::send($user, new newticket($ticket));
+           
+
             session()->flash('Add', 'New Ticket has been Addedd');
 
             return redirect('/tickets');
@@ -182,7 +204,7 @@ class TicketsController extends Controller
      * @param  \App\Models\tickets  $tickets
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id,Request $request)
     {
 
         /* $tickets = tickets::find($id)->with(['GetTheDepartmentName' , 'priority'])->get(); */
@@ -193,9 +215,31 @@ class TicketsController extends Controller
             $query->where('id', $id);
         })->get();
 
+      
+
+      
+        if($request->uuid){
+             DB::table('notifications')->where('id',$request->uuid)->update(['read_at'=>now()]);
+        }
 
         return view('showtickets', compact('tickets', 'tickethistory', 'id'));
+
+
+
+
+
+
+
+
+
+
+
     }
+
+
+
+
+    
 
     /**
      * Show the form for editing the specified resource.
@@ -223,6 +267,22 @@ class TicketsController extends Controller
             $b_exists->update([
                 'assignuser' => $request->assignuser,
             ]);
+
+
+
+
+
+            $ticket= tickets::latest()->first();
+
+                    $user = \App\Models\User::join('tickets', 'users.name', '=', 'tickets.assignuser')
+                        ->select('users.*')
+                        ->get();
+            
+            
+            
+                       // $user = \App\Models\User::get();
+            
+                        Notification::send($user, new assigntouser($ticket));
 
 
 
