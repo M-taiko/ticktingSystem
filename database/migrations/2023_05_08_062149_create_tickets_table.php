@@ -24,7 +24,7 @@ return new class extends Migration
            
              $table->string('ReportingUser');
              $table->string('Ticketstate');
-             $table->string('TicketDetails', '1024');
+             $table->string('TicketDetails', 1024);
              $table->string('assignuser')->nullable();
              $table->string('createdBY');
              $table->timestamps();
