@@ -149,7 +149,6 @@
 								<!----------------------------------------Un seen notifications----------------------------------------------------->
 
 								<!---------------------------------------- old notifications----------------------------------------------------->
-
 									<!--begin::Tab panel-->
 									<div class="tab-pane fade " id="kt_topbar_notifications_3" role="tabpanel">
 										<div class="scroll-y mh-325px my-5 px-8">
