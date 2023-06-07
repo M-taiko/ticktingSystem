@@ -82,7 +82,7 @@
                                         <li class="breadcrumb-item text-muted">
                                             <a href="departmentes" class="text-muted text-hover-primary">Departments</a>
                                         </li>
-                                     
+
                                     </ul>
                                     <!----------------------------start session ------------------------------------------------->
                                     @if(session()->has('Add'))
@@ -131,47 +131,47 @@
 
                                     <!--end::Breadcrumb-->
                                     <div class="card-body">
-                                    	<!--begin::Toolbar-->
-												<div class="d-flex justify-content-end" data-kt-customer-table-toolbar="base">
-                                                    <a class="modal-effect btn btn-primary btn-block" data-effect="effect-scale" data-bs-toggle="modal" href="#modaldemo8">Add New Department</a>
+                                        <!--begin::Toolbar-->
+                                        <div class="d-flex justify-content-end" data-kt-customer-table-toolbar="base">
+                                            <a class="modal-effect btn btn-primary btn-block" data-effect="effect-scale" data-bs-toggle="modal" href="#modaldemo8">Add New Department</a>
 
-													<!--end::Add customer-->
-												</div>
-												<!--end::Toolbar-->
+                                            <!--end::Add customer-->
+                                        </div>
+                                        <!--end::Toolbar-->
                                         <!---------------------------------------------------------------------------------------------------->
                                         <!--------------------------Table Body-------------------------------------------------------------------------->
                                         <!---------------------------------------------------------------------------------------------------->
-                               
-                                    
+
+
                                         <div class="card-body pt-0">
-											<!--begin::Table-->
-											<table class="table align-middle table-row-dashed fs-6 gy-5" id="departmentes">
-												<!--begin::Table head-->
-												<thead>
-													<!--begin::Table row-->
-													<tr class="text-start text-gray-400 fw-bold fs-7 text-uppercase gs-0">
-													
-														<th class="min-w-125px">#</th>
-														<th class="min-w-125px">Department Name</th>
-														<th class="min-w-125px">Department Head</th>
-														<th class="min-w-125px">Area</th>
-														<th class="min-w-125px">action</th>
-														
-													</tr>
-													<!--end::Table row-->
-												</thead>
-												<!--end::Table head-->
-												<!--begin::Table body-->
-												<tbody class="fw-semibold text-gray-600">
-												
-												
-											
-													
-												</tbody>
-												<!--end::Table body-->
-											</table>
-											<!--end::Table-->
-										</div>
+                                            <!--begin::Table-->
+                                            <table class="table align-middle table-row-dashed fs-6 gy-5" id="departmentes">
+                                                <!--begin::Table head-->
+                                                <thead>
+                                                    <!--begin::Table row-->
+                                                    <tr class="text-start text-gray-400 fw-bold fs-7 text-uppercase gs-0">
+
+                                                        <th class="min-w-125px">#</th>
+                                                        <th class="min-w-125px">Department Name</th>
+                                                        <th class="min-w-125px">Department Head</th>
+                                                        <th class="min-w-125px">Area</th>
+                                                        <th class="min-w-125px">action</th>
+
+                                                    </tr>
+                                                    <!--end::Table row-->
+                                                </thead>
+                                                <!--end::Table head-->
+                                                <!--begin::Table body-->
+                                                <tbody class="fw-semibold text-gray-600">
+
+
+
+
+                                                </tbody>
+                                                <!--end::Table body-->
+                                            </table>
+                                            <!--end::Table-->
+                                        </div>
                                         <!---------------------------------------------------------------------------------------------------->
                                         <!-------------------------------------Table Body--------------------------------------------------------------->
                                         <!---------------------------------------------------------------------------------------------------->

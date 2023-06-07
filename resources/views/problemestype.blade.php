@@ -82,7 +82,7 @@
                                         <li class="breadcrumb-item text-muted">
                                             <a href="problemestype" class="text-muted text-hover-primary">Problem Types</a>
                                         </li>
-                                     
+
                                     </ul>
                                     <!----------------------------start session ------------------------------------------------->
                                     @if(session()->has('Add'))
@@ -131,47 +131,47 @@
 
                                     <!--end::Breadcrumb-->
                                     <div class="card-body">
-                                     <!--begin::Toolbar-->
-												<div class="d-flex justify-content-end" data-kt-customer-table-toolbar="base">
-                                                    <a class="modal-effect btn btn-primary btn-block" data-effect="effect-scale" data-bs-toggle="modal" href="#modaldemo8">Add New Problem Type</a>
+                                        <!--begin::Toolbar-->
+                                        <div class="d-flex justify-content-end" data-kt-customer-table-toolbar="base">
+                                            <a class="modal-effect btn btn-primary btn-block" data-effect="effect-scale" data-bs-toggle="modal" href="#modaldemo8">Add New Problem Type</a>
 
-													<!--end::Add customer-->
-												</div>
-												<!--end::Toolbar-->
+                                            <!--end::Add customer-->
+                                        </div>
+                                        <!--end::Toolbar-->
                                         <!---------------------------------------------------------------------------------------------------->
                                         <!--------------------------Table Body-------------------------------------------------------------------------->
                                         <!---------------------------------------------------------------------------------------------------->
-                               
-                                    
+
+
                                         <div class="card-body pt-0">
-											<!--begin::Table-->
-											<table class="table align-middle table-row-dashed fs-6 gy-5" id="problemtype">
-												<!--begin::Table head-->
-												<thead>
-													<!--begin::Table row-->
-													<tr class="text-start text-gray-400 fw-bold fs-7 text-uppercase gs-0">
-													
-														<th class="min-w-125px">#</th>
-														<th class="min-w-125px">Problem Name</th>
-														<th class="min-w-125px">Problem Type </th>
-													
-														<th class="min-w-125px">action</th>
-														
-													</tr>
-													<!--end::Table row-->
-												</thead>
-												<!--end::Table head-->
-												<!--begin::Table body-->
-												<tbody class="fw-semibold text-gray-600">
-												
-												
-											
-													
-												</tbody>
-												<!--end::Table body-->
-											</table>
-											<!--end::Table-->
-										</div>
+                                            <!--begin::Table-->
+                                            <table class="table align-middle table-row-dashed fs-6 gy-5" id="problemtype">
+                                                <!--begin::Table head-->
+                                                <thead>
+                                                    <!--begin::Table row-->
+                                                    <tr class="text-start text-gray-400 fw-bold fs-7 text-uppercase gs-0">
+
+                                                        <th class="min-w-125px">#</th>
+                                                        <th class="min-w-125px">Problem Name</th>
+                                                        <th class="min-w-125px">Problem Type </th>
+
+                                                        <th class="min-w-125px">action</th>
+
+                                                    </tr>
+                                                    <!--end::Table row-->
+                                                </thead>
+                                                <!--end::Table head-->
+                                                <!--begin::Table body-->
+                                                <tbody class="fw-semibold text-gray-600">
+
+
+
+
+                                                </tbody>
+                                                <!--end::Table body-->
+                                            </table>
+                                            <!--end::Table-->
+                                        </div>
                                         <!---------------------------------------------------------------------------------------------------->
                                         <!-------------------------------------Table Body--------------------------------------------------------------->
                                         <!---------------------------------------------------------------------------------------------------->
@@ -257,7 +257,7 @@
                             <input type="text" class="form-control" name="ProblemType" aria-label="Default" aria-describedby="ProblemType">
                         </div>
 
-                      
+
 
 
                 </div>
@@ -302,7 +302,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Problem Type  Edit</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Problem Type Edit</h5>
                     <button type="button" class="close btn" data-bs-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -313,7 +313,7 @@
                         {{csrf_field()}}
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
-                                <span class="input-group-text">Problem  Name</span>
+                                <span class="input-group-text">Problem Name</span>
                             </div>
 
                             <input type="hidden" name="id" id="id" value="">
@@ -325,7 +325,7 @@
                             </div>
                             <input type="text" class="form-control" id="ProblemType" name="ProblemType" aria-label="Default" aria-describedby="ProblemType">
                         </div>
-                    
+
                         <div class="modal-footer">
                             <button type="submit" class="btn btn-primary">Confirm Edite</button>
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">close</button>
@@ -409,19 +409,19 @@
         </script>
 
         <script>
-        /*************Edit Modal*********************/
+            /*************Edit Modal*********************/
             $('#exampleModal2').on('show.bs.modal', function(event) {
                 var button = $(event.relatedTarget)
                 var id = button.data('id')
                 var problemname = button.data('problemname')
                 var problemtype = button.data('problemtype')
-          
+
 
                 var modal = $(this)
                 modal.find('.modal-body #id').val(id);
                 modal.find('.modal-body #ProblemName').val(problemname);
                 modal.find('.modal-body #ProblemType').val(problemtype);
-         
+
             })
 
         </script>

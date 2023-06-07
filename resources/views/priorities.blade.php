@@ -82,7 +82,7 @@
                                         <li class="breadcrumb-item text-muted">
                                             <a href="priorities" class="text-muted text-hover-primary">priorities</a>
                                         </li>
-                                     
+
                                     </ul>
                                     <!----------------------------start session ------------------------------------------------->
                                     @if(session()->has('Add'))
@@ -131,40 +131,40 @@
 
                                     <!--end::Breadcrumb-->
                                     <div class="card-body">
-                                    	<!--begin::Toolbar-->
-												<div class="d-flex justify-content-end" data-kt-customer-table-toolbar="base">
-                                                    <a class="modal-effect btn btn-primary btn-block" data-effect="effect-scale" data-bs-toggle="modal" href="#modaldemo8">Add New Department</a>
+                                        <!--begin::Toolbar-->
+                                        <div class="d-flex justify-content-end" data-kt-customer-table-toolbar="base">
+                                            <a class="modal-effect btn btn-primary btn-block" data-effect="effect-scale" data-bs-toggle="modal" href="#modaldemo8">Add New Department</a>
 
-													<!--end::Add customer-->
-												</div>
-												<!--end::Toolbar-->
+                                            <!--end::Add customer-->
+                                        </div>
+                                        <!--end::Toolbar-->
                                         <!---------------------------------------------------------------------------------------------------->
                                         <!--------------------------Table Body-------------------------------------------------------------------------->
                                         <!---------------------------------------------------------------------------------------------------->
-                               
-                                    
+
+
                                         <div class="card-body pt-0">
-											<!--begin::Table-->
-											<table class="table align-middle table-row-dashed fs-6 gy-5" id="priorities">
-												<!--begin::Table head-->
-												<thead>
-													<!--begin::Table row-->
-													<tr class="text-start text-gray-400 fw-bold fs-7 text-uppercase gs-0">
-													
-														<th class="min-w-125px">#</th>
-														<th class="min-w-125px"> Name</th>
-														<th class="min-w-125px">Color</th>
-														<th class="min-w-125px">action</th>
-														
-													</tr>
-													<!--end::Table row-->
-												</thead>
-												<!--end::Table head-->
-												<!--begin::Table body-->
-												<tbody class="fw-semibold text-gray-600">
+                                            <!--begin::Table-->
+                                            <table class="table align-middle table-row-dashed fs-6 gy-5" id="priorities">
+                                                <!--begin::Table head-->
+                                                <thead>
+                                                    <!--begin::Table row-->
+                                                    <tr class="text-start text-gray-400 fw-bold fs-7 text-uppercase gs-0">
+
+                                                        <th class="min-w-125px">#</th>
+                                                        <th class="min-w-125px"> Name</th>
+                                                        <th class="min-w-125px">Color</th>
+                                                        <th class="min-w-125px">action</th>
+
+                                                    </tr>
+                                                    <!--end::Table row-->
+                                                </thead>
+                                                <!--end::Table head-->
+                                                <!--begin::Table body-->
+                                                <tbody class="fw-semibold text-gray-600">
                                                     @foreach($priorities as $key => $priority)
                                                     <tr data-entry-id="{{ $priority->id }}">
-                                                       
+
                                                         <td>
                                                             {{ $priority->id ?? '' }}
                                                         </td>
@@ -173,42 +173,30 @@
                                                         </td>
                                                         <td style="background-color:{{ $priority->color ?? '#FFFFFF' }}"></td>
                                                         <td>
-                                                          
-                                                               
-                                                           
-                            
-                                                         
-                                                            <a  class="modal-effect btn btn-primary delete btn btn-primary btn-sm btn-block"
-                                                            data-effect="effect-scale"
-                                                            data-name = {{$priority->name}}
-                                                            data-coloe = {{$priority->color}}
-                                                           
-                                                            data-id= {{$priority->id}}
-                                                            data-bs-toggle="modal"
-                                                            href="#exampleModal2" >Edit</a>
-                                                    
-                            
-                                                                <a  class="modal-effect btn btn-primary delete btn btn-danger btn-sm btn-block"
-                                                                data-effect="effect-scale"
-                                                                data-departmentname = {{$priority->name}}
-                                                                data-id= {{$priority->id}}
-                                                                data-bs-toggle="modal"
-                                                                href="#modaldemo9" >Delete</a>';
-                                                              
-                                                      
-                            
+
+
+
+
+
+                                                            <a class="modal-effect btn btn-primary delete btn btn-primary btn-sm btn-block" data-effect="effect-scale" data-name={{$priority->name}} data-coloe={{$priority->color}} data-id={{$priority->id}} data-bs-toggle="modal" href="#exampleModal2">Edit</a>
+
+
+                                                            <a class="modal-effect btn btn-primary delete btn btn-danger btn-sm btn-block" data-effect="effect-scale" data-departmentname={{$priority->name}} data-id={{$priority->id}} data-bs-toggle="modal" href="#modaldemo9">Delete</a>';
+
+
+
                                                         </td>
-                            
+
                                                     </tr>
-                                                @endforeach
-												
-											
-													
-												</tbody>
-												<!--end::Table body-->
-											</table>
-											<!--end::Table-->
-										</div>
+                                                    @endforeach
+
+
+
+                                                </tbody>
+                                                <!--end::Table body-->
+                                            </table>
+                                            <!--end::Table-->
+                                        </div>
                                         <!---------------------------------------------------------------------------------------------------->
                                         <!-------------------------------------Table Body--------------------------------------------------------------->
                                         <!---------------------------------------------------------------------------------------------------->
@@ -294,7 +282,7 @@
                             <input type="color" class="form-control" name="color" aria-label="Default" aria-describedby="color">
                         </div>
 
-                   
+
 
 
                 </div>
@@ -348,80 +336,80 @@
                     <form action="priorities/update" method="post" autocomplete="off">
                         {{method_field('patch')}}
                         {{csrf_field()}}
-                            <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text" >Name</span>
-                                </div>
-                                <input type="hidden" name="id" id="id" value="">
-                                <input type="text" id="name" class="form-control" name="name" aria-label="Default" aria-describedby="name">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Name</span>
                             </div>
-                            <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text" >color</span>
-                                </div>
-                                <input type="color" id="color" class="form-control" name="color" aria-label="Default" aria-describedby="color">
+                            <input type="hidden" name="id" id="id" value="">
+                            <input type="text" id="name" class="form-control" name="name" aria-label="Default" aria-describedby="name">
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">color</span>
                             </div>
-    
-                       
-    
-    
-                    </div>
-                    <div class="modal-footer">
-                        <button class="btn ripple btn-primary" type="submit">Edit prioritie</button>
-                        <button class="btn ripple btn-secondary" data-bs-dismiss="modal" type="button">Close</button>
-                    </div>
-                    </form>
+                            <input type="color" id="color" class="form-control" name="color" aria-label="Default" aria-describedby="color">
+                        </div>
+
+
+
+
                 </div>
+                <div class="modal-footer">
+                    <button class="btn ripple btn-primary" type="submit">Edit prioritie</button>
+                    <button class="btn ripple btn-secondary" data-bs-dismiss="modal" type="button">Close</button>
+                </div>
+                </form>
             </div>
         </div>
-        <!-- edit -->
+    </div>
+    <!-- edit -->
 
 
 
 
-        <!--start::Modals-->
+    <!--start::Modals-->
 
-        <!--end::Modals-->
-
-
+    <!--end::Modals-->
 
 
 
 
 
 
-    
-        <!--end::Javascript-->
+
+
+
+    <!--end::Javascript-->
 
 
 
 
-        @include('footer')
-      
-        <script>
-            $('#modaldemo9').on('show.bs.modal', function(event) {
-                var button = $(event.relatedTarget)
-                var id = button.data('id')
-                var theDepartmentName = button.data('departmentname')
-                var modal = $(this)
-                modal.find('.modal-body #id').val(id);
-                modal.find('.modal-body #DepartmentName').val(theDepartmentName);
-            })
+    @include('footer')
 
-        </script>
-        <script>
-            $('#exampleModal2').on('show.bs.modal', function(event) {
-                var button = $(event.relatedTarget)
-                var id = button.data('id')
-                var name = button.data('name')
-                var color = button.data('color')
-               
+    <script>
+        $('#modaldemo9').on('show.bs.modal', function(event) {
+            var button = $(event.relatedTarget)
+            var id = button.data('id')
+            var theDepartmentName = button.data('departmentname')
+            var modal = $(this)
+            modal.find('.modal-body #id').val(id);
+            modal.find('.modal-body #DepartmentName').val(theDepartmentName);
+        })
 
-                var modal = $(this)
-                modal.find('.modal-body #id').val(id);
-                modal.find('.modal-body #name').val(name);
-                modal.find('.modal-body #color').val(color);
-             
-            })
+    </script>
+    <script>
+        $('#exampleModal2').on('show.bs.modal', function(event) {
+            var button = $(event.relatedTarget)
+            var id = button.data('id')
+            var name = button.data('name')
+            var color = button.data('color')
 
-        </script>
+
+            var modal = $(this)
+            modal.find('.modal-body #id').val(id);
+            modal.find('.modal-body #name').val(name);
+            modal.find('.modal-body #color').val(color);
+
+        })
+
+    </script>
