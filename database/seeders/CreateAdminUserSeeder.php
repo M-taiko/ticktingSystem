@@ -17,12 +17,12 @@ public function run()
 $user = User::create([
 'name' => 'Mohamed Tarek',
 'email' => 'donia.a5ra2019@gmail.com',
-'DepartmentName' => 'IT',
+'DepartmentName' => '---',
 'userTitle' => 'Developer',
-'UserRole' => ['Admin'],
+'UserRole' => ['Super-Admin'],
 'password' => bcrypt('123456789')
 ]);
-$role = Role::create(['name' => 'Admin']);
+$role = Role::create(['name' => 'Super-Admin']);
 $permissions = Permission::pluck('id','id')->all();
 $role->syncPermissions($permissions);
 $user->assignRole([$role->id]);
