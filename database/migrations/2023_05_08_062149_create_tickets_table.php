@@ -21,7 +21,6 @@ return new class extends Migration
              $table->foreignId('DepartmentId')->constrained('departmentes')->onDelete('cascade');
              $table->integer('priority_id')->unsigned();
              $table->foreign('priority_id')->references('id')->on('priorities')->onDelete('cascade');
-           
              $table->string('ReportingUser');
              $table->string('Ticketstate');
              $table->string('TicketDetails', 1024);
