@@ -177,23 +177,17 @@ class departmentticketController extends Controller
 
             ]);
 
-            $ticket= tickets::latest()->first();
+            $ticket= tickets::latest()->first(); 
 
+            $users = \App\Models\User::join('departmentes', 'users.DepartmentName', '=', 'departmentes.DepartmentName')
+            ->join('tickets', 'departmentes.id', '=', 'tickets.DepartmentId')
+            ->where('departmentes.id', '=', $ticket['DepartmentId'])
+            ->select('users.*')
+            ->get();
 
-
- 
-                      $user = \App\Models\User::join('departmentes', 'users.DepartmentName', '=', 'departmentes.DepartmentName')
-                        ->join('tickets', 'departmentes.id', '=', 'tickets.DepartmentId')
-                        ->select('users.*')
-                        ->get();
-            
-            
-            
-                       // $user = \App\Models\User::get();
-            
-                        Notification::send($user, new newticket($ticket));
-                       
-            
+            foreach ($users as $user) {
+                Notification::send($user, new newticket($ticket));
+            }
             
             session()->flash('Add', 'New Ticket has been Addedd');
 
@@ -249,7 +243,15 @@ class departmentticketController extends Controller
                 'assignuser' => $request->assignuser,
             ]);
 
+            $ticket= tickets::latest()->first();
 
+            $user = \App\Models\User::join('tickets', 'users.name', '=', 'tickets.assignuser')
+                ->select('users.*')
+                ->get();
+
+               // $user = \App\Models\User::get();
+    
+                Notification::send($user, new assigntouser($ticket));
 
             session()->flash('Add', 'New User Had Been Assigned');
             return redirect('/departmentticket');

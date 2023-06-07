@@ -176,20 +176,27 @@ class TicketsController extends Controller
             ]);
             
 
-           $ticket= tickets::latest()->first();
+            $ticket= tickets::latest()->first(); 
 
+         
 
-          $user = \App\Models\User::join('departmentes', 'users.DepartmentName', '=', 'departmentes.DepartmentName')
-            ->join('tickets', 'departmentes.id', '=', 'tickets.DepartmentId')
-            ->select('users.*')
-            ->get();
+                $users = \App\Models\User::join('departmentes', 'users.DepartmentName', '=', 'departmentes.DepartmentName')
+                                            ->join('tickets', 'departmentes.id', '=', 'tickets.DepartmentId')
+                                            ->where('departmentes.id', '=', $ticket['DepartmentId'])
+                                            ->select('users.*')
+                                            ->get();
 
+              
+
+                    foreach ($users as $user) {
+                        Notification::send($user, new newticket($ticket));
+                    }
            
 
 
          
 
-            Notification::send($user, new newticket($ticket));
+    
            
 
             session()->flash('Add', 'New Ticket has been Addedd');

@@ -33,6 +33,32 @@
 		<script src="{{asset('assets/js/custom/utilities/modals/offer-a-deal/main.js')}}"></script>
 		<script src="{{asset('assets/js/custom/utilities/modals/users-search.js')}}"></script>
 		<script src="https://js.pusher.com/7.0/pusher.min.js"></script>
+	
+
+
+
+<!-----------------------ajax -------------------------------------->
+<script>
+	$(function() {
+
+							function fetchUnreadCount() {
+								$.ajax({
+									url: '/notifications/unread',
+									success: function(data) {
+										$('#unread-count').text(data.count);
+										console.log(data);
+									}
+								});
+							}
+
+							// Fetch the unread count initially
+							fetchUnreadCount();
+
+							// Set interval to periodically update the unread count
+							setInterval(fetchUnreadCount, 15000); // 10 seconds
+						});
+			
+</script>
 <!--
 		<script type="module">
 			import Echo from 'laravel-echo';

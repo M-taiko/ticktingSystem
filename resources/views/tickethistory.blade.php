@@ -487,6 +487,7 @@
 
 
         @include('footer')
+        
         <script type="text/javascript">
           $(document).ready(function() {
                 $('#tickets').DataTable({

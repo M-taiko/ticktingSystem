@@ -68,37 +68,8 @@
 
 							
 							<span class="bullet bullet-dot bg-success h-6px w-6px  translate-middle top-0 start-50 animation-blink"></span>
-							<!--
-							<script>
-										function checkNotifications() {
-													// Send an AJAX request to fetch unread notification count
-													fetch('notifications/unread')
-														.then(response => response.json())
-														.then(data => {
-														// Play the notification sound
-														const audio = new Audio('/assets/media/sound/notifecation.mp3');
-														audio.play();
-													})
-													console.log('sssss');
-														.catch(function(error) {
-														// Handle any error that occurs during the AJAX request
-														console.log('Failed to fetch notifications:', error);
-														});
-													}
-
-													// Call the checkNotifications function when the user interacts with the document
-													document.addEventListener('DOMContentLoaded', function() {
-													// Add event listener to the play button
-													const playButton = document.getElementById('playNotificationSound');
-													playButton.addEventListener('click', function() {
-														checkNotifications();
-													});
-
-													// Add interval to periodically check notifications
-													setInterval(checkNotifications, 3000);
-													});
-							</script>
-							-->
+						
+							
 							@endif
 							
 								<!--begin::Svg Icon | path: icons/duotune/communication/com012.svg-->
@@ -110,9 +81,9 @@
 						
 							<!--begin::Menu-->
 
-							<div class="menu menu-sub menu-sub-dropdown menu-column w-350px w-lg-375px "  data-kt-menu="true" style="">
+							<div class="menu menu-sub menu-sub-dropdown menu-column w-700px "  data-kt-menu="true" style="">
 								<!--begin::Heading-->
-								<div class="d-flex flex-column bgi-no-repeat rounded-top" style="background-image:url('assets/media/misc/menu-header-bg.jpg')">
+								<div class="d-flex flex-column bgi-no-repeat rounded-top" style="background-image:url('assets/media/misc/menu-header-bg.jpg'); background-size: 700px 119px;">
 									<!--begin::Title-->
 									<h3 class="text-white fw-semibold px-9 mt-10 mb-6">Notifications
 									<span class="fs-8 opacity-75 ps-3">{{ auth()->user()->unreadNotifications->count() }}  New Ticket you didn't See </span></h3>
@@ -159,9 +130,6 @@
 													<!--begin::Title-->
 													<div class="mb-0 me-2">
 														<a href="/tickets/{{ $notification->data['id'] }}?uuid={{$notification->id}}" data-notifecationId="{{$notification->id}}"  class="fs-6 text-gray-800 text-hover-primary fw-bold">{{ $notification->data['title'] }}</a>
-
-															
-
 														<div class="text-gray-400 fs-7">{{ $notification->data['user']}}</div>
 													</div>
 													<!--end::Title-->
@@ -205,7 +173,9 @@
 
 
 						<!----------------------------Notifecations------------------------------------------------->
-				
+				<script>
+	
+			</script>
 						<!----------------------------Notifecations------------------------------------------------->
 						
 					
