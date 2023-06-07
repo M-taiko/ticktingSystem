@@ -94,6 +94,10 @@
 										<li class="nav-item" role="presentation">
 											<a class="nav-link text-white opacity-75 opacity-state-100 pb-4 active" data-bs-toggle="tab" href="#kt_topbar_notifications_2" aria-selected="true" role="tab"> New Notfication </a>
 										</li>
+
+										<li class="nav-item" role="presentation">
+											<a class="nav-link text-white opacity-75 opacity-state-100 pb-4" data-bs-toggle="tab" href="#kt_topbar_notifications_3" aria-selected="false" role="tab"> Old Notfication </a>
+										</li>
 										
 									</ul>
 									<!--end::Tabs-->
@@ -108,15 +112,50 @@
 
 
 								<div class="tab-content">
-								
+								<!----------------------------------------Un seen notifications----------------------------------------------------->
 									<!--begin::Tab panel-->
 									<div class="tab-pane fade show active" id="kt_topbar_notifications_2" role="tabpanel">
 										<div class="scroll-y mh-325px my-5 px-8">
 											<!--begin::Item-->
 											@foreach(auth()->user()->unreadNotifications as $notification)
-										
-											   
-									 
+											<div class="d-flex flex-stack py-4">
+												<!--begin::Section-->
+												<div class="d-flex align-items-center">
+													<!--begin::Symbol-->
+													<div class="symbol symbol-35px me-4">
+														<span class="symbol-label bg-light-primary">
+															<i class="fas fa-ticket fa2x"></i>
+														</span>
+													</div>
+													<!--end::Symbol-->
+													<!--begin::Title-->
+													<div class="mb-0 me-2">
+														<a href="/tickets/{{ $notification->data['id'] }}?uuid={{$notification->id}}" data-notifecationId="{{$notification->id}}"  class="fs-6 text-gray-800 text-hover-primary fw-bold">{{ $notification->data['title'] }}</a>
+														<div class="text-gray-400 fs-7">{{ $notification->data['user']}}</div>
+													</div>
+													<!--end::Title-->
+												</div>
+												<!--end::Section-->
+												<!--begin::Label-->
+												<span class="badge badge-light fs-8">{{ $notification->created_at}}</span>
+												<!--end::Label-->
+											</div>
+											<!--end::Item-->
+											@endforeach							
+										</div>
+	
+									</div>
+									<!--end::Tab panel-->
+								<!----------------------------------------Un seen notifications----------------------------------------------------->
+
+								<!---------------------------------------- old notifications----------------------------------------------------->
+
+									<!--begin::Tab panel-->
+									<div class="tab-pane fade " id="kt_topbar_notifications_3" role="tabpanel">
+										<div class="scroll-y mh-325px my-5 px-8">
+											<!--begin::Item-->
+											@foreach(auth()->user()->readNotifications  as $notification)
+
 											<div class="d-flex flex-stack py-4">
 												<!--begin::Section-->
 												<div class="d-flex align-items-center">
@@ -145,41 +184,25 @@
 
 										
 							
-										</div>
-
-
-
-									
+										</div>							
 										
 									</div>
 									<!--end::Tab panel-->
 									
 								</div>
-								
-								
 
-								
-								
-								
-								
 								<!--end::Tab content-->
 							</div>
 							<!--end::Menu-->
 							<!--end::Menu wrapper-->
 						</div>
-						<!----------------------------Notifecations------------------------------------------------->
+						<!---------------------------- old Notifecations------------------------------------------------->
 
 
 
 
-						<!----------------------------Notifecations------------------------------------------------->
-				<script>
-	
-			</script>
-						<!----------------------------Notifecations------------------------------------------------->
 						
-					
-						
+		<!----------------------------------------Un seen notifications----------------------------------------------------->
 						
 						
 						<!--begin::Theme mode-->
