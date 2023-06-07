@@ -113,6 +113,9 @@ Route::resource('priorities', PrioritiesController::class );
 
 /************************************* Notifecation  Routes *************************************************************** */
 Route::get('notifications/unread', [NotificationController::class, 'unread'])->name('notifications.unread');
+
+
+Route::get('/notifications',[ NotificationController::class , 'index'])->name('notifications.index');
 /*************************************  Notiefcation  Routes *************************************************************** */
 
 

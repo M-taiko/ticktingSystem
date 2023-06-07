@@ -64,13 +64,11 @@
 						
 							<div class="btn btn-icon btn-custom btn-icon-muted btn-active-light btn-active-color-primary w-30px h-30px w-md-40px h-md-40px" data-kt-menu-trigger="{default: 'click', lg: 'click'}" data-kt-menu-attach="parent" data-kt-menu-placement="bottom-end">
 							
-							@if ( auth()->user()->unreadNotifications->count() ) 
+						
+						
+							<span class="bullet bullet-dot bg-success h-6px w-6px d-none  translate-middle top-0 start-50 animation-blink" id="notification-blink"></span>
 
 							
-							<span class="bullet bullet-dot bg-success h-6px w-6px  translate-middle top-0 start-50 animation-blink"></span>
-						
-							
-							@endif
 							
 								<!--begin::Svg Icon | path: icons/duotune/communication/com012.svg-->
 								<span class="svg-icon svg-icon-2 svg-icon-md-1">
@@ -113,40 +111,18 @@
 
 								<div class="tab-content">
 								<!----------------------------------------Un seen notifications----------------------------------------------------->
+								<div id="notifications-container">
 									<!--begin::Tab panel-->
 									<div class="tab-pane fade show active" id="kt_topbar_notifications_2" role="tabpanel">
 										<div class="scroll-y mh-325px my-5 px-8">
-											<!--begin::Item-->
-											@foreach(auth()->user()->unreadNotifications as $notification)
-											<div class="d-flex flex-stack py-4">
-												<!--begin::Section-->
-												<div class="d-flex align-items-center">
-													<!--begin::Symbol-->
-													<div class="symbol symbol-35px me-4">
-														<span class="symbol-label bg-light-primary">
-															<i class="fas fa-ticket fa2x"></i>
-														</span>
-													</div>
-													<!--end::Symbol-->
-													<!--begin::Title-->
-													<div class="mb-0 me-2">
-														<a href="/tickets/{{ $notification->data['id'] }}?uuid={{$notification->id}}" data-notifecationId="{{$notification->id}}"  class="fs-6 text-gray-800 text-hover-primary fw-bold">{{ $notification->data['title'] }}</a>
-														<div class="text-gray-400 fs-7">{{ $notification->data['user']}}</div>
-													</div>
-													<!--end::Title-->
-												</div>
-												<!--end::Section-->
-												<!--begin::Label-->
-												<span class="badge badge-light fs-8">{{ $notification->created_at}}</span>
-												<!--end::Label-->
-											</div>
-											<!--end::Item-->
-											@endforeach							
+											@include('notifications')					
 										</div>
 	
 									</div>
 									<!--end::Tab panel-->
+									</div>
 								<!----------------------------------------Un seen notifications----------------------------------------------------->
+										
 
 								<!---------------------------------------- old notifications----------------------------------------------------->
 									<!--begin::Tab panel-->

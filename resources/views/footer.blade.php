@@ -38,27 +38,34 @@
 
 
 <!-----------------------ajax -------------------------------------->
-<script>
-	$(function() {
+							<script>
+										function fetchNotifications() {
+											$('#notifications-container').load('/notifications');
 
-							function fetchUnreadCount() {
-								$.ajax({
-									url: '/notifications/unread',
-									success: function(data) {
-										$('#unread-count').text(data.count);
-										console.log(data);
-									}
-								});
-							}
+											const notificationUser = document.getElementById('notification-user');
+											const notificationBlink = document.getElementById('notification-blink');
 
-							// Fetch the unread count initially
-							fetchUnreadCount();
+											if (notificationUser) {
+												notificationBlink.classList.remove('d-none');
 
-							// Set interval to periodically update the unread count
-							setInterval(fetchUnreadCount, 15000); // 10 seconds
-						});
-			
-</script>
+											} else{
+												
+												notificationBlink.classList.add('d-none');
+											}
+										}
+
+										// Call fetchNotifications initially to load the notifications on page load
+										fetchNotifications();
+
+										// Call fetchNotifications every 3 seconds
+										setInterval(fetchNotifications, 3000);
+						</script>
+
+
+
+
+<!-----------------------the web socket notification------------------------------->
+
 <!--
 		<script type="module">
 			import Echo from 'laravel-echo';
@@ -79,6 +86,7 @@
 
 		</script>
 		-->
+<!-----------------------the web socket notification------------------------------->
 		<!--end::Custom Javascript-->	
 		</body>
 	<!--end::Body-->
