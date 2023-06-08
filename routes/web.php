@@ -26,10 +26,9 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-}); 
 
+
+Route::resource('dashboard', \App\Http\Controllers\HomeController::class); 
 
 
 
