@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Events\SendTicketNotification;
 use App\Models\tickethistory;
+use App\Models\problemestype;
 use App\Models\tickets;
 use App\Notifications\assigntouser;
 use App\Notifications\newticket;
@@ -149,19 +150,10 @@ class TicketsController extends Controller
     {
         $input = $request->all();
 
-        
-     
-        $b_exists = DB::table('tickets')
-            ->where('TicketTitle', '=', $input['TicketTitle'])
-            ->where('DepartmentId', '=', $input['DepartmentId'])
-            ->where('ReportingUser', '=', $input['ReportingUser'])->exists();
+        $b_exists = DB::table('problemestypes')
+            ->where('ProblemName', '=', $input['TicketTitle'])->exists();
 
         if ($b_exists) {
-
-            session()->flash('Error', 'This Ticket Is Already Existes');
-            return redirect('/tickets');
-
-        } else {
 
             tickets::create([
                 'TicketTitle' => $request->TicketTitle,
@@ -171,37 +163,56 @@ class TicketsController extends Controller
                 'ReportingUser' => $request->ReportingUser,
                 'Ticketstate' => $request->Ticketstate,
                 'createdBY' => $request->createdBY,
-                'TicketDetails' => $request->TicketDetails,
-                
+                'TicketDetails' => $request->TicketDetails, 
             ]);
-            
-
             $ticket= tickets::latest()->first(); 
-
-         
-
                 $users = \App\Models\User::join('departmentes', 'users.DepartmentName', '=', 'departmentes.DepartmentName')
                                             ->join('tickets', 'departmentes.id', '=', 'tickets.DepartmentId')
                                             ->where('departmentes.id', '=', $ticket['DepartmentId'])
                                             ->select('users.*')
                                             ->get();
 
-              
+                    foreach ($users as $user) {
+                        Notification::send($user, new newticket($ticket));
+                    }
+           
+            session()->flash('Add', 'New Ticket has been Addedd');
+
+            return redirect('/tickets');
+
+        } else {
+
+            problemestype::create([
+                'ProblemName' => $request->TicketTitle,
+                'ProblemType' => 'ـــــــــ' , 
+
+            ]);
+            tickets::create([
+                'TicketTitle' => $request->TicketTitle,
+                'TicketNumber' => '000' . $request->id,  
+                'DepartmentId' => $request->DepartmentId,
+                'priority_id' => $request->priority_id,
+                'ReportingUser' => $request->ReportingUser,
+                'Ticketstate' => $request->Ticketstate,
+                'createdBY' => $request->createdBY,
+                'TicketDetails' => $request->TicketDetails, 
+            ]);
+
+            $ticket= tickets::latest()->first(); 
+                $users = \App\Models\User::join('departmentes', 'users.DepartmentName', '=', 'departmentes.DepartmentName')
+                                            ->join('tickets', 'departmentes.id', '=', 'tickets.DepartmentId')
+                                            ->where('departmentes.id', '=', $ticket['DepartmentId'])
+                                            ->select('users.*')
+                                            ->get();
 
                     foreach ($users as $user) {
                         Notification::send($user, new newticket($ticket));
                     }
            
-
-
-         
-
-    
-           
-
-            session()->flash('Add', 'New Ticket has been Addedd');
+            session()->flash('Add', 'New Ticket And New Problem Type has been Addedd');
 
             return redirect('/tickets');
+          
         }
     }
 

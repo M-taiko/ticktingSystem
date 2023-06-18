@@ -324,14 +324,14 @@
                             <div class="d-flex justify-content-between">
                                 <div class="col-lg-3 d-flex">
                                     <label class="rdiobox">
-                                        <input checked name="select_TicketTitle" type="radio" value="1"
+                                        <input  name="select_TicketTitle" type="radio" value="1"
                                             id="type_div"> <span>write the ticket title</span></label>
                                 </div>
 
 
                                 <div class="col-lg-3 d-flex">
                                     <label class="rdiobox">
-                                        <input name="select_TicketTitle" value="2" id="select_TicketTitle"
+                                        <input checked name="select_TicketTitle" value="2" id="select_TicketTitle"
                                             type="radio"><span>select ticket title</span></label>
                                 </div><br><br>
                             </div>
@@ -845,8 +845,8 @@
     <script>
         $(document).ready(function() {
 
-            $('#Selcet_ticket_type').hide();
-            $('#write_Ticket_Title').show();
+            $('#Selcet_ticket_type').show();
+            $('#write_Ticket_Title').hide();
             $('#Title_input').attr('name', 'TicketTitle');
             $('#title_select').attr('name', '');
 

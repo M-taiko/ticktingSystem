@@ -94,11 +94,11 @@
                                         <!---------------------------------------------------------------------------------------------------->
                                         <!---------------------------------------------------------------------------------------------------->
                                         <!---------------------------------------------------------------------------------------------------->
-@can('all-tickets')
+                                        @can('all-tickets')
                                         <div class="row">
-                                        <h1 class="text-center"> All Department Tickets </h1>
+                                            <h1 class="text-center"> All Department Tickets </h1>
                                             <div class="col">
-                                                <div class="card card-flush bgi-no-repeat bgi-size-contain " style="background-color: #F1416C;background-image:url('assets/media/patterns/vector-1.png')">
+                                                <div class="card card-flush bgi-no-repeat  " style="background-color: #1532ff;background-image:url('assets/media/patterns/vector-1.png')">
                                                     <!--begin::Header-->
                                                     <div class="card-header pt-5">
                                                         <!--begin::Title-->
@@ -120,91 +120,92 @@
                                                 </div>
                                             </div>
 
-                                            
-                                                <div class="col">
-                                                    <div class="card card-flush bgi-no-repeat bgi-size-contain " style="background-color: #F1416C;background-image:url('assets/media/patterns/vector-1.png')">
-                                                        <!--begin::Header-->
-                                                        <div class="card-header pt-5">
-                                                            <!--begin::Title-->
-                                                            <div class="card-title d-flex flex-column">
-                                                                <!--begin::Amount-->
-                                                                <span class="fs-2hx fw-bold text-white me-2 lh-1 ls-n2">
-                                                                    @foreach($allDeparmentNewTicketCount as $allTicket)
-                                                                    {{number_format($allTicket->NewTicket)}}
-                                                                    @endforeach
-                                                                </span>
-                                                                <!--end::Amount-->
-                                                                <!--begin::Subtitle-->
-                                                                <span class="text-white opacity-75 pt-1 fw-semibold fs-6">New Ticket <br>For All Departments</span>
-                                                                <!--end::Subtitle-->
-                                                            </div>
-                                                            <!--end::Title-->
+
+                                            <div class="col">
+                                                <div class="card card-flush bgi-no-repeat  " style="background-color: #25dd0f;background-image:url('assets/media/patterns/vector-1.png')">
+                                                    <!--begin::Header-->
+                                                    <div class="card-header pt-5">
+                                                        <!--begin::Title-->
+                                                        <div class="card-title d-flex flex-column">
+                                                            <!--begin::Amount-->
+                                                            <span class="fs-2hx fw-bold text-white me-2 lh-1 ls-n2">
+                                                                @foreach($allDeparmentNewTicketCount as $allTicket)
+                                                                {{number_format($allTicket->NewTicket)}}
+                                                                @endforeach
+                                                            </span>
+                                                            <!--end::Amount-->
+                                                            <!--begin::Subtitle-->
+                                                            <span class="text-white opacity-75 pt-1 fw-semibold fs-6">New Ticket <br>For All Departments</span>
+                                                            <!--end::Subtitle-->
                                                         </div>
-
+                                                        <!--end::Title-->
                                                     </div>
+
                                                 </div>
-
-
-                                                <div class="col">
-                                                    <div class="card card-flush bgi-no-repeat bgi-size-contain " style="background-color: #F1416C;background-image:url('assets/media/patterns/vector-1.png')">
-                                                        <!--begin::Header-->
-                                                        <div class="card-header pt-5">
-                                                            <!--begin::Title-->
-                                                            <div class="card-title d-flex flex-column">
-                                                                <!--begin::Amount-->
-                                                                <span class="fs-2hx fw-bold text-white me-2 lh-1 ls-n2">
-                                                                    @foreach($allDeparmentNewTicketCount as $allTicket)
-                                                                    {{number_format($allTicket->PendingTickets)}}
-                                                                    @endforeach
-                                                                </span>
-                                                                <!--end::Amount-->
-                                                                <!--begin::Subtitle-->
-                                                                <span class="text-white opacity-75 pt-1 fw-semibold fs-6">Pending Ticket <br>For All Departments</span>
-                                                                <!--end::Subtitle-->
-                                                            </div>
-                                                            <!--end::Title-->
-                                                        </div>
-
-                                                    </div>
-                                                </div>
-
-
-                                                <div class="col">
-                                                    <div class="card card-flush bgi-no-repeat bgi-size-contain " style="background-color: #F1416C;background-image:url('assets/media/patterns/vector-1.png')">
-                                                        <!--begin::Header-->
-                                                        <div class="card-header pt-5">
-                                                            <!--begin::Title-->
-                                                            <div class="card-title d-flex flex-column">
-                                                                <!--begin::Amount-->
-                                                                <span class="fs-2hx fw-bold text-white me-2 lh-1 ls-n2">
-                                                                    @foreach($allDeparmentNewTicketCount as $allTicket)
-                                                                    {{number_format($allTicket->ClosedTickets)}}
-                                                                    @endforeach
-                                                                </span>
-                                                                <!--end::Amount-->
-                                                                <!--begin::Subtitle-->
-                                                                <span class="text-white opacity-75 pt-1 fw-semibold fs-6">Closed Tickets  <br>For All Departments</span>
-                                                                <!--end::Subtitle-->
-                                                            </div>
-                                                            <!--end::Title-->
-                                                        </div>
-
-                                                    </div>
-                                                </div>
-
-
-
-
                                             </div>
 
-@endcan
 
-<hr style="width:100%">
-                                            @can('role-my-depatment-tickets')
-                                                  <div class="row">
-                                                  <h1 class="text-center">Tickets For : ( {{ Auth::user()->DepartmentName }} )  Department  </h1>
                                             <div class="col">
-                                                <div class="card card-flush bgi-no-repeat bgi-size-contain " style="background-color: #F1416C;background-image:url('assets/media/patterns/vector-1.png')">
+                                                <div class="card card-flush bgi-no-repeat " style="background-color: #9cb708;background-image:url('assets/media/patterns/vector-1.png')">
+                                                    <!--begin::Header-->
+                                                    <div class="card-header pt-5">
+                                                        <!--begin::Title-->
+                                                        <div class="card-title d-flex flex-column">
+                                                            <!--begin::Amount-->
+                                                            <span class="fs-2hx fw-bold text-white me-2 lh-1 ls-n2">
+                                                                @foreach($allDeparmentNewTicketCount as $allTicket)
+                                                                {{number_format($allTicket->PendingTickets)}}
+                                                                @endforeach
+                                                            </span>
+                                                            <!--end::Amount-->
+                                                            <!--begin::Subtitle-->
+                                                            <span class="text-white opacity-75 pt-1 fw-semibold fs-6">Pending Ticket <br>For All Departments</span>
+                                                            <!--end::Subtitle-->
+                                                        </div>
+                                                        <!--end::Title-->
+                                                    </div>
+
+                                                </div>
+                                            </div>
+
+
+                                            <div class="col">
+                                                <div class="card card-flush bgi-no-repeat " style="background-color: #f10000;background-image:url('assets/media/patterns/vector-1.png')">
+                                                    <!--begin::Header-->
+                                                    <div class="card-header pt-5">
+                                                        <!--begin::Title-->
+                                                        <div class="card-title d-flex flex-column">
+                                                            <!--begin::Amount-->
+                                                            <span class="fs-2hx fw-bold text-white me-2 lh-1 ls-n2">
+                                                                @foreach($allDeparmentNewTicketCount as $allTicket)
+                                                                {{number_format($allTicket->ClosedTickets)}}
+                                                                @endforeach
+                                                            </span>
+                                                            <!--end::Amount-->
+                                                            <!--begin::Subtitle-->
+                                                            <span class="text-white opacity-75 pt-1 fw-semibold fs-6">Closed Tickets <br>For All Departments</span>
+                                                            <!--end::Subtitle-->
+                                                        </div>
+                                                        <!--end::Title-->
+                                                    </div>
+
+                                                </div>
+                                            </div>
+
+
+
+
+                                        </div>
+
+                                        @endcan
+
+                                        <hr style="width:100%">
+                                        @can('role-my-depatment-tickets')
+                                        <div class="row">
+                                            <h1 class="text-center">Tickets For : ( {{ Auth::user()->DepartmentName }} ) Department </h1>
+                                            <div class="col">
+                                                <div class="card card-flush bgi-no-repeat  " style="background-color: #1532ff;background-image:url('assets/media/patterns/vector-1.png')">
+                                               
                                                     <!--begin::Header-->
                                                     <div class="card-header pt-5">
                                                         <!--begin::Title-->
@@ -226,125 +227,125 @@
                                                 </div>
                                             </div>
 
-                                            
-                                                <div class="col">
-                                                    <div class="card card-flush bgi-no-repeat bgi-size-contain " style="background-color: #F1416C;background-image:url('assets/media/patterns/vector-1.png')">
-                                                        <!--begin::Header-->
-                                                        <div class="card-header pt-5">
-                                                            <!--begin::Title-->
-                                                            <div class="card-title d-flex flex-column">
-                                                                <!--begin::Amount-->
-                                                                <span class="fs-2hx fw-bold text-white me-2 lh-1 ls-n2">
-                                                                    @foreach($myDepartmentTickets as $MyDepartmentTicket)
-                                                                    {{number_format($MyDepartmentTicket->NewTicket)}}
-                                                                    @endforeach
-                                                                </span>
-                                                                <!--end::Amount-->
-                                                                <!--begin::Subtitle-->
-                                                                <span class="text-white opacity-75 pt-1 fw-semibold fs-6">New Ticket <br>For My Department</span>
-                                                                <!--end::Subtitle-->
-                                                            </div>
-                                                            <!--end::Title-->
+
+                                            <div class="col">
+                                                <div class="card card-flush bgi-no-repeat  " style="background-color: #25dd0f;background-image:url('assets/media/patterns/vector-1.png')">
+                                                    <!--begin::Header-->
+                                                    <div class="card-header pt-5">
+                                                        <!--begin::Title-->
+                                                        <div class="card-title d-flex flex-column">
+                                                            <!--begin::Amount-->
+                                                            <span class="fs-2hx fw-bold text-white me-2 lh-1 ls-n2">
+                                                                @foreach($myDepartmentTickets as $MyDepartmentTicket)
+                                                                {{number_format($MyDepartmentTicket->NewTicket)}}
+                                                                @endforeach
+                                                            </span>
+                                                            <!--end::Amount-->
+                                                            <!--begin::Subtitle-->
+                                                            <span class="text-white opacity-75 pt-1 fw-semibold fs-6">New Ticket <br>For My Department</span>
+                                                            <!--end::Subtitle-->
                                                         </div>
-
+                                                        <!--end::Title-->
                                                     </div>
+
                                                 </div>
-
-
-                                                <div class="col">
-                                                    <div class="card card-flush bgi-no-repeat bgi-size-contain " style="background-color: #F1416C;background-image:url('assets/media/patterns/vector-1.png')">
-                                                        <!--begin::Header-->
-                                                        <div class="card-header pt-5">
-                                                            <!--begin::Title-->
-                                                            <div class="card-title d-flex flex-column">
-                                                                <!--begin::Amount-->
-                                                                <span class="fs-2hx fw-bold text-white me-2 lh-1 ls-n2">
-                                                                    @foreach($myDepartmentTickets as $MyDepartmentTicket)
-                                                                    {{number_format($MyDepartmentTicket->PendingTickets)}}
-                                                                    @endforeach
-                                                                </span>
-                                                                <!--end::Amount-->
-                                                                <!--begin::Subtitle-->
-                                                                <span class="text-white opacity-75 pt-1 fw-semibold fs-6">Pending Ticket <br>For My Department</span>
-                                                                <!--end::Subtitle-->
-                                                            </div>
-                                                            <!--end::Title-->
-                                                        </div>
-
-                                                    </div>
-                                                </div>
-
-
-                                                <div class="col">
-                                                    <div class="card card-flush bgi-no-repeat bgi-size-contain " style="background-color: #F1416C;background-image:url('assets/media/patterns/vector-1.png')">
-                                                        <!--begin::Header-->
-                                                        <div class="card-header pt-5">
-                                                            <!--begin::Title-->
-                                                            <div class="card-title d-flex flex-column">
-                                                                <!--begin::Amount-->
-                                                                <span class="fs-2hx fw-bold text-white me-2 lh-1 ls-n2">
-                                                                    @foreach($myDepartmentTickets as $MyDepartmentTicket)
-                                                                    {{number_format($MyDepartmentTicket->ClosedTickets)}}
-                                                                    @endforeach
-                                                                </span>
-                                                                <!--end::Amount-->
-                                                                <!--begin::Subtitle-->
-                                                                <span class="text-white opacity-75 pt-1 fw-semibold fs-6">Closed Tickets  <br>For My Department</span>
-                                                                <!--end::Subtitle-->
-                                                            </div>
-                                                            <!--end::Title-->
-                                                        </div>
-
-                                                    </div>
-                                                </div>
-
-
-
-
                                             </div>
-                                            @endcan
 
-                                            <!---------------------------------------------------------------------------------------------------->
-                                            <!---------------------------------------------------------------------------------------------------->
-                                            <!---------------------------------------------------------------------------------------------------->
+
+                                            <div class="col">
+                                                <div class="card card-flush bgi-no-repeat " style="background-color: #9cb708;background-image:url('assets/media/patterns/vector-1.png')">
+                                                    <!--begin::Header-->
+                                                    <div class="card-header pt-5">
+                                                        <!--begin::Title-->
+                                                        <div class="card-title d-flex flex-column">
+                                                            <!--begin::Amount-->
+                                                            <span class="fs-2hx fw-bold text-white me-2 lh-1 ls-n2">
+                                                                @foreach($myDepartmentTickets as $MyDepartmentTicket)
+                                                                {{number_format($MyDepartmentTicket->PendingTickets)}}
+                                                                @endforeach
+                                                            </span>
+                                                            <!--end::Amount-->
+                                                            <!--begin::Subtitle-->
+                                                            <span class="text-white opacity-75 pt-1 fw-semibold fs-6">Pending Ticket <br>For My Department</span>
+                                                            <!--end::Subtitle-->
+                                                        </div>
+                                                        <!--end::Title-->
+                                                    </div>
+
+                                                </div>
+                                            </div>
+
+
+                                            <div class="col">
+                                                <div class="card card-flush bgi-no-repeat " style="background-color: #f10000;background-image:url('assets/media/patterns/vector-1.png')">
+                                                    <!--begin::Header-->
+                                                    <div class="card-header pt-5">
+                                                        <!--begin::Title-->
+                                                        <div class="card-title d-flex flex-column">
+                                                            <!--begin::Amount-->
+                                                            <span class="fs-2hx fw-bold text-white me-2 lh-1 ls-n2">
+                                                                @foreach($myDepartmentTickets as $MyDepartmentTicket)
+                                                                {{number_format($MyDepartmentTicket->ClosedTickets)}}
+                                                                @endforeach
+                                                            </span>
+                                                            <!--end::Amount-->
+                                                            <!--begin::Subtitle-->
+                                                            <span class="text-white opacity-75 pt-1 fw-semibold fs-6">Closed Tickets <br>For My Department</span>
+                                                            <!--end::Subtitle-->
+                                                        </div>
+                                                        <!--end::Title-->
+                                                    </div>
+
+                                                </div>
+                                            </div>
+
+
+
+
                                         </div>
+                                        @endcan
 
-
-
+                                        <!---------------------------------------------------------------------------------------------------->
+                                        <!---------------------------------------------------------------------------------------------------->
+                                        <!---------------------------------------------------------------------------------------------------->
                                     </div>
+
+
+
                                 </div>
-                                <!-------------------------------------------------------->
-                                <!--end::Page title-->
                             </div>
-                            <!--end::Toolbar container-->
+                            <!-------------------------------------------------------->
+                            <!--end::Page title-->
                         </div>
-                        <!--end::Toolbar-->
-
+                        <!--end::Toolbar container-->
                     </div>
-                    <!--end::Content wrapper-->
-                    <!--begin::Footer-->
-                    <div id="kt_app_footer" class="app-footer">
-                        <!--begin::Footer container-->
-                        <div class="app-container container-fluid d-flex flex-column flex-md-row flex-center flex-md-stack py-3">
-                            <!--begin::Copyright-->
-                            <div class="text-dark order-2 order-md-1">
-                                <span class="text-muted fw-semibold me-1">2023&copy;</span>
-                                <a href="#" target="_blank" class="text-gray-800 text-hover-primary">Copy Right to FoodNation</a>
-                            </div>
-                            <!--end::Copyright-->
+                    <!--end::Toolbar-->
 
-                        </div>
-                        <!--end::Footer container-->
-                    </div>
-                    <!--end::Footer-->
                 </div>
-                <!--end:::Main-->
-            </div>
-            <!--end::Wrapper-->
+                <!--end::Content wrapper-->
+                <!--begin::Footer-->
+                <div id="kt_app_footer" class="app-footer">
+                    <!--begin::Footer container-->
+                    <div class="app-container container-fluid d-flex flex-column flex-md-row flex-center flex-md-stack py-3">
+                        <!--begin::Copyright-->
+                        <div class="text-dark order-2 order-md-1">
+                            <span class="text-muted fw-semibold me-1">2023&copy;</span>
+                            <a href="#" target="_blank" class="text-gray-800 text-hover-primary">Copy Right to FoodNation</a>
+                        </div>
+                        <!--end::Copyright-->
 
+                    </div>
+                    <!--end::Footer container-->
+                </div>
+                <!--end::Footer-->
+            </div>
+            <!--end:::Main-->
         </div>
-        <!--end::Page-->
-        <!--end::Page-->
+        <!--end::Wrapper-->
+
+    </div>
+    <!--end::Page-->
+    <!--end::Page-->
     </div>
     <!--end::App-->
 

@@ -142,6 +142,64 @@
 						@endcan
                         <!-------------------------------------------------------------------------------------------------------------------->
                         <!-------------------------------------------------------------------------------------------------------------------->
+
+						    <div data-kt-menu-trigger="click" class="menu-item here  menu-accordion">
+	                        <!--begin:Menu link-->
+	                        <span class="menu-link">
+	                            <span class="menu-icon">
+	                                <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
+	                                <span class="svg-icon svg-icon-2">
+	                                    <i class="fas fa-file fa-2x"></i>
+	                                </span>
+	                                <!--end::Svg Icon-->
+	                            </span>
+	                            <span class="menu-title">Reports </span>
+	                            <span class="menu-arrow"></span>
+	                        </span>
+	                        <!--end:Menu link-->
+	                        <!--begin:Menu sub-->
+	                        <div class="menu-sub menu-sub-accordion">
+	                            <!--begin:Menu item-->
+	                            <div class="menu-item">
+	                                <!--begin:Menu link-->
+	                                <a class="menu-link" href="/">
+	                                    <span class="menu-bullet">
+	                                        <span class="bullet bullet-dot"></span>
+	                                    </span>
+	                                    <span class="menu-title">Problem Types Reports  </span>
+	                                </a>
+	                                <!--end:Menu link-->
+	                                <!--begin:Menu link-->
+	                                <a class="menu-link" href="/">
+	                                    <span class="menu-bullet">
+	                                        <span class="bullet bullet-dot"></span>
+	                                    </span>
+	                                    <span class="menu-title">User Report</span>
+	                                </a>
+	                                <!--end:Menu link-->
+	                                <!--begin:Menu link-->
+	                                <a class="menu-link" href="/">
+	                                    <span class="menu-bullet">
+	                                        <span class="bullet bullet-dot"></span>
+	                                    </span>
+	                                    <span class="menu-title">Department Report</span>
+	                                </a>
+	                                <!--end:Menu link-->
+	                                <!--begin:Menu link-->
+	                                <a class="menu-link" href="/">
+	                                    <span class="menu-bullet">
+	                                        <span class="bullet bullet-dot"></span>
+	                                    </span>
+	                                    <span class="menu-title">Total Report</span>
+	                                </a>
+	                                <!--end:Menu link-->
+	                            </div>
+	                            <!--end:Menu item-->
+
+
+	                        </div>
+	                        <!--end:Menu sub-->
+	                    </div>
                         <!-------------------------------------------------------------------------------------------------------------------->
                         <!-------------------------------------------------------------------------------------------------------------------->
 @can('settings')

@@ -69,8 +69,8 @@
 
 
 	<!-----------------------the web socket notification------------------------------->
+<!--
 
-	<!--
 		<script type="module">
 			import Echo from 'laravel-echo';
 			window.Pusher = require('pusher-js');
@@ -89,7 +89,7 @@
 				});
 
 		</script>
-		-->
+-->
 	<!-----------------------the web socket notification------------------------------->
 	<!--end::Custom Javascript-->
 	</body>

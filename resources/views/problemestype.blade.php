@@ -371,7 +371,7 @@
                     , processing: true
                     , serverSide: true
                     , ajax: `{{ Route('problemestype.getproblemestypeTable') }}`,
-
+ 
                     columns: [{
                             data: 'id'
                             , name: 'id'
