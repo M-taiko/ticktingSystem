@@ -764,7 +764,7 @@
             $('#Selcet_ticket_type').hide();
             $('#write_Ticket_Title').show();
             $('#Title_input').attr('name', 'TicketTitle');
-            $('#title_select').attr('name', '');
+            $('#title_select').attr('name', 'TicketTitle');
 
             $('input[type="radio"]').click(function() {
                 if ($(this).attr('id') == 'type_div') {

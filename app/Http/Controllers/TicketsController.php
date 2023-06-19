@@ -150,14 +150,13 @@ class TicketsController extends Controller
     {
         $input = $request->all();
 
-        $b_exists = DB::table('problemestypes')
-            ->where('ProblemName', '=', $input['TicketTitle'])->exists();
+        $b_exists = DB::table('problemestypes')->where('ProblemName', '=', $input['TicketTitle'])->exists();
 
         if ($b_exists) {
 
             tickets::create([
                 'TicketTitle' => $request->TicketTitle,
-                'TicketNumber' => '000' . $request->id,  
+                'TicketNumber' => '000' ,  
                 'DepartmentId' => $request->DepartmentId,
                 'priority_id' => $request->priority_id,
                 'ReportingUser' => $request->ReportingUser,
@@ -182,11 +181,7 @@ class TicketsController extends Controller
 
         } else {
 
-            problemestype::create([
-                'ProblemName' => $request->TicketTitle,
-                'ProblemType' => 'ـــــــــ' , 
-
-            ]);
+          
             tickets::create([
                 'TicketTitle' => $request->TicketTitle,
                 'TicketNumber' => '000' . $request->id,  
@@ -196,6 +191,11 @@ class TicketsController extends Controller
                 'Ticketstate' => $request->Ticketstate,
                 'createdBY' => $request->createdBY,
                 'TicketDetails' => $request->TicketDetails, 
+            ]);
+            problemestype::create([
+                'ProblemName' => $request->TicketTitle,
+                'ProblemType' => 'ـــــــــ' , 
+
             ]);
 
             $ticket= tickets::latest()->first(); 

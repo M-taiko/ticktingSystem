@@ -717,7 +717,6 @@
 
 
 
-    @include('footer')
 
 
 
@@ -848,7 +847,7 @@
             $('#Selcet_ticket_type').show();
             $('#write_Ticket_Title').hide();
             $('#Title_input').attr('name', 'TicketTitle');
-            $('#title_select').attr('name', '');
+            $('#title_select').attr('name', 'TicketTitle');
 
             $('input[type="radio"]').click(function() {
                 if ($(this).attr('id') == 'type_div') {
@@ -963,3 +962,5 @@
             modal.find('.modal-body #createdBY').val(createdby);
         })
     </script>
+    
+    @include('footer')

@@ -8,6 +8,7 @@ use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use BeyondCode\LaravelWebSockets\Dashboard\Http\Controllers\ShowDashboard;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\ProblemtypeReport;
 use Illuminate\Support\Facades\Route;
 
 
@@ -108,6 +109,19 @@ Route::resource('tickethistory', \App\Http\Controllers\TickethistoryController::
 Route::resource('priorities', PrioritiesController::class ); 
 
 /************************************* End priorities Routes *************************************************************** */
+
+
+
+/*****************************The ProblemTypeReport************************************** */
+Route::resource('ProblemTypeReport', ProblemTypeReport::class ); 
+
+Route::post('ProblemTypeReport/search', [ProblemTypeReport::class, 'getComplexReport'])->name('getComplexReport');
+
+
+
+
+/*****************************The complexreport************************************** */
+
 
 
 /************************************* Notifecation  Routes *************************************************************** */
