@@ -123,6 +123,7 @@
                                                                         echo "<option value='" . $department->id . "' > $department->DepartmentName </option>";
                                                                     }
                                                                     ?>
+                                                                    
                                                                 </select>
                                                             </div>
 
