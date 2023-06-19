@@ -245,7 +245,7 @@
 												<!--begin:Menu link-->
 												<a class="menu-link" href="problemestype">
 													<span class="menu-bullet">
-														<span class="bullet bullet-dot"></span>
+														<i class="fa-solid fa-quote-left fa-beat"></i>
 													</span>
 													<span class="menu-title">problems Types </span>
 												</a>
