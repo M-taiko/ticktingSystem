@@ -104,7 +104,7 @@
 	                            <span class="menu-icon">
 	                                <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
 	                                <span class="svg-icon svg-icon-2">
-	                                    <i class="fas fa-user fa-2x"></i>
+	                                    <i class="fa-solid fa-users fa-beat fa-2xs"></i>
 	                                </span>
 	                                <!--end::Svg Icon-->
 	                            </span>
@@ -119,7 +119,7 @@
 	                                <!--begin:Menu link-->
 	                                <a class="menu-link" href="/users">
 	                                    <span class="menu-bullet">
-	                                        <span class="bullet bullet-dot"></span>
+	                                     <i class="fa-solid fa-user fa-beat-fade"></i>
 	                                    </span>
 	                                    <span class="menu-title">Users  </span>
 	                                </a>
@@ -127,7 +127,7 @@
 	                                <!--begin:Menu link-->
 	                                <a class="menu-link" href="/roles">
 	                                    <span class="menu-bullet">
-	                                        <span class="bullet bullet-dot"></span>
+	                                       <i class="fa-sharp fa-solid fa-road-barrier fa-beat"></i>
 	                                    </span>
 	                                    <span class="menu-title">Roles & permessions</span>
 	                                </a>
@@ -164,15 +164,15 @@
 	                                <!--begin:Menu link-->
 	                                <a class="menu-link" href="/ProblemTypeReport">
 	                                    <span class="menu-bullet">
-	                                        <span class="bullet bullet-dot"></span>
+	                                        <i class="fa-solid fa-triangle-exclamation fa-beat"></i>
 	                                    </span>
-	                                    <span class="menu-title">Problem Types Reports  </span>
+	                                    <span class="menu-title"> Department & Problem Types Reports</span>
 	                                </a>
 	                                <!--end:Menu link-->
 	                                <!--begin:Menu link-->
-	                                <a class="menu-link" href="/">
+	                                <a class="menu-link" href="/UserReport">
 	                                    <span class="menu-bullet">
-	                                        <span class="bullet bullet-dot"></span>
+	                                       <i class="fa-solid fa-user fa-bounce"></i>
 	                                    </span>
 	                                    <span class="menu-title">User Report</span>
 	                                </a>
@@ -210,7 +210,7 @@
 												<!--begin::Svg Icon | path: icons/duotune/layouts/lay008.svg-->
 												<span class="svg-icon svg-icon-2">
 													
-													<i class="fa-solid fa-gear fa-2x"></i>
+													<i class="fa-solid fa-gear fa-spin fa-2xs"></i>
 												</span>
 												<!--end::Svg Icon-->
 											</span>
@@ -225,7 +225,7 @@
 												<!--begin:Menu link-->
 												<a class="menu-link" href="/departmentes">
 													<span class="menu-bullet">
-														<span class="bullet bullet-dot"></span>
+														<i class="fa-sharp fa-solid fa-house-user fa-beat"></i>
 													</span>
 													<span class="menu-title">Departments</span>
 												</a>
@@ -233,7 +233,7 @@
 												<!--begin:Menu link-->
 												<a class="menu-link" href="/priorities">
 													<span class="menu-bullet">
-														<span class="bullet bullet-dot"></span>
+														<i class="fa-solid fa-list-check fa-beat"></i>
 													</span>
 													<span class="menu-title">Priorities</span>
 												</a>

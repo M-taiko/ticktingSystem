@@ -93,20 +93,20 @@
                                         <div class="col-xl-12 col-md-12 " style="width: 100% ; margin:5px;">
                                             <div class="card " style="width: 100% ; margin:5px ;   padding: 21px">
                                                 <div class="card-header pb-0">
-                                                    <form action="/ProblemTypeReport/search" method="POST" role="search" autocomplete="off">
+                                                    <form action="/UserReport/search" method="POST" role="search" autocomplete="off">
                                                         {{ csrf_field() }}
 
                                                         <div class="row">
                                                             <div class="col-lg-4" id="start_at">
                                                                 <label for="exampleFormControlSelect1">From</label>
 
-                                                                <input class="form-control " required value="{{ $start_at ?? '' }}" name="start_at" placeholder="YYYY-MM-DD" type="date">
+                                                                <input class="form-control " value="{{ $start_at ?? '' }}" name="start_at" placeholder="YYYY-MM-DD" type="date">
 
                                                             </div>
 
                                                             <div class="col-lg-4" id="end_at">
                                                                 <label for="exampleFormControlSelect1">To</label>
-                                                                <input class="form-control fc-datepicker" required name="end_at" value="{{ $end_at ?? '' }}" placeholder="YYYY-MM-DD" type="date">
+                                                                <input class="form-control fc-datepicker" name="end_at" value="{{ $end_at ?? '' }}" placeholder="YYYY-MM-DD" type="date">
                                                             </div>
 
                                                             <div class="col-lg-4" id="Departments">
@@ -151,11 +151,12 @@
                                                         <table id="Ticket_report" class="table table-bordered  table-success table-striped  table-hover">
                                                             <thead class="text-center">
                                                                 <tr>
-                                                                    <th class="text-center">#</th>
-                                                                    <th class="text-center"><b>Ticket Name</th>
-                                                                    <th class="text-center"><b>Numbers Of Ticket</th>
-                                                                    <th class="text-center"><b>Department Name</th>
+                                                                <th>#</th>
+                                                                       <th class="text-center"><b>Ticket Title</th>
+                                                                       <th class="text-center"><b>Department Name</th>
+                                                                    <th class="text-center"><b>Assigned User</th>
                                                                     <th class="text-center"> <b>Ticket Staus</th>
+                                                                    <th>Action</th>
 
                                                                 </tr>
                                                             </thead>
@@ -163,15 +164,16 @@
                                                                 <?php $encrement = 0; ?>
                                                                 @foreach($details as $invoice)
 
-                                                   <h1>     {{$invoice->department}} </h1>
+                                               
                                                                 <?php $encrement ++ ; ?>
                                                                 <tr>
 
                                                                     <td> {{$encrement }}</td>
-                                                                    <td> {{ $invoice->ProblemName}}</td>
-                                                                    <td> {{ $invoice->ticket_count}}</td>
+                                                                    <td> {{ $invoice->TicketTitle}}</td>
                                                                     <td> {{ $invoice->DepartmentName}}</td>
+                                                                    <td> {{ $invoice->assigned_user}}</td>
                                                                     <td> {{ $invoice->Ticketstate }}</td>
+                                                                    <td><a href="/tickets/ {{$invoice->id}}"><i class="fa-regular fa-eye"></i> View Ticket</a></td>
 
 
                                                                 </tr>

@@ -17,21 +17,38 @@ class ProblemTypeReport extends Controller
  
         $start_at = date($request->start_at);
         $end_at = date($request->end_at);
-
-
-
-                    $start_date = '2023-01-01'; // Replace with your desired start date
-                    $end_date = '2023-12-31'; // Replace with your desired end date
+        $department = $request->departmentName;
+        //in case user didn't selcet any department
+       
+        if ($request->start_at && $request->end_at && $request->departmentName == '' ) {
+                   
 
                     $results = tickets::join('problemestypes as pt', 'tickets.TicketTitle', '=', 'pt.ProblemName')
-                        ->select('pt.ProblemName', tickets::raw('COUNT(tickets.id) as ticket_count'), 'tickets.Ticketstate')
+                    ->join('departmentes as d', 'd.id', '=', 'tickets.DepartmentId')
+                    ->select('pt.ProblemName', tickets::raw('COUNT(tickets.id) as ticket_count'), 'tickets.Ticketstate', 'd.DepartmentName')
                         ->whereBetween('tickets.created_at', [$start_at, $end_at])
-                        ->groupBy('pt.ProblemName', 'tickets.Ticketstate')
+                        ->groupBy('pt.ProblemName', 'tickets.Ticketstate', 'd.DepartmentName')
                         ->get();
 
               
 
                             return view('ProblemTypeReport')->withDetails($results);
+                            
+        }else {
+
+            $results = tickets::join('problemestypes as pt', 'tickets.TicketTitle', '=', 'pt.ProblemName')
+            ->join('departmentes as d', 'd.id', '=', 'tickets.DepartmentId')
+            ->select('pt.ProblemName', tickets::raw('COUNT(tickets.id) AS ticket_count'), 'tickets.Ticketstate', 'd.DepartmentName')
+            ->where('d.id', $department)
+            ->whereBetween('tickets.created_at', [$start_at, $end_at])
+            ->groupBy('pt.ProblemName', 'tickets.Ticketstate', 'd.DepartmentName')
+            ->get();
+            
+            return view('ProblemTypeReport')->withDetails($results);
+            
+        }
+        
+  
             
             }
 }

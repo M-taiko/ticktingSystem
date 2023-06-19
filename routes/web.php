@@ -9,6 +9,7 @@ use App\Http\Controllers\UserController;
 use BeyondCode\LaravelWebSockets\Dashboard\Http\Controllers\ShowDashboard;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\ProblemtypeReport;
+use App\Http\Controllers\userReport;
 use Illuminate\Support\Facades\Route;
 
 
@@ -117,10 +118,30 @@ Route::resource('ProblemTypeReport', ProblemTypeReport::class );
 
 Route::post('ProblemTypeReport/search', [ProblemTypeReport::class, 'getComplexReport'])->name('getComplexReport');
 
+/*****************************The ProblemTypeReport************************************** */
+
+/*****************************The User Report************************************** */
+Route::resource('UserReport', userReport::class ); 
+
+Route::post('UserReport/search', [userReport::class, 'getuserReport'])->name('getuserReport');
+
+/*****************************The User Report************************************** */
 
 
 
-/*****************************The complexreport************************************** */
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
