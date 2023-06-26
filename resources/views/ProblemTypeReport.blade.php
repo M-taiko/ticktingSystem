@@ -100,13 +100,13 @@
                                                             <div class="col-lg-4" id="start_at">
                                                                 <label for="exampleFormControlSelect1">From</label>
 
-                                                                <input class="form-control " required value="{{ $start_at ?? '' }}" name="start_at" placeholder="YYYY-MM-DD" type="date">
+                                                                <input class="form-control "  value="{{ $start_at ?? '' }}" name="start_at" placeholder="YYYY-MM-DD" type="date">
 
                                                             </div>
 
                                                             <div class="col-lg-4" id="end_at">
                                                                 <label for="exampleFormControlSelect1">To</label>
-                                                                <input class="form-control fc-datepicker" required name="end_at" value="{{ $end_at ?? '' }}" placeholder="YYYY-MM-DD" type="date">
+                                                                <input class="form-control fc-datepicker"  name="end_at" value="{{ $end_at ?? '' }}" placeholder="YYYY-MM-DD" type="date">
                                                             </div>
 
                                                             <div class="col-lg-4" id="Departments">

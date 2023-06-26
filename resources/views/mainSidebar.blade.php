@@ -164,9 +164,9 @@
 	                                <!--begin:Menu link-->
 	                                <a class="menu-link" href="/ProblemTypeReport">
 	                                    <span class="menu-bullet">
-	                                        <i class="fa-solid fa-triangle-exclamation fa-beat"></i>
+	                                        <i class="fa-solid fa-triangle-exclamation fa-beat fa-2x"></i>
 	                                    </span>
-	                                    <span class="menu-title"> Department & Problem Types Reports</span>
+	                                    <span class="menu-title"> Department <br>& <br> Problem Types Reports</span>
 	                                </a>
 	                                <!--end:Menu link-->
 	                                <!--begin:Menu link-->

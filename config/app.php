@@ -165,7 +165,10 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         Yajra\DataTables\DataTablesServiceProvider::class,
         Spatie\Permission\PermissionServiceProvider::class,
+        Fx3costa\LaravelChartJs\Providers\ChartjsServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
+       
+
 
         /*
          * Package Service Providers...

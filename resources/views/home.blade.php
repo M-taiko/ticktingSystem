@@ -2,30 +2,8 @@
 <html lang="en">
 <!--begin::Head-->
 <head>
-    <base href="../" />
-    <title>Foodnation ticketing System</title>
-    <meta charset="utf-8" />
-    <meta name="description" content="The most advanced Bootstrap 5 Admin Theme with 40 unique prebuilt layouts on Themeforest trusted by 100,000 beginners and professionals. Multi-demo, Dark Mode, RTL support and complete React, Angular, Vue, Asp.Net Core, Rails, Spring, Blazor, Django, Express.js, Node.js, Flask, Symfony & Laravel versions. Grab your copy now and get life-time updates for free." />
-    <meta name="keywords" content="metronic, bootstrap, bootstrap 5, angular, VueJs, React, Asp.Net Core, Rails, Spring, Blazor, Django, Express.js, Node.js, Flask, Symfony & Laravel starter kits, admin themes, web design, figma, web development, free templates, free admin themes, bootstrap theme, bootstrap template, bootstrap dashboard, bootstrap dak mode, bootstrap button, bootstrap datepicker, bootstrap timepicker, fullcalendar, datatables, flaticon" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta property="og:locale" content="en_US" />
-    <meta property="og:type" content="article" />
-    <meta property="og:title" content="Metronic - Bootstrap Admin Template, HTML, VueJS, React, Angular. Laravel, Asp.Net Core, Ruby on Rails, Spring Boot, Blazor, Django, Express.js, Node.js, Flask Admin Dashboard Theme & Template" />
-    <meta property="og:url" content="https://keenthemes.com/metronic" />
-    <meta property="og:site_name" content="Keenthemes | Metronic" />
-    <link rel="canonical" href="https://preview.keenthemes.com/metronic8" />
-    <link rel="shortcut icon" href="assets/media/logos/logo-food.png" />
-    <!--begin::Fonts(mandatory for all pages)-->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700" />
-    <!--end::Fonts-->
-    <!--begin::Vendor Stylesheets(used for this page only)-->
-    <link href="assets/plugins/custom/datatables/datatables.bundle.css" rel="stylesheet" type="text/css" />
-    <link href="assets/plugins/custom/vis-timeline/vis-timeline.bundle.css" rel="stylesheet" type="text/css" />
-    <!--end::Vendor Stylesheets-->
-    <!--begin::Global Stylesheets Bundle(mandatory for all pages)-->
-    <link href="assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
-    <link href="assets/css/style.bundle.css" rel="stylesheet" type="text/css" />
-    <!--end::Global Stylesheets Bundle-->
+    @include('header')
+    <title>Foodnation Tickets system</title>
 </head>
 <!--end::Head-->
 <!--begin::Body-->
@@ -67,9 +45,9 @@
                         <!--begin::Toolbar-->
                         <div id="kt_app_toolbar" class="app-toolbar py-3 py-lg-6">
                             <!--begin::Toolbar container-->
-                            <div id="kt_app_toolbar_container" class="app-container container-xxl d-flex flex-stack w-1000px h-500px">
+                            <div id="kt_app_toolbar_container" class="app-container container-xxl d-flex flex-stack  ">
                                 <!--begin::Page title-->
-                                <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
+                                <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3 w-100">
                                     <!--begin::Title-->
                                     <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">Home</h1>
                                     <!--end::Title-->
@@ -89,6 +67,12 @@
                                         <li class="breadcrumb-item text-muted">TicketType</li>
                                         <!--end::Item-->
                                     </ul>
+
+
+
+
+
+
                                     <!--end::Breadcrumb-->
                                     <div class="card-body">
                                         <!---------------------------------------------------------------------------------------------------->
@@ -97,33 +81,45 @@
                                         @can('all-tickets')
                                         <div class="row">
                                             <h1 class="text-center"> All Department Tickets </h1>
-                                            <div class="col">
-                                                <div class="card card-flush bgi-no-repeat  " style="background-color: #1532ff;background-image:url('assets/media/patterns/vector-1.png')">
-                                                    <!--begin::Header-->
-                                                    <div class="card-header pt-5">
-                                                        <!--begin::Title-->
-                                                        <div class="card-title d-flex flex-column">
-                                                            <!--begin::Amount-->
-                                                            <span class="fs-2hx fw-bold text-white me-2 lh-1 ls-n2">
-                                                                @foreach($allDeparmentNewTicketCount as $allTicket)
-                                                                {{number_format($allTicket->TotalTickets)}}
-                                                                @endforeach
-                                                            </span>
-                                                            <!--end::Amount-->
-                                                            <!--begin::Subtitle-->
-                                                            <span class="text-white opacity-75 pt-1 fw-semibold fs-6">All Ticket <br>For All Departments</span>
-                                                            <!--end::Subtitle-->
-                                                        </div>
-                                                        <!--end::Title-->
-                                                    </div>
+                                            <div class="col ">
+                                                <div class="background-animation">
+                                                    <div class="card LquiedCARD" style="background-color: #1532ff; background-image:url('assets/media/patterns/vector-1.png');">
+                                                        <!--begin::Header-->
+                                                    
 
+                                                        <div class="card-header pt-5">
+                                                            <!--begin::Title-->
+                                                            <div class="card-title d-flex flex-column ">
+                                                                <!--begin::Amount-->
+                                                                <span class="fs-2hx fw-bold text-white me-2 lh-1 ls-n2 ">
+                                                                    @foreach($allDeparmentNewTicketCount as $allTicket)
+                                                                    {{number_format($allTicket->TotalTickets)}}
+                                                                    @endforeach
+                                                                </span>
+                                                                <!--end::Amount-->
+                                                                <!--begin::Subtitle-->
+                                                                <span class="text-white opacity-75  fs-6">All Ticket For All Departments</span>
+                                                                <!--end::Subtitle-->
+                                                            </div>
+                                                            <!--end::Title-->
+                                                        </div>
+                                                             <section>
+                                                            <div class='air air1'></div>
+                                                            <div class='air air2'></div>
+                                                            <div class='air air3'></div>
+                                                            <div class='air air4'></div>
+                                                        </section>
+                                                    </div>
                                                 </div>
                                             </div>
 
-
-                                            <div class="col">
-                                                <div class="card card-flush bgi-no-repeat  " style="background-color: #25dd0f;background-image:url('assets/media/patterns/vector-1.png')">
+                                            <div class="col background-animation">
+                                                <div class="card  LquiedCARD " style="background-color: #25dd0f;background-image:url('assets/media/patterns/vector-1.png'); z-index:1;">
                                                     <!--begin::Header-->
+
+
+                                                      
+
                                                     <div class="card-header pt-5">
                                                         <!--begin::Title-->
                                                         <div class="card-title d-flex flex-column">
@@ -140,14 +136,23 @@
                                                         </div>
                                                         <!--end::Title-->
                                                     </div>
-
+ <section>
+                                                            <div class='air air1'></div>
+                                                            <div class='air air2'></div>
+                                                            <div class='air air3'></div>
+                                                            <div class='air air4'></div>
+                                                        </section>
                                                 </div>
                                             </div>
 
 
-                                            <div class="col">
-                                                <div class="card card-flush bgi-no-repeat " style="background-color: #9cb708;background-image:url('assets/media/patterns/vector-1.png')">
+                                            <div class="col background-animation">
+                                                <div class="card card-flush LquiedCARD " style="background-color: #9cb708;background-image:url('assets/media/patterns/vector-1.png'); z-index:1;">
                                                     <!--begin::Header-->
+
+
+                                                       
+
                                                     <div class="card-header pt-5">
                                                         <!--begin::Title-->
                                                         <div class="card-title d-flex flex-column">
@@ -164,14 +169,23 @@
                                                         </div>
                                                         <!--end::Title-->
                                                     </div>
-
+<section>
+                                                            <div class='air air1'></div>
+                                                            <div class='air air2'></div>
+                                                            <div class='air air3'></div>
+                                                            <div class='air air4'></div>
+                                                        </section>
                                                 </div>
                                             </div>
 
 
-                                            <div class="col">
-                                                <div class="card card-flush bgi-no-repeat " style="background-color: #f10000;background-image:url('assets/media/patterns/vector-1.png')">
+                                            <div class="col background-animation">
+                                                <div class="card   LquiedCARD" style="background-color: #f10000;background-image:url('assets/media/patterns/vector-1.png');z-index:1;">
                                                     <!--begin::Header-->
+
+
+                                                      
+
                                                     <div class="card-header pt-5">
                                                         <!--begin::Title-->
                                                         <div class="card-title d-flex flex-column">
@@ -188,7 +202,12 @@
                                                         </div>
                                                         <!--end::Title-->
                                                     </div>
-
+ <section>
+                                                            <div class='air air1'></div>
+                                                            <div class='air air2'></div>
+                                                            <div class='air air3'></div>
+                                                            <div class='air air4'></div>
+                                                        </section>
                                                 </div>
                                             </div>
 
@@ -199,38 +218,52 @@
 
                                         @endcan
 
-                                        <hr style="width:100%">
                                         @can('role-my-depatment-tickets')
+                                        <hr style="width:100%">
                                         <div class="row">
                                             <h1 class="text-center">Tickets For : ( {{ Auth::user()->DepartmentName }} ) Department </h1>
-                                            <div class="col">
-                                                <div class="card card-flush bgi-no-repeat  " style="background-color: #1532ff;background-image:url('assets/media/patterns/vector-1.png')">
-                                               
-                                                    <!--begin::Header-->
-                                                    <div class="card-header pt-5">
-                                                        <!--begin::Title-->
-                                                        <div class="card-title d-flex flex-column">
-                                                            <!--begin::Amount-->
-                                                            <span class="fs-2hx fw-bold text-white me-2 lh-1 ls-n2">
-                                                                @foreach($myDepartmentTickets as $MyDepartmentTicket)
-                                                                {{number_format($MyDepartmentTicket->TotalTickets)}}
-                                                                @endforeach
-                                                            </span>
-                                                            <!--end::Amount-->
-                                                            <!--begin::Subtitle-->
-                                                            <span class="text-white opacity-75 pt-1 fw-semibold fs-6">All Ticket <br>For My Department</span>
-                                                            <!--end::Subtitle-->
-                                                        </div>
-                                                        <!--end::Title-->
-                                                    </div>
+                                            <div class="col ">
+                                                <div class="background-animation">
+                                                    <div class="card LquiedCARD" style="background-color: #1532ff;background-image:url('assets/media/patterns/vector-1.png');z-index:1;">
 
+
+                                                         
+
+                                                        <!--begin::Header-->
+                                                        <div class="card-header pt-5">
+                                                            <!--begin::Title-->
+                                                            <div class="card-title d-flex flex-column">
+                                                                <!--begin::Amount-->
+                                                                <span class="fs-2hx fw-bold text-white me-2 lh-1 ls-n2">
+                                                                    @foreach($myDepartmentTickets as $MyDepartmentTicket)
+                                                                    {{number_format($MyDepartmentTicket->TotalTickets)}}
+                                                                    @endforeach
+                                                                </span>
+                                                                <!--end::Amount-->
+                                                                <!--begin::Subtitle-->
+                                                                <span class="text-white opacity-75 pt-1 fw-semibold fs-6">All Ticket <br>For My Department</span>
+                                                                <!--end::Subtitle-->
+                                                            </div>
+                                                            <!--end::Title-->
+                                                        </div>
+                                                         <section>
+                                                            <div class='air air1'></div>
+                                                            <div class='air air2'></div>
+                                                            <div class='air air3'></div>
+                                                            <div class='air air4'></div>
+                                                        </section>
+                                                    </div>
                                                 </div>
                                             </div>
 
 
-                                            <div class="col">
-                                                <div class="card card-flush bgi-no-repeat  " style="background-color: #25dd0f;background-image:url('assets/media/patterns/vector-1.png')">
+                                            <div class="col background-animation">
+                                                <div class="card   LquiedCARD" style="background-color: #25dd0f;background-image:url('assets/media/patterns/vector-1.png');z-index:1;">
                                                     <!--begin::Header-->
+
+
+
+
                                                     <div class="card-header pt-5">
                                                         <!--begin::Title-->
                                                         <div class="card-title d-flex flex-column">
@@ -248,13 +281,23 @@
                                                         <!--end::Title-->
                                                     </div>
 
+                                                      <section>
+                                                            <div class='air air1'></div>
+                                                            <div class='air air2'></div>
+                                                            <div class='air air3'></div>
+                                                            <div class='air air4'></div>
+                                                        </section>
                                                 </div>
                                             </div>
 
 
-                                            <div class="col">
-                                                <div class="card card-flush bgi-no-repeat " style="background-color: #9cb708;background-image:url('assets/media/patterns/vector-1.png')">
+                                            <div class="col background-animation">
+                                                <div class="card   LquiedCARD" style="background-color: #9cb708;background-image:url('assets/media/patterns/vector-1.png');z-index:1;">
                                                     <!--begin::Header-->
+
+
+                                                      
+
                                                     <div class="card-header pt-5">
                                                         <!--begin::Title-->
                                                         <div class="card-title d-flex flex-column">
@@ -271,14 +314,24 @@
                                                         </div>
                                                         <!--end::Title-->
                                                     </div>
+                                                     <section>
+                                                            <div class='air air1'></div>
+                                                            <div class='air air2'></div>
+                                                            <div class='air air3'></div>
+                                                            <div class='air air4'></div>
+                                                        </section>
 
                                                 </div>
                                             </div>
 
 
-                                            <div class="col">
-                                                <div class="card card-flush bgi-no-repeat " style="background-color: #f10000;background-image:url('assets/media/patterns/vector-1.png')">
+                                            <div class="col background-animation">
+                                                <div class="card  LquiedCARD" style="background-color: #f10000;background-image:url('assets/media/patterns/vector-1.png');z-index:1;">
                                                     <!--begin::Header-->
+
+
+                                                      
+
                                                     <div class="card-header pt-5">
                                                         <!--begin::Title-->
                                                         <div class="card-title d-flex flex-column">
@@ -296,17 +349,88 @@
                                                         <!--end::Title-->
                                                     </div>
 
+                                                        <section>
+                                                            <div class='air air1'></div>
+                                                            <div class='air air2'></div>
+                                                            <div class='air air3'></div>
+                                                            <div class='air air4'></div>
+                                                        </section>
                                                 </div>
                                             </div>
-
-
-
-
                                         </div>
                                         @endcan
+                                            <br>
+                                        <!------------------------------------------start of  chartes---------------------------------------------------------->
+                                        <div class="row">
+                                        <!------------------------------start  Bar chart ------------------------------->
+                                        <div class="col-xl-6">
+											<!--begin::Charts Widget 1-->
+											<div class="card card-xl-stretch mb-xl-6">
+												<!--begin::Header-->
+												<div class="card-header">
+													<!--begin::Title-->
+													<h3 class="card-title align-items-start flex-column">
+														<span class="card-label fw-bold fs-3 mb-1">Tickets Statistics</span>
+														<span class="text-muted fw-semibold fs-7">More than {{ \App\Models\tickets::count()}}  Tickets For All Departments</span>
+													</h3>
+													<!--end::Title-->
+													<!--begin::Toolbar-->
+													<div class="card-toolbar">
+														<!--begin::Menu-->
+														
+														
+														<!--end::Menu-->
+													</div>
+													<!--end::Toolbar-->
+												</div>
+												<!--end::Header-->
+												<!--begin::Body-->
+												<div class="card-body">
+													<!--begin::Chart-->
+													{!! $BarChart->render() !!}
+												</div>
+												<!--end::Body-->
+											</div>
+											<!--end::Charts Widget 1-->
+										</div>
 
-                                        <!---------------------------------------------------------------------------------------------------->
-                                        <!---------------------------------------------------------------------------------------------------->
+
+                                        <!----------------------End Of Bar Charts   --------------------->
+
+                                        <!----------------------start Of Bai Charts   --------------------->
+                                             <div class="col-xl-6">
+											<!--begin::Charts Widget 1-->
+											<div class="card card-xl-stretch mb-xl-6">
+												<!--begin::Header-->
+												<div class="card-header">
+													<!--begin::Title-->
+													<h3 class="card-title align-items-start flex-column">
+														<span class="card-label fw-bold fs-3 mb-1">Top  Members Statistics</span>
+														<span class="text-muted fw-semibold fs-7">More than {{ \App\Models\User::count()}}   Members</span>
+													</h3>
+													<!--end::Title-->
+													<!--begin::Toolbar-->
+													<div class="card-toolbar">
+														<!--begin::Menu-->
+														
+														
+														<!--end::Menu-->
+													</div>
+													<!--end::Toolbar-->
+												</div>
+												<!--end::Header-->
+												<!--begin::Body-->
+												<div class="card-body" >
+													<!--begin::Chart-->
+													{!! $baiChart->render() !!}
+												</div>
+												<!--end::Body-->
+											</div>
+											<!--end::Charts Widget 1-->
+										</div>
+                                        <!----------------------End Of Bai Charts   --------------------->
+                                        </div>
+                                        <!-------------------------------------------end of chartes--------------------------------------------------------->
                                         <!---------------------------------------------------------------------------------------------------->
                                     </div>
 
@@ -320,11 +444,18 @@
                         <!--end::Toolbar container-->
                     </div>
                     <!--end::Toolbar-->
-
+                    <section>
+                        <div class='air air1'></div>
+                        <div class='air air2'></div>
+                        <div class='air air3'></div>
+                        <div class='air air4'></div>
+                    </section>
                 </div>
+
                 <!--end::Content wrapper-->
                 <!--begin::Footer-->
                 <div id="kt_app_footer" class="app-footer">
+
                     <!--begin::Footer container-->
                     <div class="app-container container-fluid d-flex flex-column flex-md-row flex-center flex-md-stack py-3">
                         <!--begin::Copyright-->
@@ -366,6 +497,7 @@
         <!--end::Svg Icon-->
     </div>
     <!--end::Scrolltop-->
+
 
 
 
