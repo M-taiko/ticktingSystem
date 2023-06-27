@@ -80,7 +80,7 @@ $BarChart = app()->chartjs
 ->datasets([
     [
     "label" => "The Tickets" ,
-    'backgroundColor' =>['rgba(255, 99, 132, 0.5)', 'rgba(54, 162, 235, 0.5)', 'rgba(255, 205, 86, 0.5)'],
+    'backgroundColor' =>['#f1000085', '#1bff00a3', '#c4e31ab0'],
     'data' => $ticketCounts->pluck('count')->toArray()
     ],
 ])
@@ -94,10 +94,13 @@ $BarChart = app()->chartjs
             ],
         ],
     ],
-    'borderRadius' => 25, // Set the border radius
+    'borderRadius' => 16,
+    'size' => 25, // Set the border radius
 ]);
 
 
+
+   
 
 
 
@@ -130,7 +133,7 @@ $baiChart = app()->chartjs
     ->datasets([
         [
             "label" => "Numbers Of User Solving",
-            'backgroundColor' => ['rgba(255, 99, 132, 0.2)', 'rgba(54, 162, 235, 0.2)', 'rgba(255, 205, 86, 0.2)', 'rgba(75, 192, 192, 0.2)', 'rgba(153, 102, 255, 0.2)'],
+            'backgroundColor' => ['#f1000085', '#1bff00a3', '#c4e31ab0' , '##05fd52bf','#1532ff'],
             'data' => $topUsers->pluck('count')->toArray(),
         ],
     ])
