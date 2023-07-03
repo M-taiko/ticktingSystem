@@ -10,21 +10,21 @@
 }
 
 .background-animation:before, .background-animation:after {
-content: '';
-position: absolute;
-left: 50%;
-top: 50%;
-background: linear-gradient(192deg, rgb(251, 0, 148), rgb(0, 0, 255), rgb(0, 255, 0), rgb(255, 255, 0), rgb(255, 0, 0), rgb(251, 0, 148), rgb(0, 0, 255), rgb(0, 255, 0), rgb(255, 255, 0), rgb(255, 0, 0));
-background-size: 448%;
- width: calc(100% + -27px);
-height: calc(100% + -5px);
-z-index: 0;
-animation-name: steam;
-animation-duration: 20s;
-animation-iteration-count: infinite;
-animation-timing-function: linear;
-transform: translate(-50%, -50%);
-border-radius: 11px;
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    background: linear-gradient(88deg, rgb(251 0 0 / 38%), rgb(0, 0, 255), rgb(0, 255, 0), rgb(255, 255, 0), rgb(255, 0, 0), rgb(251 0 0), rgb(0, 0, 255), rgb(0, 255, 0), rgb(255, 255, 0), rgb(255 238 0));
+    background-size: 448%;
+    width: calc(100% + -12px);
+    height: calc(100% + 8px);
+    z-index: 0;
+    animation-name: steam;
+    animation-duration: 20s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    transform: translate(-50%, -50%);
+    border-radius: 11px;
 
 }
 @keyframes steam {

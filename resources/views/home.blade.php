@@ -81,8 +81,8 @@
                                         @can('all-tickets')
                                         <div class="row">
                                             <h1 class="text-center"> All Department Tickets </h1>
-                                            <div class="col ">
-                                                <div class="background-animation">
+                                            <div class="col background-animation">
+                                                <div class="">
                                                     <div class="card LquiedCARD" style="background-color: #1532ff; background-image:url('assets/media/patterns/vector-1.png');">
                                                         <!--begin::Header-->
                                                     
@@ -222,8 +222,8 @@
                                         <hr style="width:100%">
                                         <div class="row">
                                             <h1 class="text-center">Tickets For : ( {{ Auth::user()->DepartmentName }} ) Department </h1>
-                                            <div class="col ">
-                                                <div class="background-animation">
+                                            <div class="col background-animation">
+                                                <div class="">
                                                     <div class="card LquiedCARD" style="background-color: #1532ff;background-image:url('assets/media/patterns/vector-1.png');z-index:1;">
 
 
@@ -361,11 +361,11 @@
                                         @endcan
                                             <br>
                                         <!------------------------------------------start of  chartes---------------------------------------------------------->
-                                        <div class="row">
+                                        <div class="row "> <!-----    background-animation          ------->
                                         <!------------------------------start  Bar chart ------------------------------->
-                                        <div class="col-xl-6">
+                                        <div class="col-xl-6 ">
 											<!--begin::Charts Widget 1-->
-											<div class="card card-xl-stretch mb-xl-6">
+											<div class="card card-xl-stretch mb-xl-6 ">
 												<!--begin::Header-->
 												<div class="card-header">
 													<!--begin::Title-->

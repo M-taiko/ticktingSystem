@@ -73,30 +73,37 @@ foreach($ticketCounts as $key=>$value){
 }
 
 $BarChart = app()->chartjs
-->name('barChartTest')
-->type('polarArea')
-->size(['width' => 400, 'height' => 400])
-->labels($ticketCounts->pluck('Ticketstate')->toArray())
-->datasets([
-    [
-    "label" => "The Tickets" ,
-    'backgroundColor' =>['#f1000085', '#1bff00a3', '#c4e31ab0'],
-    'data' => $ticketCounts->pluck('count')->toArray()
-    ],
-])
-->options([
-    'scales' => [
-        'yAxes' => [
-            [
-                'ticks' => [
-                    'beginAtZero' => true,
+    ->name('barChartTest')
+    ->type('polarArea')
+    ->size(['width' => 400, 'height' => 400])
+    ->labels($ticketCounts->pluck('Ticketstate')->toArray())
+    ->datasets([
+        [
+            "label" => "The Tickets",
+            'backgroundColor' => ['#f1000085', '#1bff00a3', '#c4e31ab0'],
+            'data' => $ticketCounts->pluck('count')->toArray()
+        ],
+    ])
+    ->options([
+        'scales' => [
+            'yAxes' => [
+                [
+                    'ticks' => [
+                        'beginAtZero' => true,
+                    ],
                 ],
             ],
         ],
-    ],
-    'borderRadius' => 16,
-    'size' => 25, // Set the border radius
-]);
+        'borderRadius' => 6,
+        'layout' => [
+            'padding' => [
+                'left' => 18,
+                'right' => 18,
+                'top' => 18,
+                'bottom' => 18,
+            ],
+        ],
+    ]);
 
 
 
@@ -128,7 +135,7 @@ $BarChart = app()->chartjs
 $baiChart = app()->chartjs
     ->name('pieChartTest')
     ->type('doughnut')
-    ->size(['width' => 50, 'height' => 50])
+    ->size(['width' => 150, 'height' => 150])
     ->labels($topUsers->pluck('solving_User')->toArray())
     ->datasets([
         [
