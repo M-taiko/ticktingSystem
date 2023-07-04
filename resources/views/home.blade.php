@@ -85,7 +85,7 @@
                                                 <div class="">
                                                     <div class="card LquiedCARD" style="background-color: #1532ff; background-image:url('assets/media/patterns/vector-1.png');">
                                                         <!--begin::Header-->
-                                                    
+
 
                                                         <div class="card-header pt-5">
                                                             <!--begin::Title-->
@@ -103,7 +103,7 @@
                                                             </div>
                                                             <!--end::Title-->
                                                         </div>
-                                                             <section>
+                                                        <section>
                                                             <div class='air air1'></div>
                                                             <div class='air air2'></div>
                                                             <div class='air air3'></div>
@@ -118,7 +118,7 @@
                                                     <!--begin::Header-->
 
 
-                                                      
+
 
                                                     <div class="card-header pt-5">
                                                         <!--begin::Title-->
@@ -136,12 +136,12 @@
                                                         </div>
                                                         <!--end::Title-->
                                                     </div>
- <section>
-                                                            <div class='air air1'></div>
-                                                            <div class='air air2'></div>
-                                                            <div class='air air3'></div>
-                                                            <div class='air air4'></div>
-                                                        </section>
+                                                    <section>
+                                                        <div class='air air1'></div>
+                                                        <div class='air air2'></div>
+                                                        <div class='air air3'></div>
+                                                        <div class='air air4'></div>
+                                                    </section>
                                                 </div>
                                             </div>
 
@@ -151,7 +151,7 @@
                                                     <!--begin::Header-->
 
 
-                                                       
+
 
                                                     <div class="card-header pt-5">
                                                         <!--begin::Title-->
@@ -169,12 +169,12 @@
                                                         </div>
                                                         <!--end::Title-->
                                                     </div>
-<section>
-                                                            <div class='air air1'></div>
-                                                            <div class='air air2'></div>
-                                                            <div class='air air3'></div>
-                                                            <div class='air air4'></div>
-                                                        </section>
+                                                    <section>
+                                                        <div class='air air1'></div>
+                                                        <div class='air air2'></div>
+                                                        <div class='air air3'></div>
+                                                        <div class='air air4'></div>
+                                                    </section>
                                                 </div>
                                             </div>
 
@@ -184,7 +184,7 @@
                                                     <!--begin::Header-->
 
 
-                                                      
+
 
                                                     <div class="card-header pt-5">
                                                         <!--begin::Title-->
@@ -202,12 +202,12 @@
                                                         </div>
                                                         <!--end::Title-->
                                                     </div>
- <section>
-                                                            <div class='air air1'></div>
-                                                            <div class='air air2'></div>
-                                                            <div class='air air3'></div>
-                                                            <div class='air air4'></div>
-                                                        </section>
+                                                    <section>
+                                                        <div class='air air1'></div>
+                                                        <div class='air air2'></div>
+                                                        <div class='air air3'></div>
+                                                        <div class='air air4'></div>
+                                                    </section>
                                                 </div>
                                             </div>
 
@@ -215,6 +215,80 @@
 
 
                                         </div>
+                                        <br>
+                                            <!------------------------------------------start of All Department  chartes---------------------------------------------------------->
+                                        <div class="row ">
+                                            <!-----    background-animation          ------->
+                                            <!------------------------------start  Bar chart ------------------------------->
+                                            <div class="col-xl-6 ">
+                                                <!--begin::Charts Widget 1-->
+                                                <div class="card card-xl-stretch mb-xl-6 ">
+                                                    <!--begin::Header-->
+                                                    <div class="card-header">
+                                                        <!--begin::Title-->
+                                                        <h3 class="card-title align-items-start flex-column">
+                                                            <span class="card-label fw-bold fs-3 mb-1">Tickets Statistics</span>
+                                                            <span class="text-muted fw-semibold fs-7">More than {{ \App\Models\tickets::count()}} Tickets For All Departments</span>
+                                                        </h3>
+                                                        <!--end::Title-->
+                                                        <!--begin::Toolbar-->
+                                                        <div class="card-toolbar">
+                                                            <!--begin::Menu-->
+
+
+                                                            <!--end::Menu-->
+                                                        </div>
+                                                        <!--end::Toolbar-->
+                                                    </div>
+                                                    <!--end::Header-->
+                                                    <!--begin::Body-->
+                                                    <div class="card-body">
+                                                        <!--begin::Chart-->
+                                                        {!! $AllDepartmentBarChart->render() !!}
+                                                    </div>
+                                                    <!--end::Body-->
+                                                </div>
+                                                <!--end::Charts Widget 1-->
+                                            </div>
+
+
+                                            <!----------------------End Of Bar Charts   --------------------->
+
+                                            <!----------------------start Of Bai Charts   --------------------->
+                                            <div class="col-xl-6">
+                                                <!--begin::Charts Widget 1-->
+                                                <div class="card card-xl-stretch mb-xl-6">
+                                                    <!--begin::Header-->
+                                                    <div class="card-header">
+                                                        <!--begin::Title-->
+                                                        <h3 class="card-title align-items-start flex-column">
+                                                            <span class="card-label fw-bold fs-3 mb-1">Top Members Statistics</span>
+                                                            <span class="text-muted fw-semibold fs-7">More than {{ \App\Models\User::count()}} Members</span>
+                                                        </h3>
+                                                        <!--end::Title-->
+                                                        <!--begin::Toolbar-->
+                                                        <div class="card-toolbar">
+                                                            <!--begin::Menu-->
+
+
+                                                            <!--end::Menu-->
+                                                        </div>
+                                                        <!--end::Toolbar-->
+                                                    </div>
+                                                    <!--end::Header-->
+                                                    <!--begin::Body-->
+                                                    <div class="card-body">
+                                                        <!--begin::Chart-->
+                                                        {!! $AllDepartmentbaiChart->render() !!}
+                                                    </div>
+                                                    <!--end::Body-->
+                                                </div>
+                                                <!--end::Charts Widget 1-->
+                                            </div>
+                                            <!----------------------End Of Bai Charts   --------------------->
+                                        </div>
+                                        <!-------------------------------------------end of All Department chartes--------------------------------------------------------->
+
 
                                         @endcan
 
@@ -227,7 +301,7 @@
                                                     <div class="card LquiedCARD" style="background-color: #1532ff;background-image:url('assets/media/patterns/vector-1.png');z-index:1;">
 
 
-                                                         
+
 
                                                         <!--begin::Header-->
                                                         <div class="card-header pt-5">
@@ -246,7 +320,7 @@
                                                             </div>
                                                             <!--end::Title-->
                                                         </div>
-                                                         <section>
+                                                        <section>
                                                             <div class='air air1'></div>
                                                             <div class='air air2'></div>
                                                             <div class='air air3'></div>
@@ -281,12 +355,12 @@
                                                         <!--end::Title-->
                                                     </div>
 
-                                                      <section>
-                                                            <div class='air air1'></div>
-                                                            <div class='air air2'></div>
-                                                            <div class='air air3'></div>
-                                                            <div class='air air4'></div>
-                                                        </section>
+                                                    <section>
+                                                        <div class='air air1'></div>
+                                                        <div class='air air2'></div>
+                                                        <div class='air air3'></div>
+                                                        <div class='air air4'></div>
+                                                    </section>
                                                 </div>
                                             </div>
 
@@ -296,7 +370,7 @@
                                                     <!--begin::Header-->
 
 
-                                                      
+
 
                                                     <div class="card-header pt-5">
                                                         <!--begin::Title-->
@@ -314,12 +388,12 @@
                                                         </div>
                                                         <!--end::Title-->
                                                     </div>
-                                                     <section>
-                                                            <div class='air air1'></div>
-                                                            <div class='air air2'></div>
-                                                            <div class='air air3'></div>
-                                                            <div class='air air4'></div>
-                                                        </section>
+                                                    <section>
+                                                        <div class='air air1'></div>
+                                                        <div class='air air2'></div>
+                                                        <div class='air air3'></div>
+                                                        <div class='air air4'></div>
+                                                    </section>
 
                                                 </div>
                                             </div>
@@ -330,7 +404,7 @@
                                                     <!--begin::Header-->
 
 
-                                                      
+
 
                                                     <div class="card-header pt-5">
                                                         <!--begin::Title-->
@@ -349,89 +423,93 @@
                                                         <!--end::Title-->
                                                     </div>
 
-                                                        <section>
-                                                            <div class='air air1'></div>
-                                                            <div class='air air2'></div>
-                                                            <div class='air air3'></div>
-                                                            <div class='air air4'></div>
-                                                        </section>
+                                                    <section>
+                                                        <div class='air air1'></div>
+                                                        <div class='air air2'></div>
+                                                        <div class='air air3'></div>
+                                                        <div class='air air4'></div>
+                                                    </section>
                                                 </div>
                                             </div>
                                         </div>
-                                        @endcan
-                                            <br>
-                                        <!------------------------------------------start of  chartes---------------------------------------------------------->
-                                        <div class="row "> <!-----    background-animation          ------->
-                                        <!------------------------------start  Bar chart ------------------------------->
-                                        <div class="col-xl-6 ">
-											<!--begin::Charts Widget 1-->
-											<div class="card card-xl-stretch mb-xl-6 ">
-												<!--begin::Header-->
-												<div class="card-header">
-													<!--begin::Title-->
-													<h3 class="card-title align-items-start flex-column">
-														<span class="card-label fw-bold fs-3 mb-1">Tickets Statistics</span>
-														<span class="text-muted fw-semibold fs-7">More than {{ \App\Models\tickets::count()}}  Tickets For All Departments</span>
-													</h3>
-													<!--end::Title-->
-													<!--begin::Toolbar-->
-													<div class="card-toolbar">
-														<!--begin::Menu-->
-														
-														
-														<!--end::Menu-->
-													</div>
-													<!--end::Toolbar-->
-												</div>
-												<!--end::Header-->
-												<!--begin::Body-->
-												<div class="card-body">
-													<!--begin::Chart-->
-													{!! $BarChart->render() !!}
-												</div>
-												<!--end::Body-->
-											</div>
-											<!--end::Charts Widget 1-->
-										</div>
+<br>
+                                            <!------------------------------------------start of My Department chartes---------------------------------------------------------->
+                                        <div class="row ">
+                                            <!-----    background-animation          ------->
+                                            <!------------------------------start  Bar chart ------------------------------->
+                                            <div class="col-xl-6 ">
+                                                <!--begin::Charts Widget 1-->
+                                                <div class="card card-xl-stretch mb-xl-6 ">
+                                                    <!--begin::Header-->
+                                                    <div class="card-header">
+                                                        <!--begin::Title-->
+                                                        <h3 class="card-title align-items-start flex-column">
+                                                            <span class="card-label fw-bold fs-3 mb-1">My Department Tickets Statistics</span>
+                                                        </h3>
+                                                        <!--end::Title-->
+                                                        <!--begin::Toolbar-->
+                                                        <div class="card-toolbar">
+                                                            <!--begin::Menu-->
 
 
-                                        <!----------------------End Of Bar Charts   --------------------->
+                                                            <!--end::Menu-->
+                                                        </div>
+                                                        <!--end::Toolbar-->
+                                                    </div>
+                                                    <!--end::Header-->
+                                                    <!--begin::Body-->
+                                                    <div class="card-body">
+                                                        <!--begin::Chart-->
+                                                      {!! $MyDepartmentBarChart->render() !!}
+                                                    </div>
+                                                    <!--end::Body-->
+                                                </div>
+                                                <!--end::Charts Widget 1-->
+                                            </div>
 
-                                        <!----------------------start Of Bai Charts   --------------------->
-                                             <div class="col-xl-6">
-											<!--begin::Charts Widget 1-->
-											<div class="card card-xl-stretch mb-xl-6">
-												<!--begin::Header-->
-												<div class="card-header">
-													<!--begin::Title-->
-													<h3 class="card-title align-items-start flex-column">
-														<span class="card-label fw-bold fs-3 mb-1">Top  Members Statistics</span>
-														<span class="text-muted fw-semibold fs-7">More than {{ \App\Models\User::count()}}   Members</span>
-													</h3>
-													<!--end::Title-->
-													<!--begin::Toolbar-->
-													<div class="card-toolbar">
-														<!--begin::Menu-->
-														
-														
-														<!--end::Menu-->
-													</div>
-													<!--end::Toolbar-->
-												</div>
-												<!--end::Header-->
-												<!--begin::Body-->
-												<div class="card-body" >
-													<!--begin::Chart-->
-													{!! $baiChart->render() !!}
-												</div>
-												<!--end::Body-->
-											</div>
-											<!--end::Charts Widget 1-->
-										</div>
-                                        <!----------------------End Of Bai Charts   --------------------->
+
+                                            <!----------------------End Of Bar Charts   --------------------->
+
+                                            <!----------------------start Of Bai Charts   --------------------->
+                                            <div class="col-xl-6">
+                                                <!--begin::Charts Widget 1-->
+                                                <div class="card card-xl-stretch mb-xl-6">
+                                                    <!--begin::Header-->
+                                                    <div class="card-header">
+                                                        <!--begin::Title-->
+                                                        <h3 class="card-title align-items-start flex-column">
+                                                            <span class="card-label fw-bold fs-3 mb-1">Top Members Of My Depatment Statistics</span>
+                                                            <span class="text-muted fw-semibold fs-7">More than {{ \App\Models\User::count()}} Members</span>
+                                                        </h3>
+                                                        <!--end::Title-->
+                                                        <!--begin::Toolbar-->
+                                                        <div class="card-toolbar">
+                                                            <!--begin::Menu-->
+
+
+                                                            <!--end::Menu-->
+                                                        </div>
+                                                        <!--end::Toolbar-->
+                                                    </div>
+                                                    <!--end::Header-->
+                                                    <!--begin::Body-->
+                                                    <div class="card-body">
+                                                        <!--begin::Chart-->
+                                                     {!! $MyDepartmentbaiChart->render() !!}
+                                                    </div>
+                                                    <!--end::Body-->
+                                                </div>
+                                                <!--end::Charts Widget 1-->
+                                            </div>
+                                            <!----------------------End Of Bai Charts   --------------------->
                                         </div>
-                                        <!-------------------------------------------end of chartes--------------------------------------------------------->
-                                        <!---------------------------------------------------------------------------------------------------->
+                                        <!------------------------------------------End Of My Department Chartes---------------------------------------------------------->
+                                    
+                                        @endcan
+                                        <br>
+                                    
+
+
                                     </div>
 
 
