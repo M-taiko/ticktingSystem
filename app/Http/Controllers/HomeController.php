@@ -111,53 +111,53 @@ class HomeController extends Controller
         /*****************Bar Charts For All Department********************** */
 
 
-           /*****************Bar Charts For My Department********************** */
+        /*****************Bar Charts For My Department********************** */
 
 
-           $MyDepartmentTicketCounts = tickets::select('tickets.Ticketstate', DB::raw('COUNT(tickets.Ticketstate) as count'))
-                                                ->join('departmentes', 'departmentes.id', '=', 'tickets.DepartmentId')
-                                                ->where('departmentes.DepartmentName', Auth::user()->DepartmentName)
-                                                ->groupBy('tickets.Ticketstate')
-                                                ->get();
+        $MyDepartmentTicketCounts = tickets::select('tickets.Ticketstate', DB::raw('COUNT(tickets.Ticketstate) as count'))
+            ->join('departmentes', 'departmentes.id', '=', 'tickets.DepartmentId')
+            ->where('departmentes.DepartmentName', Auth::user()->DepartmentName)
+            ->groupBy('tickets.Ticketstate')
+            ->get();
 
-       $labels = collect($MyDepartmentTicketCounts)->pluck('Ticketstate')->toArray();
-    
-
-       $MyDepartmentBarChart = app()->chartjs
-           ->name('MyDepartmentBarChart')
-           ->type('polarArea')
-           ->size(['width' => 400, 'height' => 400])
-           ->labels($MyDepartmentTicketCounts->pluck('Ticketstate')->toArray())
-           ->datasets([
-               [
-                   "label" => "The Tickets",
-                   'backgroundColor' => ['#f1000085', '#1bff00a3', '#c4e31ab0'],
-                   'data' => $MyDepartmentTicketCounts->pluck('count')->toArray()
-               ],
-           ])
-           ->options([
-               'scales' => [
-                   'yAxes' => [
-                       [
-                           'ticks' => [
-                               'beginAtZero' => true,
-                           ],
-                       ],
-                   ],
-               ],
-               'borderRadius' => 6,
-               'layout' => [
-                   'padding' => [
-                       'left' => 18,
-                       'right' => 18,
-                       'top' => 18,
-                       'bottom' => 18,
-                   ],
-               ],
-           ]);
+        $labels = collect($MyDepartmentTicketCounts)->pluck('Ticketstate')->toArray();
 
 
-       /*****************Bar Charts For My Department********************** */
+        $MyDepartmentBarChart = app()->chartjs
+            ->name('MyDepartmentBarChart')
+            ->type('polarArea')
+            ->size(['width' => 400, 'height' => 400])
+            ->labels($MyDepartmentTicketCounts->pluck('Ticketstate')->toArray())
+            ->datasets([
+                [
+                    "label" => "The Tickets",
+                    'backgroundColor' => ['#f1000085', '#1bff00a3', '#c4e31ab0'],
+                    'data' => $MyDepartmentTicketCounts->pluck('count')->toArray()
+                ],
+            ])
+            ->options([
+                'scales' => [
+                    'yAxes' => [
+                        [
+                            'ticks' => [
+                                'beginAtZero' => true,
+                            ],
+                        ],
+                    ],
+                ],
+                'borderRadius' => 6,
+                'layout' => [
+                    'padding' => [
+                        'left' => 18,
+                        'right' => 18,
+                        'top' => 18,
+                        'bottom' => 18,
+                    ],
+                ],
+            ]);
+
+
+        /*****************Bar Charts For My Department********************** */
 
 
 
@@ -190,41 +190,41 @@ class HomeController extends Controller
         /************************Pie Charts For All Departments*************************************** */
 
 
-         /************************Pie Charts For My Departments*************************************** */
-         $topUsersofMyDepartment = TicketHistory::select('tickethistories.solving_User', DB::raw('COUNT(*) as count'))
-         ->join('users', 'users.id', '=', 'tickethistories.user_id')
-         ->where('users.DepartmentName', Auth::user()->DepartmentName)
-         ->groupBy('tickethistories.solving_User')
-         ->orderByDesc('count')
-         ->limit(5)
-         ->get();
-     
-
-
-     $MyDepartmentbaiChart = app()->chartjs
-         ->name('MyDepartmentbaiChart')
-         ->type('doughnut')
-         ->size(['width' => 150, 'height' => 150])
-         ->labels($topUsersofMyDepartment->pluck('solving_User')->toArray())
-         ->datasets([
-             [
-                 "label" => "Numbers Of User Solving",
-                 'backgroundColor' => ['#f1000085', '#1bff00a3', '#c4e31ab0', '##05fd52bf', '#1532ff'],
-                 'data' => $topUsersofMyDepartment->pluck('count')->toArray(),
-             ],
-         ])
-         ->options([]);
+        /************************Pie Charts For My Departments*************************************** */
+        $topUsersofMyDepartment = TicketHistory::select('tickethistories.solving_User', DB::raw('COUNT(*) as count'))
+            ->join('users', 'users.id', '=', 'tickethistories.user_id')
+            ->where('users.DepartmentName', Auth::user()->DepartmentName)
+            ->groupBy('tickethistories.solving_User')
+            ->orderByDesc('count')
+            ->limit(5)
+            ->get();
 
 
 
-     /************************Pie Charts For My Departments*************************************** */
+        $MyDepartmentbaiChart = app()->chartjs
+            ->name('MyDepartmentbaiChart')
+            ->type('doughnut')
+            ->size(['width' => 150, 'height' => 150])
+            ->labels($topUsersofMyDepartment->pluck('solving_User')->toArray())
+            ->datasets([
+                [
+                    "label" => "Numbers Of User Solving",
+                    'backgroundColor' => ['#f1000085', '#1bff00a3', '#c4e31ab0', '##05fd52bf', '#1532ff'],
+                    'data' => $topUsersofMyDepartment->pluck('count')->toArray(),
+                ],
+            ])
+            ->options([]);
+
+
+
+        /************************Pie Charts For My Departments*************************************** */
 
 
 
 
 
 
-        return view('home', compact('AllDepartmentBarChart','MyDepartmentBarChart', 'AllDepartmentbaiChart','MyDepartmentbaiChart'))
+        return view('home', compact('AllDepartmentBarChart', 'MyDepartmentBarChart', 'AllDepartmentbaiChart', 'MyDepartmentbaiChart'))
             ->with('myDepartmentTickets', $myDepartmentTickets)
             ->with('allDeparmentNewTicketCount', $allDeparmentNewTicketCount);
 

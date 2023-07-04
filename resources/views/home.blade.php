@@ -216,7 +216,7 @@
 
                                         </div>
                                         <br>
-                                            <!------------------------------------------start of All Department  chartes---------------------------------------------------------->
+                                        <!------------------------------------------start of All Department  chartes---------------------------------------------------------->
                                         <div class="row ">
                                             <!-----    background-animation          ------->
                                             <!------------------------------start  Bar chart ------------------------------->
@@ -432,8 +432,8 @@
                                                 </div>
                                             </div>
                                         </div>
-<br>
-                                            <!------------------------------------------start of My Department chartes---------------------------------------------------------->
+                                        <br>
+                                        <!------------------------------------------start of My Department chartes---------------------------------------------------------->
                                         <div class="row ">
                                             <!-----    background-animation          ------->
                                             <!------------------------------start  Bar chart ------------------------------->
@@ -460,7 +460,7 @@
                                                     <!--begin::Body-->
                                                     <div class="card-body">
                                                         <!--begin::Chart-->
-                                                      {!! $MyDepartmentBarChart->render() !!}
+                                                        {!! $MyDepartmentBarChart->render() !!}
                                                     </div>
                                                     <!--end::Body-->
                                                 </div>
@@ -495,7 +495,7 @@
                                                     <!--begin::Body-->
                                                     <div class="card-body">
                                                         <!--begin::Chart-->
-                                                     {!! $MyDepartmentbaiChart->render() !!}
+                                                        {!! $MyDepartmentbaiChart->render() !!}
                                                     </div>
                                                     <!--end::Body-->
                                                 </div>
@@ -504,10 +504,10 @@
                                             <!----------------------End Of Bai Charts   --------------------->
                                         </div>
                                         <!------------------------------------------End Of My Department Chartes---------------------------------------------------------->
-                                    
+
                                         @endcan
                                         <br>
-                                    
+
 
 
                                     </div>
